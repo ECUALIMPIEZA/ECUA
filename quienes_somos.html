@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="page-title">Quiénes Somos - ECUALIMPIEZA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1e3a8a; /* Azul oscuro corporativo */
+      --color-secondary: #065f46; /* Verde oscuro para contraste */
+      --color-accent: #f59e0b; /* Amarillo/naranja vibrante para acentos */
+      --color-text: #374151; /* Gris oscuro para el texto principal */
+      --color-light-gray: #f8f8f8; /* Gris muy claro para fondos sutiles */
+      --color-white: #ffffff; /* Blanco puro */
+      --color-blue-light: #eff6ff; /* Azul claro para fondos */
+      --color-green-light: #d1fae5; /* Verde claro para fondos */
+      --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+	
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--color-light-gray);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-white);
+      padding: 15px 40px;
+      box-shadow:  0 4px 12px #e0a800;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 140px; /* Ajuste el tamaño del logo para un look más profesional */
+      transition: transform 0.3s ease;
+    }
+    
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+      font-size: 1.05em;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--color-accent);
+      transition: width 0.3s ease-out;
+    }
+
+    nav ul li a:hover {
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+        .idiomas {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--blanco);
+            border-radius: 6px;
+            padding: 5px 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+    .idiomas select {
+      font-size: 1em;
+      padding: 6px;
+      border: 1px solid var(--color-light-gray);
+      border-radius: 5px;
+      background-color: var(--color-blue-light);
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      appearance: none; /* Elimina estilos por defecto del select */
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231e3a8a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.7L146.2%20202.7%2018.6%2075.1a17.6%2017.6%200%200%200-25.1%2024.5l137.9%20137.9a17.6%2017.6%200%200%200%2025.1%200l137.9-137.9c10.3-10.3%2010.3-27%200-37.3z%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      background-size: 12px;
+      padding-right: 25px; /* Espacio para el icono de flecha */
+    }
+
+    .idiomas select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+    }
+
+    .idiomas .banderas img {
+      height: 24px; /* Aumentar tamaño de banderas */
+      width: auto;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .idiomas .banderas img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 3em;
+      color: var(--color-primary);
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    /* Parte superior: Media luna + texto */
+    .historia-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centrar para mejorar el espaciado en pantallas grandes */
+      align-items: center;
+      margin-bottom: 80px;
+      background-color: var(--color-white);
+      border-radius: 15px;
+      box-shadow: var(--shadow-medium);
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .media-luna {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      gap: 25px;
+      flex: 1;
+      min-width: 280px; /* Asegura que no se haga demasiado pequeña */
+    }
+
+    .media-luna img {
+      width: 180px; /* Aumentar tamaño de las imágenes del equipo */
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Sombra más profunda */
+      transform: rotate(-3deg); /* Rotación más sutil */
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .media-luna img:nth-child(2) {
+      transform: rotate(2deg) scale(1.08); /* Ligeramente más grande y rotado diferente */
+    }
+    .media-luna img:nth-child(3) {
+      transform: rotate(-1deg);
+    }
+
+    .media-luna img:hover {
+      transform: scale(1.15) rotate(0deg); /* Efecto hover más pronunciado y enderezado */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .historia-texto {
+      flex: 1.5; /* Dar más espacio al texto */
+      padding: 20px;
+      text-align: left;
+      min-width: 300px;
+    }
+
+    .historia-texto h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.2em;
+      color: var(--color-secondary); /* Usa el verde oscuro */
+      margin-bottom: 20px;
+      border-left: 5px solid var(--color-accent);
+      padding-left: 15px;
+      line-height: 1.2;
+    }
+
+    .historia-texto p {
+      font-size: 1.15em;
+      line-height: 1.8;
+      color: var(--color-text);
+      max-width: 700px; /* Limitar el ancho del párrafo para mejor legibilidad */
+      margin: 0 auto; /* Centrar si el texto es más corto que max-width */
+    }
+
+    /* Secciones horizontales */
+    .secciones-horizontales {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px; /* Aumentar el espacio entre las tarjetas */
+      margin-top: 80px;
+    }
+
+    .bloque-h {
+      flex: 1;
+      max-width: 350px; /* Aumentar el tamaño máximo de las tarjetas */
+      text-align: center;
+      background-color: var(--color-white);
+      border-radius: 15px;
+      box-shadow: var(--shadow-light);
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-width: 280px;
+    }
+
+    .bloque-h:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .bloque-h img {
+      width: 120px; /* Reducir el tamaño del icono dentro de la tarjeta */
+      height: auto;
+      border-radius: 10px; /* Bordes menos redondeados */
+      box-shadow: none; /* Quitar sombra extra */
+      margin-bottom: 20px;
+    }
+
+    .bloque-h h2 {
+      font-family: 'Roboto', sans-serif;
+      color: var(--color-primary);
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .bloque-h p,
+    .bloque-h ul {
+      font-size: 1.1em;
+      line-height: 1.7;
+      padding: 0 5px;
+      color: var(--color-text);
+    }
+
+    ul.valores {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    ul.valores li {
+      margin: 10px 0;
+      text-align: left; /* Alinear los elementos de la lista a la izquierda */
+      padding-left: 1em; /* Espacio para el checkmark */
+      text-indent: -1em; /* Indentar el texto para que el checkmark quede fuera */
+    }
+
+    /* Media Queries para Responsividad */
+    @media (max-width: 992px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .logo img {
+        height: 70px;
+      }
+      .idiomas {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 0.9em;
+      }
+      .idiomas .banderas img {
+        height: 20px;
+      }
+      h1 {
+        font-size: 2.5em;
+      }
+      .historia-section {
+        flex-direction: column;
+        padding: 25px;
+        gap: 30px;
+      }
+      .media-luna {
+        flex-direction: row; /* En móvil, las imágenes de la luna se ven mejor en fila */
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .media-luna img {
+        width: 120px;
+      }
+      .historia-texto h2 {
+        font-size: 1.9em;
+      }
+      .historia-texto p {
+        font-size: 1em;
+      }
+      .secciones-horizontales {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .bloque-h {
+        max-width: 90%; /* Ocupa casi todo el ancho disponible */
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .logo img {
+        height: 60px;
+      }
+      nav ul {
+        gap: 10px;
+      }
+
+      .idiomas {
+        top: 5px;
+        right: 5px;
+        padding: 3px 8px;
+        font-size: 0.8em;
+        gap: 3px;
+      }
+      .idiomas .banderas img {
+        height: 18px;
+        margin-left: 3px;
+      }
+      h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+      }
+      .historia-section {
+        padding: 20px;
+        gap: 20px;
+      }
+      .media-luna img {
+        width: 100px;
+      }
+      .historia-texto h2 {
+        font-size: 1.6em;
+      }
+      .historia-texto p {
+        font-size: 0.95em;
+      }
+      .bloque-h {
+        padding: 20px;
+      }
+      .bloque-h h2 {
+        font-size: 1.6em;
+      }
+      .bloque-h p,
+      .bloque-h ul {
+        font-size: 1em;
+      }
+	  .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo img {
+            height: 100px; /* Tamaño del logo en el footer */
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float img {
+            width: 60px; /* Tamaño del icono de WhatsApp */
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float img:hover {
+            transform: scale(1.1);
+        }
+	  
+    }
+	        :root {
+            --color-primary: #0d1b2a; /* Azul oscuro casi negro */
+            --color-secondary: #e0a800; /* Naranja/Dorado */
+            --color-background: #f7f9fc; /* Fondo muy claro */
+            --color-text: #333; /* Gris oscuro para texto */
+            --color-white: #fff; /* Blanco puro */
+            --color-footer-bg: #0d1b2a; /* Fondo del footer, similar al primario */
+            --color-footer-text: #f7f9fc; /* Texto claro para el footer */
+            --color-accent-blue: #007bff; /* Azul vibrante para enlaces/botones */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #e9ecef, #f8f9fa);
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Asegura que el footer esté al final */
+        }
+
+        header {
+            background-color: var(--color-white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 33px 40px;
+            box-shadow: 0 4px 12px var(--color-secondary); /* Usa la variable */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 102px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+            justify-content: center; /* Centra los elementos cuando se envuelven */
+        }
+
+
+        .idiomas {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 6px 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .idiomas select {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            padding: 4px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .idiomas .banderas img {
+            height: 22px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+
+        .idiomas .banderas img:hover {
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 60px auto;
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 35px;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .historia-ingrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .historia-ingrid img {
+            width: 360px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        .texto {
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .texto h2 {
+            color: var(--color-secondary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .texto p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        /* --- Estilos del Footer (NUEVO) --- */
+        footer {
+            background-color: var(--color-footer-bg); /* Fondo oscuro del footer */
+            color: var(--color-footer-text); /* Texto claro */
+            padding: 50px 20px 20px; /* Más padding arriba para espacio */
+            text-align: center;
+            margin-top: 50px; /* Margen para separar del main */
+            font-size: 0.95em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px; /* Espacio entre columnas del footer */
+            max-width: 1200px;
+            margin: 0 auto 40px; /* Margen inferior para separar del logo */
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px; /* Ancho mínimo para cada sección */
+            margin: 10px 0;
+        }
+
+        .footer-section h3 {
+            color: var(--color-secondary); /* Títulos en color secundario */
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        /* Línea decorativa bajo los títulos del footer */
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent-blue); /* Línea azul */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--color-footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-accent-blue); /* Cambio de color al pasar el ratón */
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p img {
+            height: 18px; /* Tamaño de los iconos de contacto */
+            filter: invert(100%) brightness(150%); /* Hace los iconos blancos y más brillantes */
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img {
+            width: 35px; /* Tamaño de los iconos de redes sociales */
+            height: 35px;
+            border-radius: 50%; /* Iconos redondos */
+            background-color: var(--color-white); /* Fondo blanco para los iconos */
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px); /* Efecto flotante al pasar el ratón */
+        }
+
+        .newsletter-form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+            color: var(--color-white);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            background-color: var(--color-accent-blue); /* Botón azul */
+            color: var(--color-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo img {
+            height: 100px; /* Tamaño del logo en el footer */
+            margin-bottom: 10px;
+			filter: brightness(0) invert(1);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float img {
+            width: 60px; /* Tamaño del icono de WhatsApp */
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 900px) {
+            nav ul {
+                gap: 15px;
+            }
+            .footer-content {
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-section {
+                min-width: 250px; /* Ajuste para que no se vean demasiado pequeños */
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info p {
+                justify-content: center; /* Centra los iconos de contacto */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px 20px;
+                gap: 10px;
+            }
+
+            .logo img {
+                height: 100px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 0.9em;
+                padding: 5px 8px;
+            }
+
+            .idiomas {
+                position: static;
+                box-shadow: none;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+
+            .idiomas select {
+                font-size: 0.9em;
+            }
+
+            main {
+                padding: 20px 15px;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .historia-ingrid {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .historia-ingrid img {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .texto {
+                text-align: center;
+                max-width: 95%;
+            }
+
+            .texto p {
+                text-align: left;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-section {
+                width: 90%; /* Ocupa casi todo el ancho en móviles */
+                min-width: unset;
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+            .social-icons {
+                margin-top: 20px;
+            }
+            .newsletter-form {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            .logo img {
+                height: 80px;
+            }
+            nav ul {
+                gap: 8px;
+            }
+            nav ul li a {
+                font-size: 0.75em;
+                padding: 3px;
+            }
+            .idiomas {
+                padding: 2px 5px;
+            }
+            .idiomas select {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .whatsapp-float img {
+                width: 50px;
+                height: 50px;
+            }
+			
+        }
+	
+  </style>
+</head>
+<body>
+
+  <div class="idiomas">
+    🌐
+    <div class="banderas">
+      <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
+      <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+    </div>
+    <select onchange="cambiarIdioma(this.value)">
+      <option value="es">Español 🇪🇸</option>
+      <option value="en">Inglés 🇬🇧</option>
+      <option value="fr">Francés 🇫🇷</option>
+      <option value="it">Italiano 🇮🇹</option>
+      <option value="pt">Portugués 🇵🇹</option>
+      <option value="de">Alemán 🇩🇪</option>
+      <option value="nl">Holandés 🇳🇱</option>
+    </select>
+  </div>
+
+  <header>
+    <div class="logo">
+      <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+        <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+        <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+        <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+        <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+        <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 id="quienes-somos-titulo">QUIÉNES SOMOS</h1>
+
+    <div class="historia-section">
+      <div class="media-luna">
+        <img src="E1.png" alt="Equipo 1">
+        <img src="E2.png" alt="Equipo 2">
+        <img src="E3.png" alt="Equipo 3">
+      </div>
+      <div class="historia-texto">
+        <h2 id="historia-titulo">Nuestra Historia</h2>
+        <p id="historia-parrafo">Ecualimpieza nace en 2021 en los Países Bajos, durante un momento desafiante como fue la pandemia. Desde entonces, hemos convertido la experiencia adquirida en Europa en nuestra principal fortaleza para brindar servicios de limpieza profesional, eficiente y sostenible.</p>
+      </div>
+    </div>
+
+    <div class="secciones-horizontales">
+      <div class="bloque-h">
+        <img src="mision.png" alt="Misión">
+        <h2 id="mision-titulo">Misión</h2>
+        <p id="mision-parrafo">Brindar servicios de limpieza profesional de excelencia, aplicando tecnología de vanguardia, personal altamente capacitado y un firme compromiso ambiental.</p>
+      </div>
+      <div class="bloque-h">
+        <img src="vision.png" alt="Visión">
+        <h2 id="vision-titulo">Visión</h2>
+        <p id="vision-parrafo">Ser reconocidos como la empresa de limpieza de referencia, fusionando estándares europeos con el talento latino, ofreciendo calidad, innovación y sostenibilidad.</p>
+      </div>
+      <div class="bloque-h">
+        <img src="valores.png" alt="Valores">
+        <h2 id="valores-titulo">Valores</h2>
+        <ul class="valores">
+          <li id="valor-calidad">✅ Calidad</li>
+          <li id="valor-responsabilidad">✅ Responsabilidad ambiental</li>
+          <li id="valor-profesionalismo">✅ Profesionalismo</li>
+          <li id="valor-cercania">✅ Cercanía y atención personalizada</li>
+          <li id="valor-innovacion">✅ Innovación continua</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+<a href="https://wa.me/0996845893" target="_blank" class="whatsapp-float">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAPA DEL SITIO</h3>
+                <ul>
+        <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+        <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+        <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+        <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+        <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+        <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>CONTÁCTANOS</h3>
+                <div class="contact-info">
+                    <p><img src="phone-icon.png" alt="Teléfono">+593996845893</p> <p><img src="email-icon.png" alt="Email">ecualimpieza2021@gmail.com</p> <p><img src="location-icon.png" alt="Ubicación">Guayaquil - Ecuador</p> <p><img src="clock-icon.png" alt="Horario">Lunes - Viernes: 8:30 am hasta 5:30 pm</p> <p><img src="clock-icon.png" alt="Horario">Sábado - Domingo: Cerrado</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>SÍGUENOS EN:</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/tupagina" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://twitter.com/tucuenta" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="https://instagram.com/tucuenta" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="https://linkedin.com/tucuenta" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://wa.me/0996845893" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+                </div>
+                <h3 style="margin-top: 30px;">SUSCRÍBETE</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="ecualimpieza1.png" alt="Logo Ecualimpieza">
+            </div>
+            	<footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <ul>
+        <li><a href="https://ar-it-solutions.github.io/ARITSOLUTIONS/" id="nav-inicio">© 2025 Sitio web desarrollado por ARpcsoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+  <script>
+    const traducciones = {
+      es: {
+        pageTitle: "Quiénes Somos - ECUALIMPIEZA",
+        mainTitle: "QUIÉNES SOMOS",
+        historiaTitle: "Nuestra Historia",
+        historiaParrafo: "Ecualimpieza nace en 2021 en los Países Bajos, durante un momento desafiante como fue la pandemia. Desde entonces, hemos convertido la experiencia adquirida en Europa en nuestra principal fortaleza para brindar servicios de limpieza profesional, eficiente y sostenible.",
+        misionTitle: "Misión",
+        misionParrafo: "Brindar servicios de limpieza profesional de excelencia, aplicando tecnología de vanguardia, personal altamente capacitado y un firme compromiso ambiental.",
+        visionTitle: "Visión",
+        visionParrafo: "Ser reconocidos como la empresa de limpieza de referencia, fusionando estándares europeos con el talento latino, ofreciendo calidad, innovación y sostenibilidad.",
+        valoresTitle: "Valores",
+        valorCalidad: "✅ Calidad",
+        valorResponsabilidad: "✅ Responsabilidad ambiental",
+        valorProfesionalismo: "✅ Profesionalismo",
+        valorCercania: "✅ Cercanía y atención personalizada",
+        valorInnovacion: "✅ Innovación continua",
+        navInicio: "Inicio",
+        navQuienesSomos: "Quiénes Somos",
+        navHistoriaIngrid: "La Historia de Ingrid",
+        navServicios: "Servicios",
+        navGaleria: "Galería",
+        navFaq: "Preguntas Frecuentes",
+        navContacto: "Contacto"
+      },
+      en: {
+        pageTitle: "About Us - ECUALIMPIEZA",
+        mainTitle: "ABOUT US",
+        historiaTitle: "Our History",
+        historiaParrafo: "Ecualimpieza was born in 2021 in the Netherlands, during a challenging time like the pandemic. Since then, we have turned the experience gained in Europe into our main strength to provide professional, efficient, and sustainable cleaning services.",
+        misionTitle: "Mission",
+        misionParrafo: "To provide professional cleaning services of excellence, applying cutting-edge technology, highly trained staff, and a firm environmental commitment.",
+        visionTitle: "Vision",
+        visionParrafo: "To be recognized as the leading cleaning company, merging European standards with Latin talent, offering quality, innovation, and sustainability.",
+        valoresTitle: "Values",
+        valorCalidad: "✅ Quality",
+        valorResponsabilidad: "✅ Environmental Responsibility",
+        valorProfesionalismo: "✅ Professionalism",
+        valorCercania: "✅ Proximity and Personalized Attention",
+        valorInnovacion: "✅ Continuous Innovation",
+        navInicio: "Home",
+        navQuienesSomos: "About Us",
+        navHistoriaIngrid: "Ingrid's Story",
+        navServicios: "Services",
+        navGaleria: "Gallery",
+        navFaq: "FAQ",
+        navContacto: "Contact"
+      },
+      nl: {
+        pageTitle: "Over Ons - ECUALIMPIEZA",
+        mainTitle: "OVER ONS",
+        historiaTitle: "Onze Geschiedenis",
+        historiaParrafo: "Ecualimpieza is in 2021 in Nederland ontstaan, tijdens een uitdagende periode zoals de pandemie. Sindsdien hebben we de in Europa opgedane ervaring omgezet in onze belangrijkste kracht om professionele, efficiënte en duurzame schoonmaakdiensten te leveren.",
+        misionTitle: "Missie",
+        misionParrafo: "Het leveren van uitstekende professionele schoonmaakdiensten, door toepassing van geavanceerde technologie, hooggekwalificeerd personeel en een sterke toewijding aan het milieu.",
+        visionTitle: "Visie",
+        visionParrafo: "Erkend worden als het toonaangevende schoonmaakbedrijf, Europese normen samensmeltend met Latijns talent, en kwaliteit, innovatie en duurzaamheid biedend.",
+        valoresTitle: "Waarden",
+        valorCalidad: "✅ Kwaliteit",
+        valorResponsabilidad: "✅ Milieuverantwoordelijkheid",
+        valorProfesionalismo: "✅ Professionaliteit",
+        valorCercania: "✅ Nabijheid en Persoonlijke Aandacht",
+        valorInnovacion: "✅ Continue Innovatie",
+        navInicio: "Startpagina",
+        navQuienesSomos: "Over Ons",
+        navHistoriaIngrid: "Ingrid's Verhaal",
+        navServicios: "Diensten",
+        navGaleria: "Galerij",
+        navFaq: "Veelgestelde vragen",
+        navContacto: "Contact"
+      },
+      fr: {
+        pageTitle: "Qui sommes-nous - ECUALIMPIEZA",
+        mainTitle: "QUI SOMMES-NOUS",
+        historiaTitle: "Notre Histoire",
+        historiaParrafo: "Ecualimpieza est née en 2021 aux Pays-Bas, à un moment difficile comme la pandémie. Depuis lors, nous avons fait de l'expérience acquise en Europe notre principale force pour fournir des services de nettoyage professionnels, efficaces et durables.",
+        misionTitle: "Mission",
+        misionParrafo: "Fournir des services de nettoyage professionnels d'excellence, en utilisant une technologie de pointe, un personnel hautement qualifié et un engagement environnemental ferme.",
+        visionTitle: "Vision",
+        visionParrafo: "Être reconnus comme l'entreprise de nettoyage de référence, fusionnant les standards européens avec le talent latino, offrant qualité, innovation et durabilité.",
+        valoresTitle: "Valeurs",
+        valorCalidad: "✅ Qualité",
+        valorResponsabilidad: "✅ Responsabilité environnementale",
+        valorProfesionalismo: "✅ Professionnalisme",
+        valorCercania: "✅ Proximité et attention personnalisée",
+        valorInnovacion: "✅ Innovation continue",
+        navInicio: "Accueil",
+        navQuienesSomos: "Qui sommes-nous",
+        navHistoriaIngrid: "L'Histoire d'Ingrid",
+        navServicios: "Services",
+        navGaleria: "Galerie",
+        navFaq: "Questions Fréquentes",
+        navContacto: "Contact"
+      },
+      it: {
+        pageTitle: "Chi Siamo - ECUALIMPIEZA",
+        mainTitle: "CHI SIAMO",
+        historiaTitle: "La Nostra Storia",
+        historiaParrafo: "Ecualimpieza nasce nel 2021 nei Paesi Bassi, durante un periodo difficile come la pandemia. Da allora, abbiamo trasformato l'esperienza acquisita in Europa nella nostra forza principale per offrire servizi di pulizia professionali, efficienti e sostenibili.",
+        misionTitle: "Missione",
+        misionParrafo: "Fornire servizi di pulizia professionali di eccellenza, applicando tecnologia all'avanguardia, personale altamente qualificato e un forte impegno ambientale.",
+        visionTitle: "Visione",
+        visionParrafo: "Essere riconosciuti come l'azienda di pulizie di riferimento, fondendo standard europei con il talento latino, offrendo qualità, innovazione e sostenibilità.",
+        valoresTitle: "Valori",
+        valorCalidad: "✅ Qualità",
+        valorResponsabilidad: "✅ Responsabilità ambientale",
+        valorProfesionalismo: "✅ Professionalità",
+        valorCercania: "✅ Vicinanza e attenzione personalizzata",
+        valorInnovacion: "✅ Innovazione continua",
+        navInicio: "Inizio",
+        navQuienesSomos: "Chi Siamo",
+        navHistoriaIngrid: "La Storia di Ingrid",
+        navServizi: "Servizi",
+        navGaleria: "Galleria",
+        navFaq: "Domande Frequenti",
+        navContacto: "Contatto"
+      },
+      pt: {
+        pageTitle: "Quem Somos - ECUALIMPIEZA",
+        mainTitle: "QUEM SOMOS",
+        historiaTitle: "Nossa História",
+        historiaParrafo: "A Ecualimpieza nasceu em 2021 nos Países Baixos, durante um momento desafiador como a pandemia. Desde então, transformamos a experiência adquirida na Europa na nossa principal força para fornecer serviços de limpeza profissional, eficiente e sustentável.",
+        misionTitle: "Missão",
+        misionParrafo: "Prestar serviços de limpeza profissional de excelência, aplicando tecnologia de ponta, pessoal altamente qualificado e um firme compromisso ambiental.",
+        visionTitle: "Visão",
+        visionParrafo: "Ser reconhecidos como a empresa de limpeza de referência, fundindo padrões europeus com o talento latino, oferecendo qualidade, inovação e sustentabilidade.",
+        valoresTitle: "Valores",
+        valorCalidad: "✅ Qualidade",
+        valorResponsabilidad: "✅ Responsabilidade ambiental",
+        valorProfesionalismo: "✅ Profissionalismo",
+        valorCercania: "✅ Proximidade e atendimento personalizado",
+        valorInnovacion: "✅ Inovação contínua",
+        navInicio: "Início",
+        navQuienesSomos: "Quem Somos",
+        navHistoriaIngrid: "A História de Ingrid",
+        navServicios: "Serviços",
+        navGaleria: "Galeria",
+        navFaq: "Perguntas Frequentes",
+        navContacto: "Contato"
+      },
+      de: {
+        pageTitle: "Über Uns - ECUALIMPIEZA",
+        mainTitle: "ÜBER UNS",
+        historiaTitle: "Unsere Geschichte",
+        historiaParrafo: "Ecualimpieza wurde 2021 in den Niederlanden in einer herausfordernden Zeit wie der Pandemie gegründet. Seitdem haben wir die in Europa gesammelten Erfahrungen zu unserer Hauptstärke gemacht, um professionelle, effiziente und nachhaltige Reinigungsdienstleistungen anzubieten.",
+        misionTitle: "Mission",
+        misionParrafo: "Professionelle Reinigungsdienstleistungen von Exzellenz anzubieten, unter Anwendung modernster Technologie, hochqualifiziertem Personal und einem starken Engagement für die Umwelt.",
+        visionTitle: "Vision",
+        visionParrafo: "Als Referenzunternehmen für Reinigungsdienstleistungen anerkannt zu werden, europäische Standards mit lateinamerikanischem Talent zu verschmelzen und Qualität, Innovation und Nachhaltigkeit anzubieten.",
+        valoresTitle: "Werte",
+        valorCalidad: "✅ Qualität",
+        valorResponsabilidad: "✅ Umweltverantwortung",
+        valorProfesionalismo: "✅ Professionalität",
+        valorCercania: "✅ Nähe und persönliche Betreuung",
+        valorInnovacion: "✅ Kontinuierliche Innovation",
+        navInicio: "Startseite",
+        navQuienesSomos: "Über Uns",
+        navHistoriaIngrid: "Ingrids Geschichte",
+        navServicios: "Dienstleistungen",
+        navGaleria: "Galerie",
+        navFaq: "Häufig gestellte Fragen",
+        navContacto: "Kontakt"
+      }
+    };
+
+    function cambiarIdioma(lang) {
+      const t = traducciones[lang];
+      if (!t) {
+        console.warn(`No hay traducciones disponibles para el idioma: ${lang}`);
+        return;
+      }
+
+      // Cambiar el título de la página
+      document.getElementById("page-title").textContent = t.pageTitle;
+
+      // Contenido principal
+      document.getElementById("quienes-somos-titulo").textContent = t.mainTitle;
+      document.getElementById("historia-titulo").textContent = t.historiaTitle;
+      document.getElementById("historia-parrafo").textContent = t.historiaParrafo;
+      document.getElementById("mision-titulo").textContent = t.misionTitle;
+      document.getElementById("mision-parrafo").textContent = t.misionParrafo;
+      document.getElementById("vision-titulo").textContent = t.visionTitle;
+      document.getElementById("vision-parrafo").textContent = t.visionParrafo;
+      document.getElementById("valores-titulo").textContent = t.valoresTitle;
+      document.getElementById("valor-calidad").textContent = t.valorCalidad;
+      document.getElementById("valor-responsabilidad").textContent = t.valorResponsabilidad;
+      document.getElementById("valor-profesionalismo").textContent = t.valorProfesionalismo;
+      document.getElementById("valor-cercania").textContent = t.valorCercania;
+      document.getElementById("valor-innovacion").textContent = t.valorInnovacion;
+
+      // Navegación (siempre visible)
+      document.getElementById("nav-inicio").textContent = t.navInicio;
+      document.getElementById("nav-quienes-somos").textContent = t.navQuienesSomos;
+      document.getElementById("nav-historia-ingrid").textContent = t.navHistoriaIngrid;
+      document.getElementById("nav-servicios").textContent = t.navServicios;
+      document.getElementById("nav-galeria").textContent = t.navGaleria;
+      document.getElementById("nav-faq").textContent = t.navFaq;
+      document.getElementById("nav-contacto").textContent = t.navContacto;
+
+
+      // Opcional: Actualizar el valor del selector para que refleje el cambio si se hizo clic en una bandera
+      const selectElement = document.querySelector('.idiomas select');
+      if (selectElement) {
+        selectElement.value = lang;
+      }
+    }
+
+    // Inicializar el idioma al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
+      const selectElement = document.querySelector('.idiomas select');
+      
+      // Establecer el valor del selector al idioma por defecto o guardado
+      if (selectElement) {
+        if (traducciones[defaultLang]) {
+          selectElement.value = defaultLang;
+        } else {
+          selectElement.value = 'es'; // Fallback a español si el idioma del navegador no tiene traducción
+        }
+      }
+      cambiarIdioma(selectElement ? selectElement.value : 'es');
+    });
+  </script>
+</body>
+</html>
