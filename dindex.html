@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🌐 Página Web - ECUALIMPIEZA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --light-blue: #e0f2f7;
+            --dark-grey: #4a4a4a;
+            --light-grey: #f0f2f5;
+            --white: #ffffff;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--light-grey);
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+
+        header, nav, footer {
+            padding: 1rem 2rem;
+            background: var(--white);
+            border-bottom: 1px solid #ddd;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .logo img {
+            height: 60px;
+            display: block; /* Ensures no extra space below image */
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 10000; /* Ensure it's above other elements */
+        }
+
+        .lang-switch select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-blue);
+            background-color: var(--white);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .lang-switch select:focus {
+            outline: none;
+            border-color: var(--dark-grey);
+        }
+
+        nav {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 5px 0;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--light-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 400px;
+            overflow: hidden;
+            color: var(--white);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero::before { /* Overlay for better text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            padding: 1.5rem 2.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.3;
+        }
+
+        .intro, .section, .contact, footer {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .intro {
+            text-align: center;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+        }
+
+        .section h2, .contact h2 {
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after, .contact h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background: #004494;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .areas ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .areas li {
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .services li {
+            background: var(--white);
+            border: 1px solid var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .services li strong {
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2em;
+        }
+
+        .faq dl {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .faq dt {
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-top: 1rem;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .faq dt:hover {
+            color: #004494;
+        }
+
+        .faq dd {
+            margin-left: 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--light-blue);
+            color: var(--dark-grey);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            width: 100%;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.2);
+        }
+
+        .contact button {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact button:hover {
+            background: #004494;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--dark-grey);
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #ddd;
+            box-shadow: none; /* Remove shadow if desired for footer */
+        }
+
+        footer img {
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #004494;
+            text-decoration: underline;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .whatsapp-button a {
+            background: #25D366;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-button a:hover {
+            background: #1DA851;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .whatsapp-button i {
+            font-size: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .logo img {
+                height: 50px;
+                margin-bottom: 10px;
+            }
+            nav {
+                padding: 1rem;
+                text-align: center;
+            }
+            nav a {
+                margin: 0 8px;
+                font-size: 0.9em;
+            }
+            .hero h1 {
+                font-size: 2em;
+                padding: 1rem 1.5rem;
+            }
+            .intro, .section, .contact, footer {
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
+            .section h2, .contact h2 {
+                font-size: 1.8em;
+            }
+            .areas ul, .services ul {
+                grid-template-columns: 1fr;
+            }
+            .whatsapp-button a {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+            .whatsapp-button i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
+            .hero h1 {
+                font-size: 1.5em;
+                padding: 1rem;
+            }
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8em;
+            }
+            .contact input, .contact textarea, .contact button {
+                font-size: 0.9em;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        🌐
+        <select>
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 Inglés</option>
+            <option value="fr">🇫🇷 Francés</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="pt">🇵🇹 Portugués</option>
+            <option value="de">🇩🇪 Alemán</option>
+            <option value="nl">🇳🇱 Holandés</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="ecualimpieza.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <div>🇳🇱 🇪🇨</div>
+    </header>
+
+    <nav>
+        <a href="#" data-i18n="navHome">Inicio</a>
+        <a href="quienes_somos.html" data-i18n="navWhoWeAre">¡Quiénes Somos?</a>
+        <a href="#historia" data-i18n="navIngridStory">La Historia de Ingrid</a>
+        <a href="#servicios" data-i18n="navServices">Servicios</a>
+        <a href="#galeria" data-i18n="navGallery">Galería</a>
+        <a href="#faq" data-i18n="navFAQ">Preguntas Frecuentes</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="ecualimpieza.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+        <h1 data-i18n="heroHeading">Transformamos la limpieza con estándares europeos de calidad, eficiencia y sostenibilidad.</h1>
+    </section>
+
+    <section class="intro">
+        <p data-i18n="introText">En Ecualimpieza, aplicamos el conocimiento adquirido en los Países Bajos, combinando tecnología, personal capacitado y responsabilidad ambiental. Nuestro objetivo: ofrecer limpieza profesional con un alto estándar internacional, ajustada a tus necesidades.</p>
+        <div class="areas">
+            <ul>
+                <li>🏢 Edificios Corporativos</li>
+                <li>🏡 Casas y Departamentos</li>
+                <li>🏥 Hospitales y Clínicas</li>
+                <li>🏨 Hoteles</li>
+                <li>🏫 Centros Comerciales</li>
+                <li>🌐 Instituciones Bancarias</li>
+            </ul>
+            <a href="#contacto" class="cta-button" data-i18n="ctaQuote">Solicita una cotización gratuita</a>
+        </div>
+    </section>
+
+    <section class="section" id="quienes">
+        <h2 data-i18n="whoWeAreHeading">¡Quiénes Somos?</h2>
+        <p data-i18n="whoWeAreHistory"><strong>Historia:</strong> Ecualimpieza nace en 2021 en los Países Bajos, durante la pandemia. Desde entonces, aplicamos la experiencia europea para brindar limpieza profesional, eficiente y sostenible.</p>
+        <p data-i18n="whoWeAreVision"><strong>Visión:</strong> Ser reconocidos como la empresa de limpieza de referencia, fusionando estándares europeos con talento latino.</p>
+        <p data-i18n="whoWeAreMission"><strong>Misión:</strong> Brindar servicios de excelencia con tecnología de vanguardia, personal capacitado y compromiso ambiental.</p>
+        <p data-i18n="whoWeAreValues">
+            <strong>Valores:</strong>
+            ✅ Calidad, ✅ Responsabilidad ambiental, ✅ Profesionalismo,
+            ✅ Cercanía, ✅ Innovación
+        </p>
+    </section>
+
+    <section class="section" id="historia">
+        <h2 data-i18n="ingridStoryHeading">La Historia de Ingrid</h2>
+        <p data-i18n="ingridStoryText">Soy Ingrid María Bailón Acuña, madre soltera y fundadora de Ecualimpieza. En 2021, durante la pandemia, decidí emprender. Mi hijo Nicolay fue mi motor. Hoy lidero una empresa con enfoque humano, detalle y calidad europea.</p>
+    </section>
+
+    <section class="section services" id="servicios">
+        <h2 data-i18n="servicesHeading">Servicios</h2>
+        <ul>
+            <li data-i18n="serviceResidential">🏠 Limpieza Residencial<br/>Casas, departamentos, productos ecológicos.</li>
+            <li data-i18n="serviceOffice">🏢 Limpieza de Oficinas<br/>Pequeñas y grandes empresas, confidencialidad.</li>
+            <li data-i18n="serviceCommercial">🏭 Limpieza Comercial<br/>Locales, tiendas de lujo, centros médicos.</li>
+            <li data-i18n="serviceInstitutional">🏦 Limpieza Institucional<br/>Bancos, hospitales, centros educativos.</li>
+        </ul>
+        <p data-i18n="servicesNote"><em>* Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos eco.</em></p>
+    </section>
+
+    <section class="section" id="galeria">
+        <h2 data-i18n="galleryHeading">Galería</h2>
+        <p data-i18n="galleryText">Aquí se mostrarán varias fotos del trabajo realizado.</p>
+        </section>
+
+    <section class="section" id="faq">
+        <h2 data-i18n="faqHeading">Preguntas Frecuentes</h2>
+        <dl class="faq">
+            <dt data-i18n="faqCitiesQuestion">¿En qué ciudades trabajan?</dt>
+            <dd data-i18n="faqCitiesAnswer">Ámsterdam, Rotterdam y cobertura nacional en Países Bajos.</dd>
+            <dt data-i18n="faqProductsQuestion">¿Qué productos utilizan?</dt>
+            <dd data-i18n="faqProductsAnswer">Ecológicos certificados, seguros para personas y mascotas.</dd>
+            <dt data-i18n="faqRecurringQuestion">¿Ofrecen limpieza recurrente?</dt>
+            <dd data-i18n="faqRecurringAnswer">Sí. Planes flexibles: diario, semanal o mensual.</dd>
+            <dt data-i18n="faqDeepCleanQuestion">¿Realizan limpieza profunda?</dt>
+            <dd data-i18n="faqDeepCleanAnswer">Sí. Adaptamos protocolos según el espacio.</dd>
+            <dt data-i18n="faqTrainedStaffQuestion">¿Su personal está capacitado?</dt>
+            <dd data-i18n="faqTrainedStaffAnswer">Sí. Entrenamiento directo por Ingrid María Bailón Acuña.</dd>
+        </dl>
+    </section>
+
+    <section class="contact" id="contacto">
+        <h2 data-i18n="contactHeading">Contacto</h2>
+        <form action="https://formspree.io/f/tu_codigo_aqui" method="POST">
+            <input type="text" name="nombre" data-i18n="contactNamePlaceholder" placeholder="Tu nombre" required />
+            <input type="tel" name="telefono" data-i18n="contactPhonePlaceholder" placeholder="Tu teléfono" />
+            <input type="email" name="email" data-i18n="contactEmailPlaceholder" placeholder="Tu correo electrónico" required />
+            <textarea name="mensaje" rows="5" data-i18n="contactMessagePlaceholder" placeholder="Tu mensaje" required></textarea>
+            <button type="submit" data-i18n="contactButton">Solicitar presupuesto personalizado</button>
+        </form>
+    </section>
+
+    <div class="whatsapp-button">
+        <a href="https://wa.me/31687707377" target="_blank" aria-label="Contáctanos por WhatsApp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <footer>
+        <img src="ecualimpieza.png" alt="Logo ECUALIMPIEZA" height="40" /><br/><br/>
+        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">LinkedIn</a><br/><br/>
+        <small data-i18n="footerCopyright">&copy; 2025 Ecualimpieza. Aviso legal | Política de privacidad</small>
+    </footer>
+
+    <script>
+        const content = {
+            'es': {
+                heroHeading: 'Transformamos la limpieza con estándares europeos de calidad, eficiencia y sostenibilidad.',
+                introText: 'En Ecualimpieza, aplicamos el conocimiento adquirido en los Países Bajos, combinando tecnología, personal capacitado y responsabilidad ambiental. Nuestro objetivo: ofrecer limpieza profesional con un alto estándar internacional, ajustada a tus necesidades.',
+                ctaQuote: 'Solicita una cotización gratuita',
+                whoWeAreHeading: '¡Quiénes Somos?',
+                whoWeAreHistory: '<strong>Historia:</strong> Ecualimpieza nace en 2021 en los Países Bajos, durante la pandemia. Desde entonces, aplicamos la experiencia europea para brindar limpieza profesional, eficiente y sostenible.',
+                whoWeAreVision: '<strong>Visión:</strong> Ser reconocidos como la empresa de limpieza de referencia, fusionando estándares europeos con talento latino.',
+                whoWeAreMission: '<strong>Misión:</strong> Brindar servicios de excelencia con tecnología de vanguardia, personal capacitado y compromiso ambiental.',
+                whoWeAreValues: '<strong>Valores:</strong> ✅ Calidad, ✅ Responsabilidad ambiental, ✅ Profesionalismo, ✅ Cercanía, ✅ Innovación',
+                ingridStoryHeading: 'La Historia de Ingrid',
+                ingridStoryText: 'Soy Ingrid María Bailón Acuña, madre soltera y fundadora de Ecualimpieza. En 2021, durante la pandemia, decidí emprender. Mi hijo Nicolay fue mi motor. Hoy lidero una empresa con enfoque humano, detalle y calidad europea.',
+                servicesHeading: 'Servicios',
+                serviceResidential: '🏠 Limpieza Residencial<br/>Casas, departamentos, productos ecológicos.',
+                serviceOffice: '🏢 Limpieza de Oficinas<br/>Pequeñas y grandes empresas, confidencialidad.',
+                serviceCommercial: '🏭 Limpieza Comercial<br/>Locales, tiendas de lujo, centros médicos.',
+                serviceInstitutional: '🏦 Limpieza Institucional<br/>Bancos, hospitales, centros educativos.',
+                servicesNote: '<em>* Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos eco.</em>',
+                galleryHeading: 'Galería',
+                galleryText: 'Aquí se mostrarán varias fotos del trabajo realizado.',
+                faqHeading: 'Preguntas Frecuentes',
+                faqCitiesQuestion: '¿En qué ciudades trabajan?',
+                faqCitiesAnswer: 'Ámsterdam, Rotterdam y cobertura nacional en Países Bajos.',
+                faqProductsQuestion: '¿Qué productos utilizan?',
+                faqProductsAnswer: 'Ecológicos certificados, seguros para personas y mascotas.',
+                faqRecurringQuestion: '¿Ofrecen limpieza recurrente?',
+                faqRecurringAnswer: 'Sí. Planes flexibles: diario, semanal o mensual.',
+                faqDeepCleanQuestion: '¿Realizan limpieza profunda?',
+                faqDeepCleanAnswer: 'Sí. Adaptamos protocolos según el espacio.',
+                faqTrainedStaffQuestion: '¿Su personal está capacitado?',
+                faqTrainedStaffAnswer: 'Sí. Entrenamiento directo por Ingrid María Bailón Acuña.',
+                contactHeading: 'Contacto',
+                contactNamePlaceholder: 'Tu nombre',
+                contactPhonePlaceholder: 'Tu teléfono',
+                contactEmailPlaceholder: 'Tu correo electrónico',
+                contactMessagePlaceholder: 'Tu mensaje',
+                contactButton: 'Solicitar presupuesto personalizado',
+                navHome: 'Inicio',
+                navWhoWeAre: '¡Quiénes Somos?',
+                navIngridStory: 'La Historia de Ingrid',
+                navServices: 'Servicios',
+                navGallery: 'Galería',
+                navFAQ: 'Preguntas Frecuentes',
+                navContact: 'Contacto',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Aviso legal | Política de privacidad'
+            },
+            'en': {
+                heroHeading: 'We transform cleaning with European standards of quality, efficiency, and sustainability.',
+                introText: 'At Ecualimpieza, we apply knowledge gained in the Netherlands, combining technology, trained staff, and environmental responsibility. Our goal: to offer professional cleaning with a high international standard, tailored to your needs.',
+                ctaQuote: 'Request a free quote',
+                whoWeAreHeading: 'Who Are We?',
+                whoWeAreHistory: '<strong>History:</strong> Ecualimpieza was founded in 2021 in the Netherlands, during the pandemic. Since then, we have applied European expertise to provide professional, efficient, and sustainable cleaning.',
+                whoWeAreVision: '<strong>Vision:</strong> To be recognized as the leading cleaning company, merging European standards with Latin talent.',
+                whoWeAreMission: '<strong>Mission:</strong> To provide excellent services with cutting-edge technology, trained staff, and environmental commitment.',
+                whoWeAreValues: '<strong>Values:</strong> ✅ Quality, ✅ Environmental Responsibility, ✅ Professionalism, ✅ Proximity, ✅ Innovation',
+                ingridStoryHeading: 'Ingrid\'s Story',
+                ingridStoryText: 'I am Ingrid María Bailón Acuña, a single mother and founder of Ecualimpieza. In 2021, during the pandemic, I decided to start this venture. My son Nicolay was my driving force. Today, I lead a company with a human focus, attention to detail, and European quality.',
+                servicesHeading: 'Services',
+                serviceResidential: '🏠 Residential Cleaning<br/>Houses, apartments, eco-friendly products.',
+                serviceOffice: '🏢 Office Cleaning<br/>Small and large businesses, confidentiality.',
+                serviceCommercial: '🏭 Commercial Cleaning<br/>Premises, luxury stores, medical centers.',
+                serviceInstitutional: '🏦 Institutional Cleaning<br/>Banks, hospitals, educational centers.',
+                servicesNote: '<em>* All our services include staff trained by Ingrid, modern equipment, and eco-friendly products.</em>',
+                galleryHeading: 'Gallery',
+                galleryText: 'Here you will see several photos of the work done.',
+                faqHeading: 'Frequently Asked Questions',
+                faqCitiesQuestion: 'In which cities do you work?',
+                faqCitiesAnswer: 'Amsterdam, Rotterdam, and national coverage in the Netherlands.',
+                faqProductsQuestion: 'What products do you use?',
+                faqProductsAnswer: 'Certified ecological products, safe for people and pets.',
+                faqRecurringQuestion: 'Do you offer recurring cleaning?',
+                faqRecurringAnswer: 'Yes. Flexible plans: daily, weekly, or monthly.',
+                faqDeepCleanQuestion: 'Do you perform deep cleaning?',
+                faqDeepCleanAnswer: 'Yes. We adapt protocols according to the space.',
+                faqTrainedStaffQuestion: 'Is your staff trained?',
+                faqTrainedStaffAnswer: 'Yes. Direct training by Ingrid María Bailón Acuña.',
+                contactHeading: 'Contact',
+                contactNamePlaceholder: 'Your name',
+                contactPhonePlaceholder: 'Your phone',
+                contactEmailPlaceholder: 'Your email',
+                contactMessagePlaceholder: 'Your message',
+                contactButton: 'Request a personalized quote',
+                navHome: 'Home',
+                navWhoWeAre: 'Who Are We?',
+                navIngridStory: 'Ingrid\'s Story',
+                navServices: 'Services',
+                navGallery: 'Gallery',
+                navFAQ: 'FAQs',
+                navContact: 'Contact',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Legal Notice | Privacy Policy'
+            },
+            'fr': {
+                heroHeading: 'Nous transformons le nettoyage avec des normes européennes de qualité, d\'efficacité et de durabilité.',
+                introText: 'Chez Ecualimpieza, nous appliquons les connaissances acquises aux Pays-Bas, combinant technologie, personnel qualifié et responsabilité environnementale. Notre objectif : offrir un nettoyage professionnel avec un standard international élevé, adapté à vos besoins.',
+                ctaQuote: 'Demander un devis gratuit',
+                whoWeAreHeading: 'Qui sommes-nous ?',
+                whoWeAreHistory: '<strong>Histoire :</strong> Ecualimpieza est née en 2021 aux Pays-Bas, pendant la pandémie. Depuis lors, nous appliquons l\'expertise européenne pour fournir un nettoyage professionnel, efficace et durable.',
+                whoWeAreVision: '<strong>Vision :</strong> Être reconnus comme l\'entreprise de nettoyage de référence, fusionnant les standards européens avec le talent latino.',
+                whoWeAreMission: '<strong>Mission :</strong> Offrir des services d\'excellence avec une technologie de pointe, un personnel qualifié et un engagement environnemental.',
+                whoWeAreValues: '<strong>Valores :</strong> ✅ Qualité, ✅ Responsabilité environnementale, ✅ Professionnalisme, ✅ Proximité, ✅ Innovation',
+                ingridStoryHeading: 'L\'histoire d\'Ingrid',
+                ingridStoryText: 'Je suis Ingrid María Bailón Acuña, mère célibataire et fondatrice d\'Ecualimpieza. En 2021, pendant la pandémie, j\'ai décidé d\'entreprendre. Mon fils Nicolay a été ma motivation. Aujourd\'hui, je dirige une entreprise axée sur l\'humain, le détail et la qualité européenne.',
+                servicesHeading: 'Services',
+                serviceResidential: '🏠 Nettoyage résidentiel<br/>Maisons, appartements, produits écologiques.',
+                serviceOffice: '🏢 Nettoyage de bureaux<br/>Petites et grandes entreprises, confidentialité.',
+                serviceCommercial: '🏭 Nettoyage commercial<br/>Locaux, magasins de luxe, centres médicaux.',
+                serviceInstitutional: '🏦 Nettoyage institutionnel<br/>Banques, hôpitaux, centres éducatifs.',
+                servicesNote: '<em>* Tous nos services incluent du personnel formé par Ingrid, des équipements modernes et des produits écologiques.</em>',
+                galleryHeading: 'Galerie',
+                galleryText: 'Ici seront affichées plusieurs photos du travail réalisé.',
+                faqHeading: 'Questions Fréquentes',
+                faqCitiesQuestion: 'Dans quelles villes travaillez-vous ?',
+                faqCitiesAnswer: 'Amsterdam, Rotterdam et couverture nationale aux Pays-Bas.',
+                faqProductsQuestion: 'Quels produits utilisez-vous ?',
+                faqProductsAnswer: 'Écologiques certifiés, sûrs pour les personnes et les animaux domestiques.',
+                faqRecurringQuestion: 'Proposez-vous un nettoyage récurrent ?',
+                faqRecurringAnswer: 'Oui. Plans flexibles : quotidien, hebdomadaire ou mensuel.',
+                faqDeepCleanQuestion: 'Effectuez-vous un nettoyage en profondeur ?',
+                faqDeepCleanAnswer: 'Oui. Nous adaptons les protocoles selon l\'espace.',
+                faqTrainedStaffQuestion: 'Votre personnel est-il qualifié ?',
+                faqTrainedStaffAnswer: 'Oui. Formation directe par Ingrid María Bailón Acuña.',
+                contactHeading: 'Contact',
+                contactNamePlaceholder: 'Votre nom',
+                contactPhonePlaceholder: 'Votre téléphone',
+                contactEmailPlaceholder: 'Votre adresse email',
+                contactMessagePlaceholder: 'Votre message',
+                contactButton: 'Demander un devis personnalisé',
+                navHome: 'Accueil',
+                navWhoWeAre: 'Qui sommes-nous ?',
+                navIngridStory: 'L\'histoire d\'Ingrid',
+                navServices: 'Services',
+                navGallery: 'Galerie',
+                navFAQ: 'FAQ',
+                navContact: 'Contact',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Mentions légales | Politique de confidentialité'
+            },
+            'it': {
+                heroHeading: 'Trasformiamo la pulizia con standard europei di qualità, efficienza e sostenibilità.',
+                introText: 'In Ecualimpieza, applichiamo le conoscenze acquisite nei Paesi Bassi, combinando tecnologia, personale qualificato e responsabilità ambientale. Il nostro obiettivo: offrire pulizia professionale con un elevato standard internazionale, adattata alle tue esigenze.',
+                ctaQuote: 'Richiedi un preventivo gratuito',
+                whoWeAreHeading: 'Chi Siamo?',
+                whoWeAreHistory: '<strong>Storia:</strong> Ecualimpieza nasce nel 2021 nei Paesi Bassi, durante la pandemia. Da allora, applichiamo l\'esperienza europea per fornire pulizia professionale, efficiente e sostenibile.',
+                whoWeAreVision: '<strong>Visione:</strong> Essere riconosciuti come l\'azienda di pulizia di riferimento, fondendo standard europei con talento latino.',
+                whoWeAreMission: '<strong>Missione:</strong> Fornire servizi di eccellenza con tecnologia all\'avanguardia, personale qualificato e impegno ambientale.',
+                whoWeAreValues: '<strong>Valori:</strong> ✅ Qualità, ✅ Responsabilità ambientale, ✅ Professionalità, ✅ Vicinanza, ✅ Innovazione',
+                ingridStoryHeading: 'La Storia di Ingrid',
+                ingridStoryText: 'Sono Ingrid María Bailón Acuña, madre single e fondatrice di Ecualimpieza. Nel 2021, durante la pandemia, ho deciso di intraprendere. Mio figlio Nicolay è stato il mio motore. Oggi dirigo un\'azienda con un approccio umano, attenzione ai dettagli e qualità europea.',
+                servicesHeading: 'Servizi',
+                serviceResidential: '🏠 Pulizia Residenziale<br/>Case, appartamenti, prodotti ecologici.',
+                serviceOffice: '🏢 Pulizia Uffici<br/>Piccole e grandi aziende, riservatezza.',
+                serviceCommercial: '🏭 Pulizia Commerciale<br/>Locali, negozi di lusso, centri medici.',
+                serviceInstitutional: '🏦 Pulizia Istituzionale<br/>Banche, ospedali, centri educativi.',
+                servicesNote: '<em>* Tutti i nostri servizi includono personale formato da Ingrid, attrezzature moderne e prodotti ecologici.</em>',
+                galleryHeading: 'Galleria',
+                galleryText: 'Qui verranno mostrate diverse foto del lavoro svolto.',
+                faqHeading: 'Domande Frequenti',
+                faqCitiesQuestion: 'In quali città operate?',
+                faqCitiesAnswer: 'Amsterdam, Rotterdam e copertura nazionale nei Paesi Bassi.',
+                faqProductsQuestion: 'Quali prodotti utilizzate?',
+                faqProductsAnswer: 'Ecologici certificati, sicuri per persone e animali domestici.',
+                faqRecurringQuestion: 'Offrite pulizie ricorrenti?',
+                faqRecurringAnswer: 'Sì. Piani flessibili: giornalieri, settimanali o mensili.',
+                faqDeepCleanQuestion: 'Eseguite pulizie profonde?',
+                faqDeepCleanAnswer: 'Sì. Adattiamo i protocolli in base allo spazio.',
+                faqTrainedStaffQuestion: 'Il vostro personale è qualificato?',
+                faqTrainedStaffAnswer: 'Sì. Formazione diretta da Ingrid María Bailón Acuña.',
+                contactHeading: 'Contatti',
+                contactNamePlaceholder: 'Il tuo nome',
+                contactPhonePlaceholder: 'Il tuo telefono',
+                contactEmailPlaceholder: 'La tua email',
+                contactMessagePlaceholder: 'Il tuo messaggio',
+                contactButton: 'Richiedi un preventivo personalizzato',
+                navHome: 'Home',
+                navWhoWeAre: 'Chi Siamo?',
+                navIngridStory: 'La Storia di Ingrid',
+                navServices: 'Servizi',
+                navGallery: 'Galleria',
+                navFAQ: 'FAQ',
+                navContact: 'Contatti',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Note legali | Politica sulla privacy'
+            },
+            'pt': {
+                heroHeading: 'Transformamos a limpeza com padrões europeus de qualidade, eficiência e sustentabilidade.',
+                introText: 'Na Ecualimpieza, aplicamos o conhecimento adquirido na Holanda, combinando tecnologia, pessoal capacitado e responsabilidade ambiental. Nosso objetivo: oferecer limpeza profissional com um alto padrão internacional, ajustada às suas necessidades.',
+                ctaQuote: 'Solicite um orçamento gratuito',
+                whoWeAreHeading: 'Quem Somos?',
+                whoWeAreHistory: '<strong>História:</strong> A Ecualimpieza nasceu em 2021 na Holanda, durante a pandemia. Desde então, aplicamos a experiência europeia para oferecer limpeza profissional, eficiente e sustentável.',
+                whoWeAreVision: '<strong>Visão:</strong> Ser reconhecidos como a empresa de limpeza de referência, fundindo padrões europeus com talento latino.',
+                whoWeAreMission: '<strong>Missão:</strong> Oferecer serviços de excelência com tecnologia de ponta, pessoal capacitado e compromisso ambiental.',
+                whoWeAreValues: '<strong>Valores:</strong> ✅ Qualidade, ✅ Responsabilidade ambiental, ✅ Profissionalismo, ✅ Proximidade, ✅ Inovação',
+                ingridStoryHeading: 'A História de Ingrid',
+                ingridStoryText: 'Sou Ingrid María Bailón Acuña, mãe solteira e fundadora da Ecualimpieza. Em 2021, durante a pandemia, decidi empreender. Meu filho Nicolay foi meu motor. Hoje lidero uma empresa com foco humano, detalhe e qualidade europeia.',
+                servicesHeading: 'Serviços',
+                serviceResidential: '🏠 Limpeza Residencial<br/>Casas, apartamentos, produtos ecológicos.',
+                serviceOffice: '🏢 Limpeza de Escritórios<br/>Pequenas e grandes empresas, confidencialidade.',
+                serviceCommercial: '🏭 Limpeza Comercial<br/>Lojas, boutiques de luxo, centros médicos.',
+                serviceInstitutional: '🏦 Limpeza Institucional<br/>Bancos, hospitais, centros educacionais.',
+                servicesNote: '<em>* Todos os nossos serviços incluem pessoal treinado pela Ingrid, equipamentos modernos e produtos ecológicos.</em>',
+                galleryHeading: 'Galeria',
+                galleryText: 'Aqui serão exibidas várias fotos do trabalho realizado.',
+                faqHeading: 'Perguntas Frequentes',
+                faqCitiesQuestion: 'Em que cidades vocês trabalham?',
+                faqCitiesAnswer: 'Amsterdã, Roterdã e cobertura nacional na Holanda.',
+                faqProductsQuestion: 'Quais produtos vocês utilizam?',
+                faqProductsAnswer: 'Ecológicos certificados, seguros para pessoas e animais de estimação.',
+                faqRecurringQuestion: 'Vocês oferecem limpeza recorrente?',
+                faqRecurringAnswer: 'Sim. Planos flexíveis: diário, semanal ou mensal.',
+                faqDeepCleanQuestion: 'Vocês realizam limpeza profunda?',
+                faqDeepCleanAnswer: 'Sim. Adaptamos protocolos de acordo com o espaço.',
+                faqTrainedStaffQuestion: 'Seu pessoal é capacitado?',
+                faqTrainedStaffAnswer: 'Sim. Treinamento direto por Ingrid María Bailón Acuña.',
+                contactHeading: 'Contato',
+                contactNamePlaceholder: 'Seu nome',
+                contactPhonePlaceholder: 'Seu telefone',
+                contactEmailPlaceholder: 'Seu email',
+                contactMessagePlaceholder: 'Sua mensagem',
+                contactButton: 'Solicitar orçamento personalizado',
+                navHome: 'Início',
+                navWhoWeAre: 'Quem Somos?',
+                navIngridStory: 'A História de Ingrid',
+                navServices: 'Serviços',
+                navGallery: 'Galeria',
+                navFAQ: 'Perguntas Frequentes',
+                navContact: 'Contato',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Aviso legal | Política de privacidade'
+            },
+            'de': {
+                heroHeading: 'Wir verwandeln die Reinigung mit europäischen Standards für Qualität, Effizienz und Nachhaltigkeit.',
+                introText: 'Bei Ecualimpieza wenden wir das in den Niederlanden erworbene Wissen an und kombinieren Technologie, geschultes Personal und Umweltverantwortung. Unser Ziel: professionelle Reinigung mit hohem internationalem Standard, angepasst an Ihre Bedürfnisse.',
+                ctaQuote: 'Fordern Sie ein kostenloses Angebot an',
+                whoWeAreHeading: 'Wer sind wir?',
+                whoWeAreHistory: '<strong>Geschichte:</strong> Ecualimpieza wurde 2021 in den Niederlanden während der Pandemie gegründet. Seitdem wenden wir europäische Expertise an, um professionelle, effiziente und nachhaltige Reinigungsdienstleistungen anzubieten.',
+                whoWeAreVision: '<strong>Vision:</strong> Als das führende Reinigungsunternehmen anerkannt zu werden, das europäische Standards mit lateinamerikanischem Talent verbindet.',
+                whoWeAreMission: '<strong>Mission:</strong> Exzellente Dienstleistungen mit modernster Technologie, geschultem Personal und Umweltverantwortung zu erbringen.',
+                whoWeAreValues: '<strong>Werte:</strong> ✅ Qualität, ✅ Umweltverantwortung, ✅ Professionalität, ✅ Nähe, ✅ Innovation',
+                ingridStoryHeading: 'Ingrids Geschichte',
+                ingridStoryText: 'Ich bin Ingrid María Bailón Acuña, alleinerziehende Mutter und Gründerin von Ecualimpieza. Im Jahr 2021, während der Pandemie, beschloss ich, ein Unternehmen zu gründen. Mein Sohn Nicolay war mein Antrieb. Heute leite ich ein Unternehmen mit menschlichem Fokus, Detailgenauigkeit und europäischer Qualität.',
+                servicesHeading: 'Dienstleistungen',
+                serviceResidential: '🏠 Wohnungsreinigung<br/>Häuser, Wohnungen, ökologische Produkte.',
+                serviceOffice: '🏢 Büroreinigung<br/>Kleine und große Unternehmen, Vertraulichkeit.',
+                serviceCommercial: '🏭 Gewerbliche Reinigung<br/>Geschäfte, Luxusläden, medizinische Zentren.',
+                serviceInstitutional: '🏦 Institutionelle Reinigung<br/>Banken, Krankenhäuser, Bildungseinrichtungen.',
+                servicesNote: '<em>* Alle unsere Dienstleistungen umfassen von Ingrid geschultes Personal, moderne Ausrüstung und umweltfreundliche Produkte.</em>',
+                galleryHeading: 'Galerie',
+                galleryText: 'Hier werden verschiedene Fotos der geleisteten Arbeit gezeigt.',
+                faqHeading: 'Häufig gestellte Fragen',
+                faqCitiesQuestion: 'In welchen Städten arbeiten Sie?',
+                faqCitiesAnswer: 'Amsterdam, Rotterdam und landesweite Abdeckung in den Niederlanden.',
+                faqProductsQuestion: 'Welche Produkte verwenden Sie?',
+                faqProductsAnswer: 'Zertifizierte ökologische Produkte, sicher für Menschen und Haustiere.',
+                faqRecurringQuestion: 'Bieten Sie regelmäßige Reinigung an?',
+                faqRecurringAnswer: 'Ja. Flexible Pläne: täglich, wöchentlich oder monatlich.',
+                faqDeepCleanQuestion: 'Führen Sie eine Tiefenreinigung durch?',
+                faqDeepCleanAnswer: 'Ja. Wir passen die Protokolle dem Raum an.',
+                faqTrainedStaffQuestion: 'Ist Ihr Personal geschult?',
+                faqTrainedStaffAnswer: 'Ja. Direkte Schulung durch Ingrid María Bailón Acuña.',
+                contactHeading: 'Kontakt',
+                contactNamePlaceholder: 'Ihr Name',
+                contactPhonePlaceholder: 'Ihre Telefonnummer',
+                contactEmailPlaceholder: 'Ihre E-Mail-Adresse',
+                contactMessagePlaceholder: 'Ihre Nachricht',
+                contactButton: 'Fordern Sie ein personalisiertes Angebot an',
+                navHome: 'Startseite',
+                navWhoWeAre: 'Wer sind wir?',
+                navIngridStory: 'Ingrids Geschichte',
+                navServices: 'Dienstleistungen',
+                navGallery: 'Galerie',
+                navFAQ: 'Häufig gestellte Fragen',
+                navContact: 'Kontakt',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Impressum | Datenschutzerklärung'
+            },
+            'nl': {
+                heroHeading: 'Wij transformeren schoonmaak met Europese normen van kwaliteit, efficiëntie en duurzaamheid.',
+                introText: 'Bij Ecualimpieza passen we de in Nederland opgedane kennis toe, waarbij we technologie, getraind personeel en milieuverantwoordelijkheid combineren. Ons doel: professionele schoonmaak aanbieden met een hoge internationale standaard, afgestemd op uw behoeften.',
+                ctaQuote: 'Vraag een gratis offerte aan',
+                whoWeAreHeading: 'Wie zijn wij?',
+                whoWeAreHistory: '<strong>Geschiedenis:</strong> Ecualimpieza is in 2021 in Nederland opgericht, tijdens de pandemie. Sindsdien passen we Europese expertise toe om professionele, efficiënte en duurzame schoonmaakdiensten te leveren.',
+                whoWeAreVision: '<strong>Visie:</strong> Erkend worden als het toonaangevende schoonmaakbedrijf, waarbij Europese standaarden worden samengevoegd met Latijns talent.',
+                whoWeAreMission: '<strong>Missie:</strong> Uitstekende diensten leveren met geavanceerde technologie, getraind personeel en milieu-engagement.',
+                whoWeAreValues: '<strong>Waarden:</strong> ✅ Kwaliteit, ✅ Milieuverantwoordelijkheid, ✅ Professionaliteit, ✅ Nabijheid, ✅ Innovatie',
+                ingridStoryHeading: 'Ingrids Verhaal',
+                ingridStoryText: 'Ik ben Ingrid María Bailón Acuña, alleenstaande moeder en oprichtster van Ecualimpieza. In 2021, tijdens de pandemie, besloot ik te ondernemen. Mijn zoon Nicolay was mijn drijfveer. Vandaag leid ik een bedrijf met een menselijke focus, oog voor detail en Europese kwaliteit.',
+                servicesHeading: 'Diensten',
+                serviceResidential: '🏠 Huishoudelijke schoonmaak<br/>Huizen, appartementen, ecologische producten.',
+                serviceOffice: '🏢 Kantoorschoonmaak<br/>Kleine en grote bedrijven, vertrouwelijkheid.',
+                serviceCommercial: '🏭 Commerciële schoonmaak<br/>Winkels, luxewinkels, medische centra.',
+                serviceInstitutional: '🏦 Institutionele schoonmaak<br/>Banken, ziekenhuizen, onderwijsinstellingen.',
+                servicesNote: '<em>* Al onze diensten omvatten door Ingrid getraind personeel, moderne apparatuur en milieuvriendelijke producten.</em>',
+                galleryHeading: 'Galerij',
+                galleryText: 'Hier worden verschillende foto\'s van het uitgevoerde werk getoond.',
+                faqHeading: 'Veelgestelde vragen',
+                faqCitiesQuestion: 'In welke steden werken jullie?',
+                faqCitiesAnswer: 'Amsterdam, Rotterdam en landelijke dekking in Nederland.',
+                faqProductsQuestion: 'Welke producten gebruiken jullie?',
+                faqProductsAnswer: 'Gecertificeerde ecologische producten, veilig voor mensen en huisdieren.',
+                faqRecurringQuestion: 'Bieden jullie terugkerende schoonmaak aan?',
+                faqRecurringAnswer: 'Ja. Flexibele plannen: dagelijks, wekelijks of maandelijks.',
+                faqDeepCleanQuestion: 'Voeren jullie dieptereiniging uit?',
+                faqDeepCleanAnswer: 'Ja. We passen protocollen aan de ruimte aan.',
+                faqTrainedStaffQuestion: 'Is jullie personeel getraind?',
+                faqTrainedStaffAnswer: 'Ja. Directe training door Ingrid María Bailón Acuña.',
+                contactHeading: 'Contact',
+                contactNamePlaceholder: 'Uw naam',
+                contactPhonePlaceholder: 'Uw telefoonnummer',
+                contactEmailPlaceholder: 'Uw e-mailadres',
+                contactMessagePlaceholder: 'Uw bericht',
+                contactButton: 'Vraag een persoonlijke offerte aan',
+                navHome: 'Home',
+                navWhoWeAre: 'Wie zijn wij?',
+                navIngridStory: 'Ingrids Verhaal',
+                navServices: 'Diensten',
+                navGallery: 'Galerij',
+                navFAQ: 'Veelgestelde vragen',
+                navContact: 'Contact',
+                footerCopyright: '&copy; 2025 Ecualimpieza. Juridische kennisgeving | Privacybeleid'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langSwitcher = document.querySelector('.lang-switch select');
+
+            // Function to update content based on selected language
+            function updateContent(lang) {
+                // Store the selected language in localStorage
+                localStorage.setItem('ecualimpiezaLang', lang);
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (content[lang] && content[lang][key]) {
+                        if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
+                            element.setAttribute('placeholder', content[lang][key]);
+                        } else if (element.tagName === 'BUTTON') {
+                            element.textContent = content[lang][key];
+                        } else {
+                            element.innerHTML = content[lang][key]; // Use innerHTML to allow for bold tags within translated strings
+                        }
+                    }
+                });
+
+                // Set the select box to the current language
+                const options = langSwitcher.options;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].value === lang) {
+                        langSwitcher.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Get preferred language from localStorage, or default to Spanish
+            const preferredLang = localStorage.getItem('ecualimpiezaLang') || 'es';
+            updateContent(preferredLang); // Apply on initial load
+
+            langSwitcher.addEventListener('change', (event) => {
+                const selectedLanguage = event.target.value; // Get the full value (es, en, fr, etc.)
+                updateContent(selectedLanguage);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="page-title">La Historia de Ingrid - ECUALIMPIEZA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0d1b2a; /* Azul oscuro casi negro */
+            --color-secondary: #e0a800; /* Naranja/Dorado */
+            --color-background: #f7f9fc; /* Fondo muy claro */
+            --color-text: #333; /* Gris oscuro para texto */
+            --color-white: #fff; /* Blanco puro */
+            --color-footer-bg: #0d1b2a; /* Fondo del footer, similar al primario */
+            --color-footer-text: #f7f9fc; /* Texto claro para el footer */
+            --color-accent-blue: #007bff; /* Azul vibrante para enlaces/botones */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #e9ecef, #f8f9fa);
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Asegura que el footer esté al final */
+        }
+
+        header {
+            background-color: var(--color-white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 12px var(--color-secondary); /* Usa la variable */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 145px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+            justify-content: center; /* Centra los elementos cuando se envuelven */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 600;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+            white-space: nowrap; /* Evita que los enlaces se rompan en varias líneas */
+        }
+
+        nav ul li a:hover {
+            color: var(--color-secondary);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        .idiomas {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 6px 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .idiomas select {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            padding: 4px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .idiomas .banderas img {
+            height: 22px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+
+        .idiomas .banderas img:hover {
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 60px auto;
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+            flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 35px;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .historia-ingrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .historia-ingrid img {
+            width: 360px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        .texto {
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .texto h2 {
+            color: var(--color-secondary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .texto p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        /* --- Estilos del Footer (NUEVO) --- */
+        footer {
+            background-color: var(--color-footer-bg); /* Fondo oscuro del footer */
+            color: var(--color-footer-text); /* Texto claro */
+            padding: 50px 20px 20px; /* Más padding arriba para espacio */
+            text-align: center;
+            margin-top: 50px; /* Margen para separar del main */
+            font-size: 0.95em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px; /* Espacio entre columnas del footer */
+            max-width: 1200px;
+            margin: 0 auto 40px; /* Margen inferior para separar del logo */
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px; /* Ancho mínimo para cada sección */
+            margin: 10px 0;
+        }
+
+        .footer-section h3 {
+            color: var(--color-secondary); /* Títulos en color secundario */
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        /* Línea decorativa bajo los títulos del footer */
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent-blue); /* Línea azul */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--color-footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-accent-blue); /* Cambio de color al pasar el ratón */
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p img {
+            height: 18px; /* Tamaño de los iconos de contacto */
+            filter: invert(100%) brightness(150%); /* Hace los iconos blancos y más brillantes */
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img {
+            width: 35px; /* Tamaño de los iconos de redes sociales */
+            height: 35px;
+            border-radius: 50%; /* Iconos redondos */
+            background-color: var(--color-white); /* Fondo blanco para los iconos */
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px); /* Efecto flotante al pasar el ratón */
+        }
+
+        .newsletter-form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+            color: var(--color-white);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            background-color: var(--color-accent-blue); /* Botón azul */
+            color: var(--color-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo img {
+            height: 100px; /* Tamaño del logo en el footer */
+            margin-bottom: 10px;
+			filter: brightness(0) invert(1);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float img {
+            width: 60px; /* Tamaño del icono de WhatsApp */
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 900px) {
+            nav ul {
+                gap: 15px;
+            }
+            .footer-content {
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-section {
+                min-width: 250px; /* Ajuste para que no se vean demasiado pequeños */
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info p {
+                justify-content: center; /* Centra los iconos de contacto */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px 20px;
+                gap: 10px;
+            }
+
+            .logo img {
+                height: 100px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 0.9em;
+                padding: 5px 8px;
+            }
+
+            .idiomas {
+                position: static;
+                box-shadow: none;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+
+            .idiomas select {
+                font-size: 0.9em;
+            }
+
+            main {
+                padding: 20px 15px;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .historia-ingrid {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .historia-ingrid img {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .texto {
+                text-align: center;
+                max-width: 95%;
+            }
+
+            .texto p {
+                text-align: left;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-section {
+                width: 90%; /* Ocupa casi todo el ancho en móviles */
+                min-width: unset;
+            }
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+            .social-icons {
+                margin-top: 20px;
+            }
+            .newsletter-form {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            .logo img {
+                height: 80px;
+            }
+            nav ul {
+                gap: 8px;
+            }
+            nav ul li a {
+                font-size: 0.75em;
+                padding: 3px;
+            }
+            .idiomas {
+                padding: 2px 5px;
+            }
+            .idiomas select {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .whatsapp-float img {
+                width: 50px;
+                height: 50px;
+            }
+			.footer-logo-bottom img {
+			height: 100px;
+    filter: brightness(0) invert(1);
+}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="idiomas">
+        🌐
+        <div class="banderas">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+        </div>
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español 🇪🇸</option>
+            <option value="en">Inglés 🇬🇧</option>
+            <option value="fr">Francés 🇫🇷</option>
+            <option value="it">Italiano 🇮🇹</option>
+            <option value="pt">Portugués 🇵🇹</option>
+            <option value="de">Alemán 🇩🇪</option>
+            <option value="nl">Holandés 🇳🇱</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+                <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+                <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+                <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+                <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+                <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+                <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="main-title">LA HISTORIA DE INGRID</h1>
+        <div class="historia-ingrid">
+            <img src="ingrid_ecua.png" alt="Ingrid María Bailón Acuña">
+            <div class="texto">
+                <h2 id="historia-title">Una historia inspiradora</h2>
+                <p id="historia-text">
+                    Soy Ingrid María Bailón Acuña, madre soltera y fundadora de Ecualimpieza.<br><br>
+                    Durante el difícil tiempo de la pandemia en 2021, mientras criaba a mi hijo Nicolay —mi mayor motor e inspiración—, decidí dar el paso de emprender.<br><br>
+                    Con esfuerzo, disciplina y el conocimiento adquirido en los Países Bajos, hoy lidero esta empresa que busca dar oportunidades y servicios de excelencia.<br><br>
+                    Cada cliente representa para nosotros una familia más a la que cuidamos, con compromiso, amor por el detalle y un equipo altamente preparado.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <a href="https://wa.me/0996845893" target="_blank" class="whatsapp-float">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAPA DEL SITIO</h3>
+                <ul>
+        <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+        <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+        <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+        <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+        <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+        <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>CONTÁCTANOS</h3>
+                <div class="contact-info">
+                    <p><img src="phone-icon.png" alt="Teléfono">+593996845893</p> <p><img src="email-icon.png" alt="Email">ecualimpieza2021@gmail.com</p> <p><img src="location-icon.png" alt="Ubicación">Guayaquil - Ecuador</p> <p><img src="clock-icon.png" alt="Horario">Lunes - Viernes: 8:30 am hasta 5:30 pm</p> <p><img src="clock-icon.png" alt="Horario">Sábado - Domingo: Cerrado</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>SÍGUENOS EN:</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/tupagina" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://twitter.com/tucuenta" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="https://instagram.com/tucuenta" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="https://linkedin.com/tucuenta" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://wa.me/0996845893" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+                </div>
+                <h3 style="margin-top: 30px;">SUSCRÍBETE</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="ecualimpieza1.png" alt="Logo Ecualimpieza">
+            </div>
+            	<footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <ul>
+        <li><a href="https://ar-it-solutions.github.io/ARITSOLUTIONS/" id="nav-inicio">© 2025 Sitio web desarrollado por ARpcsoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const traducciones = {
+            es: {
+                pageTitle: "La Historia de Ingrid - ECUALIMPIEZA",
+                mainTitle: "LA HISTORIA DE INGRID",
+                historiaTitle: "Una historia inspiradora",
+                historiaText: "Soy Ingrid María Bailón Acuña, madre soltera y fundadora de Ecualimpieza.<br><br>Durante el difícil tiempo de la pandemia en 2021, mientras criaba a mi hijo Nicolay —mi mayor motor e inspiración—, decidí dar el paso de emprender.<br><br>Con esfuerzo, disciplina y el conocimiento adquirido en los Países Bajos, hoy lidero esta empresa que busca dar oportunidades y servicios de excelencia.<br><br>Cada cliente representa para nosotros una familia más a la que cuidamos, con compromiso, amor por el detalle y un equipo altamente preparado.",
+                navInicio: "Inicio",
+                navQuienesSomos: "Quiénes Somos",
+                navHistoriaIngrid: "La Historia de Ingrid",
+                navServicios: "Servicios",
+                navGaleria: "Galería",
+                navFaq: "Preguntas Frecuentes",
+                navContacto: "Contacto"
+            },
+            en: {
+                pageTitle: "Ingrid's Story - ECUALIMPIEZA",
+                mainTitle: "INGRID'S STORY",
+                historiaTitle: "An Inspiring Journey",
+                historiaText: "I am Ingrid María Bailón Acuña, a single mother and founder of Ecualimpieza.<br><br>During the difficult time of the pandemic in 2021, while raising my son Nicolay —my biggest motivation and inspiration—, I decided to take the step into entrepreneurship.<br><br>With effort, discipline, and the knowledge acquired in the Netherlands, I now lead this company that aims to offer opportunities and excellent services.<br><br>Each client represents a family we care for, with commitment, attention to detail, and a highly prepared team.",
+                navInicio: "Home",
+                navQuienesSomos: "About Us",
+                navHistoriaIngrid: "Ingrid's Story",
+                navServicios: "Services",
+                navGaleria: "Gallery",
+                navFaq: "FAQ",
+                navContacto: "Contact"
+            },
+            nl: {
+                pageTitle: "Het Verhaal van Ingrid - ECUALIMPIEZA",
+                mainTitle: "HET VERHAAL VAN INGRID",
+                historiaTitle: "Een inspirerend verhaal",
+                historiaText: "Ik ben Ingrid María Bailón Acuña, een alleenstaande moeder en oprichter van Ecualimpieza.<br><br>Tijdens de moeilijke pandemieperiode in 2021, terwijl ik mijn zoon Nicolay opvoedde —mijn grootste drijfveer en inspiratie—, besloot ik te gaan ondernemen.<br><br>Met inzet, discipline en de kennis opgedaan in Nederland, leid ik nu dit bedrijf dat kansen en uitstekende diensten wil bieden.<br><br>Elke klant betekent voor ons een extra familie die we met toewijding, oog voor detail en een goed voorbereid team verzorgen.",
+                navInicio: "Startpagina",
+                navQuienesSomos: "Over Ons",
+                navHistoriaIngrid: "Ingrids Verhaal",
+                navServicios: "Diensten",
+                navGaleria: "Galerij",
+                navFaq: "Veelgestelde Vragen",
+                navContacto: "Contact"
+            }
+        };
+
+        function cambiarIdioma(idioma) {
+            const t = traducciones[idioma];
+            if (!t) return;
+
+            document.title = t.pageTitle;
+            document.getElementById('page-title').textContent = t.pageTitle;
+            document.getElementById('main-title').textContent = t.mainTitle;
+            document.getElementById('historia-title').textContent = t.historiaTitle;
+            document.getElementById('historia-text').innerHTML = t.historiaText;
+            document.getElementById('nav-inicio').textContent = t.navInicio;
+            document.getElementById('nav-quienes-somos').textContent = t.navQuienesSomos;
+            document.getElementById('nav-historia-ingrid').textContent = t.navHistoriaIngrid;
+            document.getElementById('nav-servicios').textContent = t.navServicios;
+            document.getElementById('nav-galeria').textContent = t.navGaleria;
+            document.getElementById('nav-faq').textContent = t.navFaq;
+            document.getElementById('nav-contacto').textContent = t.navContacto;
+
+            localStorage.setItem('selectedLang', idioma);
+            const selectElement = document.querySelector('.idiomas select');
+            if (selectElement) selectElement.value = idioma;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
+            const selectElement = document.querySelector('.idiomas select');
+            selectElement.value = traducciones[defaultLang] ? defaultLang : 'es';
+            cambiarIdioma(selectElement.value);
+        });
+    </script>
+</body>
+</html>
