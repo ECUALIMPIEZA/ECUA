@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="page-title">Servicios - ECUALIMPIEZA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="./Servicios - ECUALIMPIEZA_files/css2" rel="stylesheet">
     <style>
         /* --- Variables de Color y Tipografía (Consistentes) --- */
         :root {
@@ -21,8 +20,7 @@
             --color-footer-text: #f7f9fc; /* Texto claro para el footer */
             --color-accent-blue: #007bff; /* Azul vibrante para enlaces/botones */
             --color-input-bg: #2d3b4d; /* Background for input field in footer */
-
-
+			:root {
             --font-main: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif; /* Un tipo de letra más legible para el cuerpo del texto */
         }
@@ -141,9 +139,9 @@
             padding: 60px 20px;
             max-width: 1200px; /* Ajuste para un diseño más espacioso */
             margin: auto;
-            background-color: var(--color-white);
+            background-color: var(#25e000);
             border-radius: 18px; /* Más redondeado */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada pero suave */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 122); /* Sombra más pronunciada pero suave */
             margin-top: 60px; /* Espacio superior */
             margin-bottom: 60px; /* Espacio inferior */
             flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
@@ -176,103 +174,87 @@
 
         /* --- Estilos de las Tarjetas de Servicio (Servicio Card) --- */
         .servicio-card {
-            display: flex;
-            align-items: center;
-            gap: 40px; /* Mayor espacio entre imagen y texto */
-            background-color: var(--color-background-light); /* Fondo suave para la tarjeta */
-            border-radius: 20px; /* Más redondeado */
-            padding: 30px; /* Más padding interno */
-            margin-bottom: 40px; /* Más espacio entre tarjetas */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra más profunda y suave */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
-        }
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
 
-        .servicio-card:hover {
-            transform: translateY(-8px); /* Efecto de elevación más pronunciado */
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15); /* Sombra más intensa al pasar el mouse */
-        }
+.servicio-img {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .servicio-card:nth-child(even) { /* Invertir orden para tarjetas pares */
-            flex-direction: row-reverse;
-        }
+.servicio-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #00e038;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
-        .servicio-img {
-            flex: 0 0 200px; /* Tamaño fijo para la imagen */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.servicio-card:hover .servicio-img img {
+  transform: scale(1.05);
+}
 
-        .servicio-img img {
-            width: 352px;
-            height: 328px;
-            object-fit: cover;
-            border-radius: 19%; /* Mantener la imagen redonda */
-            border: 5px solid var(--color-secondary); /* Borde dorado alrededor de la imagen */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para la imagen */
-            transition: transform 0.3s ease;
-        }
+.servicio-info {
+  flex: 1;
+  min-width: 300px;
+}
 
-        .servicio-card:hover .servicio-img img {
-            transform: scale(1.05); /* Pequeño zoom en la imagen al pasar el mouse por la tarjeta */
-        }
+.servicio-info h2 {
+  margin: 0 0 15px;
+  color: #006400;
+  font-size: 1.8em;
+  font-weight: 700;
+}
 
-        .servicio-info {
-            flex: 1; /* Ocupa el espacio restante */
-            min-width: 300px; /* Asegura que el texto no se haga demasiado pequeño */
-        }
+.servicio-info p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #444;
+}
 
-        .servicio-info h2 {
-            font-family: var(--font-main);
-            margin: 0 0 15px;
-            color: var(--color-primary); /* Título de servicio en color primario */
-            font-size: 1.8em; /* Título de servicio más grande */
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Espacio entre ícono y texto */
-        }
+.lista-vistos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
 
-        .servicio-info h2::before {
-            content: attr(data-icon); /* Usa un atributo para el ícono */
-            font-size: 1.2em;
-            color: var(--color-secondary);
-        }
+.lista-vistos li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
 
-        /* Remover los íconos de los títulos y usar un pseudoelemento */
-        #servicio-residencial-titulo::before { content: "🏠"; }
-        #servicio-oficinas-titulo::before { content: "🏢"; }
-        #servicio-comercial-titulo::before { content: "🏪"; }
-        #servicio-institucional-titulo::before { content: "🏦"; }
+.servicio-info button {
+  background-color: #00e038;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
+.servicio-info button:hover {
+  background-color: #007f28;
+  transform: translateY(-3px);
+}
 
-        .servicio-info p {
-            font-family: var(--font-body);
-            margin: 0 0 25px; /* Más espacio debajo del párrafo */
-            line-height: 1.8; /* Mayor espacio entre líneas */
-            color: var(--color-text-light);
-            text-align: justify; /* Justifica el texto */
-        }
-
-        .servicio-info button {
-            background-color: var(--color-secondary); /* Botón en color secundario */
-            color: var(--color-white);
-            padding: 12px 28px; /* Más padding para un botón más grande */
-            border: none;
-            border-radius: 30px; /* Más redondeado */
-            font-size: 1.1em; /* Texto del botón más grande */
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
-        }
-
-        .servicio-info button:hover {
-            background-color: #c79000; /* Tono más oscuro al pasar el mouse */
-            transform: translateY(-3px); /* Pequeño levantamiento */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el mouse */
-        }
 
         /* --- Secciones Especiales (Airbnb, Diferenciador) --- */
         .airbnb, .diferenciador {
@@ -774,8 +756,28 @@
 			height: 100px;
     filter: brightness(0) invert(1);
 }
-        }
-
+      
+		main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 2rem;
+    display: flex
+;
+    gap: 2rem;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+}
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}  
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+}
     </style>
 </head>
 <body>
@@ -783,8 +785,8 @@
     <div class="idiomas">
         🌐
         <div class="banderas">
-            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
-            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma(&#39;es&#39;)">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma(&#39;nl&#39;)">
         </div>
         <select onchange="cambiarIdioma(this.value)">
             <option value="es">Español 🇪🇸</option>
@@ -803,75 +805,46 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" id="nav-inicio">Inicio</a></li>
-                <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
-                <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
-                <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
-                <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
-                <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
-                <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                <li><a href="http://localhost/ecualimpieza/index.html" id="nav-inicio">Inicio</a></li>
+                <li><a href="http://localhost/ecualimpieza/quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+                <li><a href="http://localhost/ecualimpieza/Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+                <li><a href="http://localhost/ecualimpieza/servicios.html" id="nav-servicios">Servicios</a></li>
+                <li><a href="http://localhost/ecualimpieza/galeria.html" id="nav-galeria">Galería</a></li>
+                <li><a href="http://localhost/ecualimpieza/preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+                <li><a href="http://localhost/ecualimpieza/Limpieza_Residencial.html#contacto" id="nav-contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1 id="main-title"> NUESTROS SERVICIOS</h1>
+<h1 id="main-title">LIMPIEZA RESIDENCIAL</h1>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC1.png" alt="Limpieza Residencial">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-residencial-titulo">Limpieza Residencial</h2>
-                <p id="servicio-residencial-parrafo">Casas, departamentos, apartamentos amoblados. Limpieza profunda o mantenimiento regular. Productos ecológicos y libres de tóxicos.</p>
-                <button onclick="window.location.href='Limpieza_Residencial.html'" id="btn-ver-servicio-1">Ver Servicio</button>
-            </div>
-        </div>
+<div class="servicio-card">
+  <div class="servicio-img">
+    <img src="R1.png" alt="Limpieza Residencial">
+  </div>
+  <div class="servicio-info">
+    <h2 id="residencial-titulo-extra">Limpieza Residencial</h2>
+    <p id="residencial-parrafo-extra">
+      Brindamos un servicio de limpieza residencial detallado y profesional,
+      adaptado a tus necesidades y con productos seguros para toda la familia.
+    </p>
+    <ul class="lista-vistos">
+      <li id="residencial-item-1">✅ Casas, departamentos, apartamentos amoblados</li>
+      <li id="residencial-item-2">✅ Limpieza profunda o mantenimiento regular</li>
+      <li id="residencial-item-3">✅ Productos ecológicos, libres de tóxicos</li>
+    </ul>
+    <button id="btn-contacto-whatsapp" onclick="window.location.href='https://wa.me/593996845893'">
+      Contactar por WhatsApp
+    </button>
+  </div>
+</div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC2.png" alt="Limpieza de Oficinas">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-oficinas-titulo"> Limpieza de Oficinas</h2>
-                <p id="servicio-oficinas-parrafo">Oficinas pequeñas y grandes corporativos. Mantenimiento diario, semanal o mensual. Manejo de documentos confidenciales.</p>
-                <button onclick="window.location.href='Limpieza _Oficinas.html'" id="btn-ver-servicio-2">Ver Servicio</button>
-            </div>
-        </div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC3.png" alt="Limpieza Comercial">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-comercial-titulo"> Limpieza Comercial</h2>
-                <p id="servicio-comercial-parrafo">Locales comerciales, showrooms y tiendas de lujo. Consultorios, clínicas y centros médicos.</p>
-                <button onclick="window.location.href='Limpieza_Comercial.html'" id="btn-ver-servicio-3">Ver Servicio</button>
-            </div>
-        </div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC4.png" alt="Limpieza Institucional">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-institucional-titulo"> Limpieza Institucional</h2>
-                <p id="servicio-institucional-parrafo">Instituciones bancarias, clínicas, hospitales y centros educativos.</p>
-                <button onclick="window.location.href='Limpieza_Institucional.html'" id="btn-ver-servicio-4">Ver Servicio</button>
-            </div>
-        </div>
-
-        <div class="airbnb" id="airbnb-text">
-            <strong>AIRBNB:</strong> es una página donde se encuentran propiedades de lujo. Realizamos contratos a través de esta plataforma.
-        </div>
-
-        <div class="diferenciador" id="diferenciador-text">
-            💡 Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos amigables con el medio ambiente.
-        </div>
     </main>
-    <a href="https://wa.me/0996845893" target="_blank" class="whatsapp-float">
-        <img src="whatsapp.png" alt="WhatsApp">
-    </a>
+
+    
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -881,9 +854,9 @@
                     <li><a href="quienes_somos.html">Quiénes Somos</a></li>
                     <li><a href="Historia_de_ingrid.html">La Historia de Ingrid</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="ecualimpieza/galeria.html">Galería</a></li>
                     <li><a href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="Limpieza_Residencial.html#contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -917,7 +890,7 @@
                 </div>
                 <h4>¡Suscríbete a nuestro boletín!</h4>
                 <form class="subscribe-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <input type="email" placeholder="Tu correo electrónico" required="">
                     <button type="submit">Suscribirse</button>
                 </form>
             </div>
@@ -926,7 +899,7 @@
             <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> ECUALIMPIEZA. Todos los derechos reservados.</p>
+            <p>© <span id="current-year"></span> ECUALIMPIEZA. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -946,6 +919,13 @@
             const navGaleria = document.getElementById('nav-galeria');
             const navFaq = document.getElementById('nav-faq');
             const navContacto = document.getElementById('nav-contacto');
+			const residencialTituloExtra = document.getElementById('residencial-titulo-extra');
+const residencialParrafoExtra = document.getElementById('residencial-parrafo-extra');
+const residencialItem1 = document.getElementById('residencial-item-1');
+const residencialItem2 = document.getElementById('residencial-item-2');
+const residencialItem3 = document.getElementById('residencial-item-3');
+const btnContactoWhatsapp = document.getElementById('btn-contacto-whatsapp');
+
 
             const servicioResidencialTitulo = document.getElementById('servicio-residencial-titulo');
             const servicioResidencialParrafo = document.getElementById('servicio-residencial-parrafo');
@@ -979,9 +959,14 @@
                     navFaq.textContent = 'Preguntas Frecuentes';
                     navContacto.textContent = 'Contacto';
 
-                    servicioResidencialTitulo.textContent = '🏠 Limpieza Residencial';
-                    servicioResidencialParrafo.textContent = 'Casas, departamentos, apartamentos amoblados. Limpieza profunda o mantenimiento regular. Productos ecológicos y libres de tóxicos.';
-                    btnVerServicio1.textContent = 'Ver Servicio';
+
+					residencialTituloExtra.textContent = 'Limpieza Residencial';
+residencialParrafoExtra.textContent = 'Brindamos un servicio de limpieza residencial detallado y profesional, adaptado a tus necesidades y con productos seguros para toda la familia.';
+residencialItem1.textContent = '✅ Casas, departamentos, apartamentos amoblados';
+residencialItem2.textContent = '✅ Limpieza profunda o mantenimiento regular';
+residencialItem3.textContent = '✅ Productos ecológicos, libres de tóxicos';
+btnContactoWhatsapp.textContent = 'Contactar por WhatsApp';
+
 
                     servicioOficinasTitulo.textContent = '🏢 Limpieza de Oficinas';
                     servicioOficinasParrafo.textContent = 'Oficinas pequeñas y grandes corporativos. Mantenimiento diario, semanal o mensual. Manejo de documentos confidenciales.';
@@ -1009,9 +994,14 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contact';
 
-                    servicioResidencialTitulo.textContent = '🏠 Residential Cleaning';
-                    servicioResidencialParrafo.textContent = 'Houses, apartments, furnished apartments. Deep cleaning or regular maintenance. Eco-friendly and non-toxic products.';
-                    btnVerServicio1.textContent = 'View Service';
+
+					residencialTituloExtra.textContent = 'Residential Cleaning';
+residencialParrafoExtra.textContent = 'We provide detailed and professional residential cleaning service, tailored to your needs and using safe products for the whole family.';
+residencialItem1.textContent = '✅ Houses, apartments, furnished apartments';
+residencialItem2.textContent = '✅ Deep cleaning or regular maintenance';
+residencialItem3.textContent = '✅ Eco-friendly, non-toxic products';
+btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
+
 
                     servicioOficinasTitulo.textContent = '🏢 Office Cleaning';
                     servicioOficinasParrafo.textContent = 'Small offices and large corporate spaces. Daily, weekly, or monthly maintenance. Handling of confidential documents.';
@@ -1039,9 +1029,14 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contact';
 
-                    servicioResidencialTitulo.textContent = '🏠 Nettoyage Résidentiel';
-                    servicioResidencialParrafo.textContent = 'Maisons, appartements, appartements meublés. Nettoyage en profondeur ou entretien régulier. Produits écologiques et non toxiques.';
-                    btnVerServicio1.textContent = 'Voir Service';
+    residencialTituloExtra.textContent = 'Nettoyage Résidentiel';
+    residencialParrafoExtra.textContent = 'Nous offrons un service de nettoyage résidentiel détaillé et professionnel, adapté à vos besoins et utilisant des produits sûrs pour toute la famille.';
+    residencialItem1.textContent = '✅ Maisons, appartements, appartements meublés';
+    residencialItem2.textContent = '✅ Nettoyage en profondeur ou entretien régulier';
+    residencialItem3.textContent = '✅ Produits écologiques et non toxiques';
+    btnContactoWhatsapp.textContent = 'Contacter via WhatsApp';
+    break;
+
 
                     servicioOficinasTitulo.textContent = '🏢 Nettoyage de Bureaux';
                     servicioOficinasParrafo.textContent = 'Petits bureaux et grandes entreprises. Entretien quotidien, hebdomadaire ou mensuel. Gestion de documents confidentiels.';
@@ -1069,9 +1064,15 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contatto';
 
-                    servicioResidencialTitulo.textContent = '🏠 Pulizia Residenziale';
-                    servicioResidencialParrafo.textContent = 'Case, appartamenti, appartamenti arredati. Pulizia profonda o manutenzione regolare. Prodotti ecologici e non tossici.';
-                    btnVerServicio1.textContent = 'Vedi Servizio';
+
+    residencialTituloExtra.textContent = 'Pulizia Residenziale';
+    residencialParrafoExtra.textContent = 'Offriamo un servizio di pulizia residenziale dettagliato e professionale, adattato alle tue esigenze e con prodotti sicuri per tutta la famiglia.';
+    residencialItem1.textContent = '✅ Case, appartamenti, appartamenti arredati';
+    residencialItem2.textContent = '✅ Pulizia profonda o manutenzione regolare';
+    residencialItem3.textContent = '✅ Prodotti ecologici e non tossici';
+    btnContactoWhatsapp.textContent = 'Contatta via WhatsApp';
+    break;
+
 
                     servicioOficinasTitulo.textContent = '🏢 Pulizia Uffici';
                     servicioOficinasParrafo.textContent = 'Uffici piccoli e grandi aziende. Manutenzione giornaliera, settimanale o mensile. Gestione di documenti confidenziali.';
@@ -1099,9 +1100,15 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contato';
 
-                    servicioResidencialTitulo.textContent = '🏠 Limpeza Residencial';
-                    servicioResidencialParrafo.textContent = 'Casas, apartamentos, apartamentos mobiliados. Limpeza profunda ou manutenção regular. Produtos ecológicos e não tóxicos.';
-                    btnVerServicio1.textContent = 'Ver Serviço';
+
+    residencialTituloExtra.textContent = 'Limpeza Residencial';
+    residencialParrafoExtra.textContent = 'Oferecemos um serviço de limpeza residencial detalhado e profissional, adaptado às suas necessidades e com produtos seguros para toda a família.';
+    residencialItem1.textContent = '✅ Casas, apartamentos, apartamentos mobiliados';
+    residencialItem2.textContent = '✅ Limpeza profunda ou manutenção regular';
+    residencialItem3.textContent = '✅ Produtos ecológicos e não tóxicos';
+    btnContactoWhatsapp.textContent = 'Contactar pelo WhatsApp';
+    break;
+
 
                     servicioOficinasTitulo.textContent = '🏢 Limpeza de Escritórios';
                     servicioOficinasParrafo.textContent = 'Escritórios pequenos e grandes corporações. Manutenção diária, semanal ou mensal. Manuseio de documentos confidenciais.';
@@ -1129,9 +1136,14 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Kontakt';
 
-                    servicioResidencialTitulo.textContent = '🏠 Wohnungsreinigung';
-                    servicioResidencialParrafo.textContent = 'Häuser, Wohnungen, möblierte Apartments. Grundreinigung oder regelmäßige Wartung. Umweltfreundliche und ungiftige Produkte.';
-                    btnVerServicio1.textContent = 'Dienstleistung ansehen';
+case 'de':
+    residencialTituloExtra.textContent = 'Wohnungsreinigung';
+    residencialParrafoExtra.textContent = 'Wir bieten einen detaillierten und professionellen Reinigungsservice für Wohnräume, angepasst an Ihre Bedürfnisse und mit sicheren Produkten für die ganze Familie.';
+    residencialItem1.textContent = '✅ Häuser, Wohnungen, möblierte Apartments';
+    residencialItem2.textContent = '✅ Tiefenreinigung oder regelmäßige Wartung';
+    residencialItem3.textContent = '✅ Umweltfreundliche und ungiftige Produkte';
+    btnContactoWhatsapp.textContent = 'Kontakt per WhatsApp';
+    break;
 
                     servicioOficinasTitulo.textContent = '🏢 Büroreinigung';
                     servicioOficinasParrafo.textContent = 'Kleine Büros und große Unternehmen. Tägliche, wöchentliche oder monatliche Wartung. Umgang mit vertraulichen Dokumenten.';
@@ -1159,9 +1171,15 @@
                     navFaq.textContent = 'Veelgestelde Vragen';
                     navContacto.textContent = 'Contact';
 
-                    servicioResidencialTitulo.textContent = '🏠 Huishoudelijke Reiniging';
-                    servicioResidencialParrafo.textContent = 'Huizen, flats, gemeubileerde appartementen. Dieptereiniging of regelmatig onderhoud. Ecologische en niet-giftige producten.';
-                    btnVerServicio1.textContent = 'Bekijk Dienst';
+
+    residencialTituloExtra.textContent = 'Residentiële Schoonmaak';
+    residencialParrafoExtra.textContent = 'Wij bieden een gedetailleerde en professionele schoonmaakdienst voor woningen, afgestemd op jouw behoeften en met veilige producten voor het hele gezin.';
+    residencialItem1.textContent = '✅ Huizen, appartementen, gemeubileerde appartementen';
+    residencialItem2.textContent = '✅ Dieptereiniging of regelmatig onderhoud';
+    residencialItem3.textContent = '✅ Milieuvriendelijke en niet-giftige producten';
+    btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
+    break;
+
 
                     servicioOficinasTitulo.textContent = '🏢 Kantoorreiniging';
                     servicioOficinasParrafo.textContent = 'Kleine kantoren en grote bedrijven. Dagelijks, wekelijks of maandelijks onderhoud. Omgaan met vertrouwelijke documenten.';
@@ -1181,5 +1199,5 @@
             }
         }
     </script>
-</body>
-</html>
+
+<div id="extension-dpfof"></div></body></html>

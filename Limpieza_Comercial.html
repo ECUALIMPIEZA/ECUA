@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="page-title">Servicios - ECUALIMPIEZA</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="./Servicios - ECUALIMPIEZA_files/css2" rel="stylesheet">
     <style>
         /* --- Variables de Color y Tipografía (Consistentes) --- */
         :root {
@@ -21,8 +20,7 @@
             --color-footer-text: #f7f9fc; /* Texto claro para el footer */
             --color-accent-blue: #007bff; /* Azul vibrante para enlaces/botones */
             --color-input-bg: #2d3b4d; /* Background for input field in footer */
-
-
+			:root {
             --font-main: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif; /* Un tipo de letra más legible para el cuerpo del texto */
         }
@@ -141,9 +139,9 @@
             padding: 60px 20px;
             max-width: 1200px; /* Ajuste para un diseño más espacioso */
             margin: auto;
-            background-color: var(--color-white);
+            background-color: var(#25e000);
             border-radius: 18px; /* Más redondeado */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada pero suave */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 122); /* Sombra más pronunciada pero suave */
             margin-top: 60px; /* Espacio superior */
             margin-bottom: 60px; /* Espacio inferior */
             flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
@@ -176,103 +174,87 @@
 
         /* --- Estilos de las Tarjetas de Servicio (Servicio Card) --- */
         .servicio-card {
-            display: flex;
-            align-items: center;
-            gap: 40px; /* Mayor espacio entre imagen y texto */
-            background-color: var(--color-background-light); /* Fondo suave para la tarjeta */
-            border-radius: 20px; /* Más redondeado */
-            padding: 30px; /* Más padding interno */
-            margin-bottom: 40px; /* Más espacio entre tarjetas */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra más profunda y suave */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
-        }
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
 
-        .servicio-card:hover {
-            transform: translateY(-8px); /* Efecto de elevación más pronunciado */
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15); /* Sombra más intensa al pasar el mouse */
-        }
+.servicio-img {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .servicio-card:nth-child(even) { /* Invertir orden para tarjetas pares */
-            flex-direction: row-reverse;
-        }
+.servicio-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #00e038;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
-        .servicio-img {
-            flex: 0 0 200px; /* Tamaño fijo para la imagen */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.servicio-card:hover .servicio-img img {
+  transform: scale(1.05);
+}
 
-        .servicio-img img {
-            width: 352px;
-            height: 328px;
-            object-fit: cover;
-            border-radius: 19%; /* Mantener la imagen redonda */
-            border: 5px solid var(--color-secondary); /* Borde dorado alrededor de la imagen */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para la imagen */
-            transition: transform 0.3s ease;
-        }
+.servicio-info {
+  flex: 1;
+  min-width: 300px;
+}
 
-        .servicio-card:hover .servicio-img img {
-            transform: scale(1.05); /* Pequeño zoom en la imagen al pasar el mouse por la tarjeta */
-        }
+.servicio-info h2 {
+  margin: 0 0 15px;
+  color: #006400;
+  font-size: 1.8em;
+  font-weight: 700;
+}
 
-        .servicio-info {
-            flex: 1; /* Ocupa el espacio restante */
-            min-width: 300px; /* Asegura que el texto no se haga demasiado pequeño */
-        }
+.servicio-info p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #444;
+}
 
-        .servicio-info h2 {
-            font-family: var(--font-main);
-            margin: 0 0 15px;
-            color: var(--color-primary); /* Título de servicio en color primario */
-            font-size: 1.8em; /* Título de servicio más grande */
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Espacio entre ícono y texto */
-        }
+.lista-vistos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
 
-        .servicio-info h2::before {
-            content: attr(data-icon); /* Usa un atributo para el ícono */
-            font-size: 1.2em;
-            color: var(--color-secondary);
-        }
+.lista-vistos li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
 
-        /* Remover los íconos de los títulos y usar un pseudoelemento */
-        #servicio-residencial-titulo::before { content: "🏠"; }
-        #servicio-oficinas-titulo::before { content: "🏢"; }
-        #servicio-comercial-titulo::before { content: "🏪"; }
-        #servicio-institucional-titulo::before { content: "🏦"; }
+.servicio-info button {
+  background-color: #00e038;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
+.servicio-info button:hover {
+  background-color: #007f28;
+  transform: translateY(-3px);
+}
 
-        .servicio-info p {
-            font-family: var(--font-body);
-            margin: 0 0 25px; /* Más espacio debajo del párrafo */
-            line-height: 1.8; /* Mayor espacio entre líneas */
-            color: var(--color-text-light);
-            text-align: justify; /* Justifica el texto */
-        }
-
-        .servicio-info button {
-            background-color: var(--color-secondary); /* Botón en color secundario */
-            color: var(--color-white);
-            padding: 12px 28px; /* Más padding para un botón más grande */
-            border: none;
-            border-radius: 30px; /* Más redondeado */
-            font-size: 1.1em; /* Texto del botón más grande */
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
-        }
-
-        .servicio-info button:hover {
-            background-color: #c79000; /* Tono más oscuro al pasar el mouse */
-            transform: translateY(-3px); /* Pequeño levantamiento */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el mouse */
-        }
 
         /* --- Secciones Especiales (Airbnb, Diferenciador) --- */
         .airbnb, .diferenciador {
@@ -774,8 +756,28 @@
 			height: 100px;
     filter: brightness(0) invert(1);
 }
-        }
-
+      
+		main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 2rem;
+    display: flex
+;
+    gap: 2rem;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+}
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}  
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+}
     </style>
 </head>
 <body>
@@ -783,8 +785,8 @@
     <div class="idiomas">
         🌐
         <div class="banderas">
-            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
-            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma(&#39;es&#39;)">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma(&#39;nl&#39;)">
         </div>
         <select onchange="cambiarIdioma(this.value)">
             <option value="es">Español 🇪🇸</option>
@@ -815,63 +817,33 @@
     </header>
 
     <main>
-        <h1 id="main-title"> NUESTROS SERVICIOS</h1>
+<h1 id="main-title">LIMPIEZA COMERCIAL</h1>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC1.png" alt="Limpieza Residencial">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-residencial-titulo">Limpieza Residencial</h2>
-                <p id="servicio-residencial-parrafo">Casas, departamentos, apartamentos amoblados. Limpieza profunda o mantenimiento regular. Productos ecológicos y libres de tóxicos.</p>
-                <button onclick="window.location.href='Limpieza_Residencial.html'" id="btn-ver-servicio-1">Ver Servicio</button>
-            </div>
-        </div>
+<div class="servicio-card">
+  <div class="servicio-img">
+    <img src="R3.png" alt="">
+  </div>
+  <div class="servicio-info">
+    <h2 id="residencial-titulo-extra"></h2>
+    <p id="residencial-parrafo-extra">
+      Nuestro servicio de Limpieza Comercial está diseñado para una amplia gama de establecimientos, incluyendo locales comerciales, sofisticados showrooms, tiendas de lujo, así como consultorios, clínicas y centros médicos. Nos dedicamos a mantener estos espacios impecables, garantizando un ambiente profesional y acogedor para tus clientes y personal.
+    </p>
+    <ul class="lista-vistos">
+      <li id="residencial-item-1">✅ Locales comerciales.</li>
+      <li id="residencial-item-2">✅ Showrooms y tiendas de lujo.</li>
+      <li id="residencial-item-3">✅ Consultorios, clínicas y centros médicos</li>
+    </ul>
+    <button id="btn-contacto-whatsapp" onclick="window.location.href='https://wa.me/593996845893'">
+      Contactar por WhatsApp
+    </button>
+  </div>
+</div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC2.png" alt="Limpieza de Oficinas">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-oficinas-titulo"> Limpieza de Oficinas</h2>
-                <p id="servicio-oficinas-parrafo">Oficinas pequeñas y grandes corporativos. Mantenimiento diario, semanal o mensual. Manejo de documentos confidenciales.</p>
-                <button onclick="window.location.href='Limpieza _Oficinas.html'" id="btn-ver-servicio-2">Ver Servicio</button>
-            </div>
-        </div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC3.png" alt="Limpieza Comercial">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-comercial-titulo"> Limpieza Comercial</h2>
-                <p id="servicio-comercial-parrafo">Locales comerciales, showrooms y tiendas de lujo. Consultorios, clínicas y centros médicos.</p>
-                <button onclick="window.location.href='Limpieza_Comercial.html'" id="btn-ver-servicio-3">Ver Servicio</button>
-            </div>
-        </div>
 
-        <div class="servicio-card">
-            <div class="servicio-img">
-                <img src="EC4.png" alt="Limpieza Institucional">
-            </div>
-            <div class="servicio-info">
-                <h2 id="servicio-institucional-titulo"> Limpieza Institucional</h2>
-                <p id="servicio-institucional-parrafo">Instituciones bancarias, clínicas, hospitales y centros educativos.</p>
-                <button onclick="window.location.href='Limpieza_Institucional.html'" id="btn-ver-servicio-4">Ver Servicio</button>
-            </div>
-        </div>
-
-        <div class="airbnb" id="airbnb-text">
-            <strong>AIRBNB:</strong> es una página donde se encuentran propiedades de lujo. Realizamos contratos a través de esta plataforma.
-        </div>
-
-        <div class="diferenciador" id="diferenciador-text">
-            💡 Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos amigables con el medio ambiente.
-        </div>
     </main>
-    <a href="https://wa.me/0996845893" target="_blank" class="whatsapp-float">
-        <img src="whatsapp.png" alt="WhatsApp">
-    </a>
+
+    
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -881,7 +853,7 @@
                     <li><a href="quienes_somos.html">Quiénes Somos</a></li>
                     <li><a href="Historia_de_ingrid.html">La Historia de Ingrid</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="ecualimpieza/galeria.html">Galería</a></li>
                     <li><a href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -917,7 +889,7 @@
                 </div>
                 <h4>¡Suscríbete a nuestro boletín!</h4>
                 <form class="subscribe-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <input type="email" placeholder="Tu correo electrónico" required="">
                     <button type="submit">Suscribirse</button>
                 </form>
             </div>
@@ -926,7 +898,7 @@
             <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> ECUALIMPIEZA. Todos los derechos reservados.</p>
+            <p>© <span id="current-year"></span> ECUALIMPIEZA. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -946,6 +918,13 @@
             const navGaleria = document.getElementById('nav-galeria');
             const navFaq = document.getElementById('nav-faq');
             const navContacto = document.getElementById('nav-contacto');
+			const residencialTituloExtra = document.getElementById('residencial-titulo-extra');
+const residencialParrafoExtra = document.getElementById('residencial-parrafo-extra');
+const residencialItem1 = document.getElementById('residencial-item-1');
+const residencialItem2 = document.getElementById('residencial-item-2');
+const residencialItem3 = document.getElementById('residencial-item-3');
+const btnContactoWhatsapp = document.getElementById('btn-contacto-whatsapp');
+
 
             const servicioResidencialTitulo = document.getElementById('servicio-residencial-titulo');
             const servicioResidencialParrafo = document.getElementById('servicio-residencial-parrafo');
@@ -979,28 +958,18 @@
                     navFaq.textContent = 'Preguntas Frecuentes';
                     navContacto.textContent = 'Contacto';
 
-                    servicioResidencialTitulo.textContent = '🏠 Limpieza Residencial';
-                    servicioResidencialParrafo.textContent = 'Casas, departamentos, apartamentos amoblados. Limpieza profunda o mantenimiento regular. Productos ecológicos y libres de tóxicos.';
-                    btnVerServicio1.textContent = 'Ver Servicio';
 
-                    servicioOficinasTitulo.textContent = '🏢 Limpieza de Oficinas';
-                    servicioOficinasParrafo.textContent = 'Oficinas pequeñas y grandes corporativos. Mantenimiento diario, semanal o mensual. Manejo de documentos confidenciales.';
-                    btnVerServicio2.textContent = 'Ver Servicio';
-
-                    servicioComercialTitulo.textContent = '🏪 Limpieza Comercial';
-                    servicioComercialParrafo.textContent = 'Locales comerciales, showrooms y tiendas de lujo. Consultorios, clínicas y centros médicos.';
-                    btnVerServicio3.textContent = 'Ver Servicio';
-
-                    servicioInstitucionalTitulo.textContent = '🏦 Limpieza Institucional';
-                    servicioInstitucionalParrafo.textContent = 'Instituciones bancarias, clínicas, hospitales y centros educativos.';
-                    btnVerServicio4.textContent = 'Ver Servicio';
-
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> es una página donde se encuentran propiedades de lujo. Realizamos contratos a través de esta plataforma.';
-                    diferenciadorText.innerHTML = '💡 Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos amigables con el medio ambiente.';
+					residencialTituloExtra.textContent = 'Limpieza Comercial';
+residencialParrafoExtra.textContent = 'Nuestro servicio de Limpieza Comercial está diseñado para una amplia gama de establecimientos, incluyendo locales comerciales, sofisticados showrooms, tiendas de lujo, así como consultorios, clínicas y centros médicos. Nos dedicamos a mantener estos espacios impecables, garantizando un ambiente profesional y acogedor para tus clientes y personal.';
+residencialItem1.textContent = '✅  Locales comerciales.';
+residencialItem2.textContent = '✅ Showrooms y tiendas de lujo.';
+residencialItem3.textContent = '✅ Consultorios, clínicas y centros médicos.';
+btnContactoWhatsapp.textContent = 'Contactar por WhatsApp';
+          
                     break;
                 case 'en':
                     pageTitle.textContent = 'Services - ECUALIMPIEZA';
-                    mainTitle.textContent = 'OUR SERVICES';
+                    mainTitle.textContent = 'Commercial Cleaning';
                     navInicio.textContent = 'Home';
                     navQuienesSomos.textContent = 'About Us';
                     navHistoriaIngrid.textContent = 'Ingrid\'s Story';
@@ -1008,29 +977,23 @@
                     navGaleria.textContent = 'Gallery';
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contact';
+					
 
-                    servicioResidencialTitulo.textContent = '🏠 Residential Cleaning';
-                    servicioResidencialParrafo.textContent = 'Houses, apartments, furnished apartments. Deep cleaning or regular maintenance. Eco-friendly and non-toxic products.';
-                    btnVerServicio1.textContent = 'View Service';
 
-                    servicioOficinasTitulo.textContent = '🏢 Office Cleaning';
-                    servicioOficinasParrafo.textContent = 'Small offices and large corporate spaces. Daily, weekly, or monthly maintenance. Handling of confidential documents.';
-                    btnVerServicio2.textContent = 'View Service';
 
-                    servicioComercialTitulo.textContent = '🏪 Commercial Cleaning';
-                    servicioComercialParrafo.textContent = 'Commercial premises, showrooms, and luxury stores. Consulting rooms, clinics, and medical centers.';
-                    btnVerServicio3.textContent = 'View Service';
+residencialParrafoExtra.textContent = 'Our Commercial Cleaning service is designed for a wide range of establishments, including commercial premises, sophisticated showrooms, luxury stores, as well as consulting rooms, clinics, and medical centers. We are dedicated to keeping these spaces spotless, ensuring a professional and welcoming environment for your clients and staff.';
+residencialItem1.textContent = '✅ Commercial premises.';
+residencialItem2.textContent = '✅ Showrooms and luxury stores.';
+residencialItem3.textContent = '✅ Consulting rooms, clinics, and medical centers.';
+btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Institutional Cleaning';
-                    servicioInstitucionalParrafo.textContent = 'Banking institutions, clinics, hospitals, and educational centers.';
-                    btnVerServicio4.textContent = 'View Service';
 
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> is a platform for luxury properties. We make contracts through this platform.';
-                    diferenciadorText.innerHTML = '💡 All our services include staff trained by Ingrid, modern equipment, and environmentally friendly products.';
+
+                  
                     break;
                 case 'fr':
                     pageTitle.textContent = 'Services - ECUALIMPIEZA';
-                    mainTitle.textContent = 'NOS SERVICES';
+                    mainTitle.textContent = 'Nettoyage Commercial';
                     navInicio.textContent = 'Accueil';
                     navQuienesSomos.textContent = 'À Propos';
                     navHistoriaIngrid.textContent = 'L\'Histoire d\'Ingrid';
@@ -1038,29 +1001,21 @@
                     navGaleria.textContent = 'Galerie';
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contact';
+residencialTituloExtra.textContent = '';
+residencialParrafoExtra.textContent = 'Notre service de nettoyage commercial est conçu pour une large gamme d’établissements, y compris les locaux commerciaux, les showrooms sophistiqués, les boutiques de luxe, ainsi que les cabinets, cliniques et centres médicaux. Nous nous consacrons à garder ces espaces impeccables, garantissant un environnement professionnel et accueillant pour vos clients et votre personnel.';
+residencialItem1.textContent = '✅ Locaux commerciaux.';
+residencialItem2.textContent = '✅ Showrooms et boutiques de luxe.';
+residencialItem3.textContent = '✅ Cabinets, cliniques et centres médicaux.';
+btnContactoWhatsapp.textContent = 'Contacter via WhatsApp';
 
-                    servicioResidencialTitulo.textContent = '🏠 Nettoyage Résidentiel';
-                    servicioResidencialParrafo.textContent = 'Maisons, appartements, appartements meublés. Nettoyage en profondeur ou entretien régulier. Produits écologiques et non toxiques.';
-                    btnVerServicio1.textContent = 'Voir Service';
 
-                    servicioOficinasTitulo.textContent = '🏢 Nettoyage de Bureaux';
-                    servicioOficinasParrafo.textContent = 'Petits bureaux et grandes entreprises. Entretien quotidien, hebdomadaire ou mensuel. Gestion de documents confidentiels.';
-                    btnVerServicio2.textContent = 'Voir Service';
 
-                    servicioComercialTitulo.textContent = '🏪 Nettoyage Commercial';
-                    servicioComercialParrafo.textContent = 'Locaux commerciaux, showrooms et magasins de luxe. Cabinets de consultation, cliniques et centres médicaux.';
-                    btnVerServicio3.textContent = 'Voir Service';
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Nettoyage Institutionnel';
-                    servicioInstitucionalParrafo.textContent = 'Institutions bancaires, cliniques, hôpitaux et centres éducatifs.';
-                    btnVerServicio4.textContent = 'Voir Service';
-
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> est une plateforme de propriétés de luxe. Nous faisons des contrats via cette plateforme.';
-                    diferenciadorText.innerHTML = '💡 Tous nos services incluent du personnel formé par Ingrid, des équipements modernes et des produits respectueux de l\'environnement.';
-                    break;
+    break;
+                   
                 case 'it':
                     pageTitle.textContent = 'Servizi - ECUALIMPIEZA';
-                    mainTitle.textContent = 'I NOSTRI SERVIZI';
+                    mainTitle.textContent = 'Pulizia Commerciale';
                     navInicio.textContent = 'Inizio';
                     navQuienesSomos.textContent = 'Chi Siamo';
                     navHistoriaIngrid.textContent = 'La Storia di Ingrid';
@@ -1069,28 +1024,25 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contatto';
 
-                    servicioResidencialTitulo.textContent = '🏠 Pulizia Residenziale';
-                    servicioResidencialParrafo.textContent = 'Case, appartamenti, appartamenti arredati. Pulizia profonda o manutenzione regolare. Prodotti ecologici e non tossici.';
-                    btnVerServicio1.textContent = 'Vedi Servizio';
 
-                    servicioOficinasTitulo.textContent = '🏢 Pulizia Uffici';
-                    servicioOficinasParrafo.textContent = 'Uffici piccoli e grandi aziende. Manutenzione giornaliera, settimanale o mensile. Gestione di documenti confidenziali.';
-                    btnVerServicio2.textContent = 'Vedi Servizio';
 
-                    servicioComercialTitulo.textContent = '🏪 Pulizia Commerciale';
-                    servicioComercialParrafo.textContent = 'Locali commerciali, showroom e negozi di lusso. Studi, cliniche e centri medici.';
-                    btnVerServicio3.textContent = 'Vedi Servizio';
+residencialParrafoExtra.textContent = 'Il nostro servizio di pulizia commerciale è progettato per una vasta gamma di strutture, tra cui locali commerciali, showroom sofisticati, negozi di lusso, nonché studi medici, cliniche e centri sanitari. Ci dedichiamo a mantenere questi spazi impeccabili, garantendo un ambiente professionale e accogliente per i tuoi clienti e il tuo personale.';
+residencialItem1.textContent = '✅ Locali commerciali.';
+residencialItem2.textContent = '✅ Showroom e negozi di lusso.';
+residencialItem3.textContent = '✅ Studi medici, cliniche e centri sanitari.';
+btnContactoWhatsapp.textContent = 'Contatta via WhatsApp';
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Pulizia Istituzionale';
-                    servicioInstitucionalParrafo.textContent = 'Istituzioni bancarie, cliniche, ospedali e centri educativi.';
-                    btnVerServicio4.textContent = 'Vedi Servizio';
+    break;
 
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> è una piattaforma per proprietà di lusso. Stipuliamo contratti tramite questa piattaforma.';
-                    diferenciadorText.innerHTML = '💡 Tutti i nostri servizi includono personale formato da Ingrid, attrezzature moderne e prodotti ecocompatibili.';
+
+    break;
+
+
+
                     break;
                 case 'pt':
                     pageTitle.textContent = 'Serviços - ECUALIMPIEZA';
-                    mainTitle.textContent = 'NOSSOS SERVIÇOS';
+                    mainTitle.textContent = 'Limpeza Comercial';
                     navInicio.textContent = 'Início';
                     navQuienesSomos.textContent = 'Quem Somos';
                     navHistoriaIngrid.textContent = 'A História de Ingrid';
@@ -1099,28 +1051,23 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Contato';
 
-                    servicioResidencialTitulo.textContent = '🏠 Limpeza Residencial';
-                    servicioResidencialParrafo.textContent = 'Casas, apartamentos, apartamentos mobiliados. Limpeza profunda ou manutenção regular. Produtos ecológicos e não tóxicos.';
-                    btnVerServicio1.textContent = 'Ver Serviço';
 
-                    servicioOficinasTitulo.textContent = '🏢 Limpeza de Escritórios';
-                    servicioOficinasParrafo.textContent = 'Escritórios pequenos e grandes corporações. Manutenção diária, semanal ou mensal. Manuseio de documentos confidenciais.';
-                    btnVerServicio2.textContent = 'Ver Serviço';
 
-                    servicioComercialTitulo.textContent = '🏪 Limpeza Comercial';
-                    servicioComercialParrafo.textContent = 'Locais comerciais, showrooms e lojas de luxo. Consultórios, clínicas e centros médicos.';
-                    btnVerServicio3.textContent = 'Ver Serviço';
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Limpeza Institucional';
-                    servicioInstitucionalParrafo.textContent = 'Instituições bancárias, clínicas, hospitais e centros educacionais.';
-                    btnVerServicio4.textContent = 'Ver Serviço';
+residencialParrafoExtra.textContent = 'Nosso serviço de limpeza comercial é projetado para uma ampla gama de estabelecimentos, incluindo locais comerciais, showrooms sofisticados, lojas de luxo, bem como consultórios, clínicas e centros médicos. Nos dedicamos a manter esses espaços impecáveis, garantindo um ambiente profissional e acolhedor para seus clientes e equipe.';
+residencialItem1.textContent = '✅ Estabelecimentos comerciais.';
+residencialItem2.textContent = '✅ Showrooms e lojas de luxo.';
+residencialItem3.textContent = '✅ Consultórios, clínicas e centros médicos.';
+btnContactoWhatsapp.textContent = 'Contactar via WhatsApp';
 
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> é uma plataforma para propriedades de luxo. Fazemos contratos através desta plataforma.';
-                    diferenciadorText.innerHTML = '💡 Todos os nossos serviços incluem pessoal treinado por Ingrid, equipamentos modernos e produtos ecologicamente corretos.';
-                    break;
-                case 'de':
+    break;
+
+    break;
+
+
+                    case 'de':
                     pageTitle.textContent = 'Dienstleistungen - ECUALIMPIEZA';
-                    mainTitle.textContent = 'UNSERE DIENSTLEISTUNGEN';
+                    mainTitle.textContent = 'Gewerbliche Reinigung';
                     navInicio.textContent = 'Startseite';
                     navQuienesSomos.textContent = 'Über Uns';
                     navHistoriaIngrid.textContent = 'Ingrids Geschichte';
@@ -1129,28 +1076,22 @@
                     navFaq.textContent = 'FAQ';
                     navContacto.textContent = 'Kontakt';
 
-                    servicioResidencialTitulo.textContent = '🏠 Wohnungsreinigung';
-                    servicioResidencialParrafo.textContent = 'Häuser, Wohnungen, möblierte Apartments. Grundreinigung oder regelmäßige Wartung. Umweltfreundliche und ungiftige Produkte.';
-                    btnVerServicio1.textContent = 'Dienstleistung ansehen';
 
-                    servicioOficinasTitulo.textContent = '🏢 Büroreinigung';
-                    servicioOficinasParrafo.textContent = 'Kleine Büros und große Unternehmen. Tägliche, wöchentliche oder monatliche Wartung. Umgang mit vertraulichen Dokumenten.';
-                    btnVerServicio2.textContent = 'Dienstleistung ansehen';
+residencialParrafoExtra.textContent = 'Unser gewerblicher Reinigungsservice ist für eine Vielzahl von Einrichtungen konzipiert, darunter Geschäftsräume, anspruchsvolle Showrooms, Luxusgeschäfte sowie Arztpraxen, Kliniken und medizinische Zentren. Wir widmen uns der makellosen Pflege dieser Räume und sorgen für eine professionelle und einladende Atmosphäre für Ihre Kunden und Ihr Personal.';
+residencialItem1.textContent = '✅ Geschäftsräume.';
+residencialItem2.textContent = '✅ Showrooms und Luxusgeschäfte.';
+residencialItem3.textContent = '✅ Arztpraxen, Kliniken und medizinische Zentren.';
+btnContactoWhatsapp.textContent = 'Kontakt per WhatsApp';
 
-                    servicioComercialTitulo.textContent = '🏪 Gewerbereinigung';
-                    servicioComercialParrafo.textContent = 'Gewerberäume, Ausstellungsräume und Luxusgeschäfte. Arztpraxen, Kliniken und medizinische Zentren.';
-                    btnVerServicio3.textContent = 'Dienstleistung ansehen';
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Institutionelle Reinigung';
-                    servicioInstitucionalParrafo.textContent = 'Bankinstitute, Kliniken, Krankenhäuser und Bildungseinrichtungen.';
-                    btnVerServicio4.textContent = 'Dienstleistung ansehen';
+    break;
 
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> ist eine Plattform für Luxusimmobilien. Wir schließen Verträge über diese Plattform ab.';
-                    diferenciadorText.innerHTML = '💡 Alle unsere Dienstleistungen umfassen von Ingrid geschultes Personal, moderne Ausrüstung und umweltfreundliche Produkte.';
+
+                   
                     break;
                 case 'nl':
                     pageTitle.textContent = 'Diensten - ECUALIMPIEZA';
-                    mainTitle.textContent = 'ONZE DIENSTEN';
+                    mainTitle.textContent = 'Commerciële Schoonmaak';
                     navInicio.textContent = 'Startpagina';
                     navQuienesSomos.textContent = 'Over Ons';
                     navHistoriaIngrid.textContent = 'Ingrids Verhaal';
@@ -1159,27 +1100,23 @@
                     navFaq.textContent = 'Veelgestelde Vragen';
                     navContacto.textContent = 'Contact';
 
-                    servicioResidencialTitulo.textContent = '🏠 Huishoudelijke Reiniging';
-                    servicioResidencialParrafo.textContent = 'Huizen, flats, gemeubileerde appartementen. Dieptereiniging of regelmatig onderhoud. Ecologische en niet-giftige producten.';
-                    btnVerServicio1.textContent = 'Bekijk Dienst';
+residencialParrafoExtra.textContent = 'Onze commerciële schoonmaakdienst is ontworpen voor een breed scala aan etablissementen, waaronder winkelruimtes, verfijnde showrooms, luxewinkels, evenals spreekkamers, klinieken en medische centra. Wij zorgen ervoor dat deze ruimtes vlekkeloos zijn, wat een professionele en gastvrije omgeving garandeert voor uw klanten en personeel.';
+residencialItem1.textContent = '✅ Winkelruimtes.';
+residencialItem2.textContent = '✅ Showrooms en luxewinkels.';
+residencialItem3.textContent = '✅ Spreekkamers, klinieken en medische centra.';
+btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
 
-                    servicioOficinasTitulo.textContent = '🏢 Kantoorreiniging';
-                    servicioOficinasParrafo.textContent = 'Kleine kantoren en grote bedrijven. Dagelijks, wekelijks of maandelijks onderhoud. Omgaan met vertrouwelijke documenten.';
-                    btnVerServicio2.textContent = 'Bekijk Dienst';
 
-                    servicioComercialTitulo.textContent = '🏪 Commerciële Reiniging';
-                    servicioComercialParrafo.textContent = 'Bedrijfspanden, showrooms en luxe winkels. Praktijken, klinieken en medische centra.';
-                    btnVerServicio3.textContent = 'Bekijk Dienst';
+    break;
 
-                    servicioInstitucionalTitulo.textContent = '🏦 Institutionele Reiniging';
-                    servicioInstitucionalParrafo.textContent = 'Bankinstellingen, klinieken, ziekenhuizen en onderwijsinstellingen.';
-                    btnVerServicio4.textContent = 'Bekijk Dienst';
 
-                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> is een platform voor luxueuze eigendommen. Wij sluiten contracten af via dit platform.';
-                    diferenciadorText.innerHTML = '💡 Al onze diensten omvatten door Ingrid opgeleid personeel, moderne apparatuur en milieuvriendelijke producten.';
+    break;
+
+
+                  
                     break;
             }
         }
     </script>
-</body>
-</html>
+
+<div id="extension-dpfof"></div></body></html>
