@@ -435,6 +435,19 @@
                 bottom: 15px;
                 left: 15px;
             }
+			      
+			.newsletter-form button {
+            background-color: #ffaf16; /* Botón azul */
+            color: var(--color-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 19%;
+        }
         }
     </style>
 </head>
@@ -473,7 +486,7 @@
                 <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
                 <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
                 <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
-                <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                <li><a href="Contactos.html" id="nav-contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -519,7 +532,7 @@
                     <li><a href="servicios.html" id="footer-link-servicios">Servicios</a></li>
                     <li><a href="galeria.html" id="footer-link-galeria">Galería</a></li>
                     <li><a href="preguntas_frecuentes.html" id="footer-link-faq">Preguntas Frecuentes</a></li>
-                    <li><a href="#contacto" id="footer-link-contacto">Contacto</a></li>
+                    <li><a href="Contactos.html" id="footer-link-contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -527,7 +540,7 @@
                 <div class="contact-info">
                     <p><img src="phone-icon.png" alt="Teléfono"><span id="footer-phone-number">+593996845893</span></p>
                     <p><img src="email-icon.png" alt="Email"><span id="footer-email-address">ecualimpieza2021@gmail.com</span></p>
-                    <p><img src="location-icon.png" alt="Ubicación"><span id="footer-address">Guayaquil - Ecuador</span></p>
+                    <p><img src="location-icon.png" alt="Ubicación"><span id="footer-address">Paises bajos - Holanda</span></p>
                     <p><img src="clock-icon.png" alt="Horario"><span id="footer-hours-weekday">Lunes - Viernes: 8:30 am hasta 5:30 pm</span></p>
                     <p><img src="clock-icon.png" alt="Horario"><span id="footer-hours-weekend">Sábado - Domingo: Cerrado</span></p>
                 </div>
@@ -535,26 +548,22 @@
             <div class="footer-section">
                 <h3 id="footer-follow-us-title">SÍGUENOS EN:</h3>
                 <div class="social-icons">
-                    <a href="https://facebook.com/ecualimpieza" target="_blank" aria-label="Facebook">
-                        <img src="facebook.png" alt="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61576975726777" target="_blank" aria-label="Facebook">
+                        <img src="facebook.png" alt="Facebook Icon">
                     </a>
-                    <a href="https://twitter.com/ecualimpieza" target="_blank" aria-label="Twitter">
-                        <img src="twitter.png" alt="X (Twitter)">
+                    <a href="https://www.instagram.com/ecualimpieza2021ecl/" target="_blank" aria-label="Instagram">
+                        <img src="instagram.png" alt="Instagram Icon">
                     </a>
-                    <a href="https://instagram.com/ecualimpieza" target="_blank" aria-label="Instagram">
-                        <img src="instagram.png" alt="Instagram">
-                    </a>
-                    <a href="https://linkedin.com/company/ecualimpieza" target="_blank" aria-label="LinkedIn">
-                        <img src="linkedin.png" alt="LinkedIn">
-                    </a>
+                    <a href="https://www.tiktok.com/@ecualimpieza" target="_blank" aria-label="LinkedIn">
+                        <img src="tiktok.png" alt="tiktok Icon">
+					</a>	
                     <a href="https://wa.me/593996845893" target="_blank" aria-label="WhatsApp">
                         <img src="whatsapp.png" alt="WhatsApp">
                     </a>
                 </div>
-                <h4 id="footer-subscribe-title">¡Suscríbete a nuestro boletín!</h4>
-                <form class="subscribe-form">
-                    <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required>
-                    <button type="submit" id="newsletter-button">Suscribirse</button>
+    <h3 style="margin-top: 30px;">ENVIANOS UN CORREO</h3>
+    <form class="newsletter-form" onsubmit="window.location.href='Contactos.html'; return false;">
+        <button type="submit">ir</button>
                 </form>
             </div>
         </div>
@@ -562,7 +571,7 @@
             <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="footer-copyright-year"></span> <span id="footer-copyright-text">ECUALIMPIEZA. Todos los derechos reservados.</span></p>
+            <p>&copy; <span id="footer-copyright-year"></span> <span id="footer-copyright-text">2025 Sitio web desarrollado por ARpcsoluciones.</span></p>
         </div>
     </footer>
 
@@ -601,7 +610,7 @@
                 footerContactTitle: "CONTÁCTANOS",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Ecuador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Lunes - Viernes: 8:30 am hasta 5:30 pm",
                 footerHoursWeekend: "Sábado - Domingo: Cerrado",
                 footerFollowUsTitle: "SÍGUENOS EN:",
@@ -643,7 +652,7 @@
                 footerContactTitle: "CONTACT US",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Ecuador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Monday - Friday: 8:30 am to 5:30 pm",
                 footerHoursWeekend: "Saturday - Sunday: Closed",
                 footerFollowUsTitle: "FOLLOW US ON:",
@@ -686,7 +695,7 @@
                 footerContactTitle: "CONTACTEER ONS",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Ecuador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Maandag - Vrijdag: 8:30 tot 17:30",
                 footerHoursWeekend: "Zaterdag - Zondag: Gesloten",
                 footerFollowUsTitle: "VOLG ONS OP:",
@@ -728,7 +737,7 @@
                 footerContactTitle: "CONTACTEZ-NOUS",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Équateur",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Lundi - Vendredi : 8h30 à 17h30",
                 footerHoursWeekend: "Samedi - Dimanche : Fermé",
                 footerFollowUsTitle: "SUIVEZ-NOUS SUR :",
@@ -770,7 +779,7 @@
                 footerContactTitle: "CONTATTACI",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Ecuador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Lunedì - Venerdì: 8:30 - 17:30",
                 footerHoursWeekend: "Sabato - Domenica: Chiuso",
                 footerFollowUsTitle: "SEGUICI SU:",
@@ -812,7 +821,7 @@
                 footerContactTitle: "CONTACTE-NOS",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Equador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Segunda - Sexta: 8:30 às 17:30",
                 footerHoursWeekend: "Sábado - Domingo: Fechado",
                 footerFollowUsTitle: "SIGA-NOS EM:",
@@ -854,7 +863,7 @@
                 footerContactTitle: "KONTAKTIEREN SIE UNS",
                 footerPhoneNumber: "+593996845893",
                 footerEmailAddress: "ecualimpieza2021@gmail.com",
-                footerAddress: "Guayaquil - Ecuador",
+                footerAddress: "Paises bajos - Holanda",
                 footerHoursWeekday: "Montag - Freitag: 8:30 bis 17:30 Uhr",
                 footerHoursWeekend: "Samstag - Sonntag: Geschlossen",
                 footerFollowUsTitle: "FOLGEN SIE UNS AUF:",
