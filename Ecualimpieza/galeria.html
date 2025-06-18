@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="page-title">Galería - ECUALIMPIEZA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Variables CSS para colores */
+        :root {
+            --color-primary: #0d1b2a; /* Azul oscuro casi negro */
+            --color-secondary: #e0a800; /* Naranja/Dorado */
+            --color-background: #f7f9fc; /* Fondo muy claro */
+            --color-text: #333; /* Gris oscuro para texto */
+            --color-white: #fff; /* Blanco puro */
+            --color-dark-blue-footer: #0a1118; /* Azul muy oscuro para el fondo del footer */
+            --color-footer-text: #b0c4de; /* Azul claro/grisáceo para texto en footer */
+            --color-input-bg: #1c2e3f; /* Fondo de input en footer */
+            --color-button-bg: #007BFF; /* Fondo de botón de suscripción */
+            --color-button-hover: #0056b3; /* Fondo de botón de suscripción hover */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Usando Montserrat */
+            background: linear-gradient(to right, #e9ecef, #f8f9fa); /* Degradado de fondo */
+            color: var(--color-text);
+        }
+
+        header {
+            background-color: var(--color-white); /* Fondo blanco */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px; /* Padding más generoso */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 145px; /* Altura del logo más grande como en tu ejemplo */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px; /* Espaciado entre elementos de navegación */
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+            justify-content: center; /* Centra los elementos cuando se envuelven */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-primary); /* Color de texto primario */
+            font-weight: 600; /* Peso de fuente semi-bold */
+            transition: color 0.3s, border-bottom 0.3s; /* Transición para color y borde */
+            padding-bottom: 5px; /* Pequeño padding para el efecto de borde */
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-secondary); /* Color secundario al pasar el ratón */
+            border-bottom: 2px solid var(--color-secondary); /* Borde inferior al pasar el ratón */
+        }
+
+        .idiomas {
+            position: fixed;
+            top: 15px; /* Posición ajustada */
+            right: 20px; /* Posición ajustada */
+            background: var(--color-white); /* Fondo blanco */
+            border-radius: 10px; /* Bordes más redondeados */
+            padding: 6px 12px; /* Padding ajustado */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Sombra más definida */
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Espaciado entre elementos */
+        }
+
+        .idiomas select {
+            font-family: 'Montserrat', sans-serif; /* Usando Montserrat */
+            font-size: 14px;
+            padding: 4px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            outline: none; /* Elimina el contorno al hacer clic */
+        }
+
+        .idiomas .banderas img {
+            height: 22px; /* Altura de banderas ajustada */
+            cursor: pointer;
+            margin-left: 5px;
+            transition: transform 0.2s; /* Transición para el efecto hover */
+        }
+
+        .idiomas .banderas img:hover {
+            transform: scale(1.1); /* Efecto de escala al pasar el ratón */
+        }
+
+        main {
+            max-width: 1100px; /* Ancho máximo del contenido principal */
+            margin: 60px auto; /* Centrado y margen superior/inferior */
+            background: var(--color-white); /* Fondo blanco para el área de contenido */
+            padding: 40px; /* Padding uniforme */
+            border-radius: 15px; /* Bordes redondeados */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05); /* Sombra suave */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em; /* Tamaño de fuente mayor */
+            color: var(--color-primary); /* Color de título primario */
+            font-weight: 700; /* Peso de fuente negrita */
+            margin-bottom: 35px; /* Margen inferior ajustado */
+        }
+
+        /* --- Estilos para el Carrusel de Galería --- */
+        .carousel-container {
+            position: relative;
+            max-width: 900px;  
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background-color: #f0f0f0;
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: calc(100% * 7); /* Para 7 imágenes, ajusta dinámicamente si el número cambia */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-item img {
+            width: 16%; /* La imagen debe ocupar el 100% del item */
+            height: 550px;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+            cursor: pointer;  
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 123, 255, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 1.8em;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 15px;
+        }
+
+        .carousel-button.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #007BFF;
+        }
+
+        /* --- Footer Styles (Customized as per image_c56047.png and your new HTML) --- */
+        footer {
+            background-color: var(--color-dark-blue-footer); /* Fondo muy oscuro */
+            color: var(--color-footer-text); /* Texto más claro */
+            padding: 60px 20px 20px; /* Más padding arriba */
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2); /* Sombra superior más pronunciada */
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Espacio entre las columnas */
+            text-align: left; /* Alinea el texto a la izquierda dentro de las columnas */
+            gap: 40px; /* Espacio entre las columnas */
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+        }
+
+        .footer-section {
+            flex: 1; /* Permite que las columnas crezcan y se encojan */
+            min-width: 280px; /* Ancho mínimo para cada columna antes de envolver */
+        }
+
+        .footer-section h3 {
+            color: var(--color-secondary); /* Títulos en naranja/dorado */
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px; /* Espacio para el subrayado */
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px; /* Subrayado corto */
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .footer-section ul li a {
+            color: var(--color-footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Specific styles for contact info in footer using images */
+        .contact-info p {
+            margin-bottom: 12px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info p img {
+            margin-right: 10px;
+            height: 18px; /* Adjust icon size as needed */
+            width: 18px; /* Adjust icon size as needed */
+            filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(100%) contrast(100%); /* To make icons gold/orange */
+        }
+
+        /* Social Icons in footer using images */
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: flex-start; /* Alinea a la izquierda con el texto */
+            gap: 15px; /* Espacio entre iconos */
+        }
+
+        .social-icons a {
+            display: inline-flex; /* For centering the image */
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2e4359; /* Fondo oscuro para los iconos */
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a img {
+            width: 24px; /* Ensure image within the circle is sized */
+            height: 24px;
+            filter: invert(100%); /* Make social icons white */
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-secondary); /* Color secundario al pasar el ratón */
+            transform: translateY(-3px); /* Pequeño efecto de elevación */
+        }
+
+        .footer-section h4 {
+            color: var(--color-footer-text); /* Color para el título del boletín */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        /* Newsletter form */
+        .subscribe-form input[type="email"] {
+            width: calc(100% - 20px); /* Ancho completo menos padding */
+            padding: 12px 10px;
+            margin-bottom: 15px;
+            background-color: var(--color-input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--color-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+        }
+
+        .subscribe-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .subscribe-form button {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--color-button-bg);
+            color: var(--color-white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .subscribe-form button:hover {
+            background-color: var(--color-button-hover);
+        }
+
+        /* Footer bottom logo and copyright */
+        .footer-logo-bottom {
+            margin-top: 40px; /* Space from the main footer content */
+            text-align: center;
+        }
+
+        .footer-logo-bottom img {
+            height: 80px; /* Size of the footer logo */
+            filter: brightness(0) invert(1); /* To make the logo white if it's black */
+        }
+
+        .footer-bottom {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--color-footer-text);
+        }
+
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: transparent; /* Assuming the image itself has the green color */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%; /* Ensure the image is circular */
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 900px) {
+            nav ul {
+                gap: 15px;
+            }
+            .carousel-item img {
+                height: 450px;  
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px 20px;
+                gap: 10px;
+            }
+
+            .logo img {
+                height: 100px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 0.9em;
+                padding: 5px 8px;
+            }
+
+            .idiomas {
+                position: static;
+                box-shadow: none;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+
+            .idiomas select {
+                font-size: 0.9em;
+            }
+
+            main {
+                padding: 20px 15px;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .carousel-item img {
+                height: 350px;  
+            }
+
+            .carousel-button {
+                padding: 8px 12px;
+                font-size: 1.5em;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .footer-section {
+                min-width: 90%; /* Ocupa casi todo el ancho disponible */
+                text-align: center; /* Centra el texto de las columnas en móvil */
+            }
+
+            .footer-section h3::after {
+                left: 50%; /* Centra el subrayado del título */
+                transform: translateX(-50%);
+            }
+
+            .social-icons {
+                justify-content: center; /* Centra los iconos sociales en móvil */
+            }
+
+            .contact-info p {
+                justify-content: center; /* Centra los elementos de lista con iconos */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            .logo img {
+                height: 80px;
+            }
+            nav ul {
+                gap: 8px;
+            }
+            nav ul li a {
+                font-size: 0.75em;
+                padding: 3px;
+            }
+            .idiomas {
+                padding: 2px 5px;
+            }
+            .idiomas select {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .carousel-item img {
+                height: 250px;  
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+			    .newsletter-form button {
+            background-color: #ffaf16; /* Botón azul */
+            color: var(--color-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 19%;
+                }
+
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/593996845893" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <div class="idiomas">
+        🌐
+        <div class="banderas">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+        </div>
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español 🇪🇸</option>
+            <option value="en">Inglés 🇬🇧</option>
+            <option value="fr">Francés 🇫🇷</option>
+            <option value="it">Italiano 🇮🇹</option>
+            <option value="pt">Portugués 🇵🇹</option>
+            <option value="de">Alemán 🇩🇪</option>
+            <option value="nl">Holandés 🇳🇱</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+                <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+                <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+                <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+                <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+                <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+                <li><a href="Contactos.html" id="nav-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="main-title">NUESTRA GALERÍA DE TRABAJO</h1>
+
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="carousel-item">
+                    <img src="g1.png" alt="Imagen de galería 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="g2.png" alt="Imagen de galería 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="g3.png" alt="Imagen de galería 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="g4.png" alt="Imagen de galería 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="g5.png" alt="Imagen de galería 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="g6.png" alt="Imagen de galería 6">
+                </div>
+            </div>
+
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 id="footer-sitemap-title">MAPA DEL SITIO</h3>
+                <ul>
+                    <li><a href="index.html" id="footer-link-inicio">Inicio</a></li>
+                    <li><a href="quienes_somos.html" id="footer-link-quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="Historia_de_ingrid.html" id="footer-link-historia-ingrid">La Historia de Ingrid</a></li>
+                    <li><a href="servicios.html" id="footer-link-servicios">Servicios</a></li>
+                    <li><a href="galeria.html" id="footer-link-galeria">Galería</a></li>
+                    <li><a href="preguntas_frecuentes.html" id="footer-link-faq">Preguntas Frecuentes</a></li>
+                    <li><a href="Contactos.html" id="footer-link-contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 id="footer-contact-title">CONTÁCTANOS</h3>
+                <div class="contact-info">
+                    <p><img src="phone-icon.png" alt="Teléfono"><span id="footer-phone-number">+593996845893</span></p>
+                    <p><img src="email-icon.png" alt="Email"><span id="footer-email-address">ecualimpieza2021@gmail.com</span></p>
+                    <p><img src="location-icon.png" alt="Ubicación"><span id="footer-address">Paises bajos - Holanda</span></p>
+                    <p><img src="clock-icon.png" alt="Horario"><span id="footer-hours-weekday">Lunes - Viernes: 8:30 am hasta 5:30 pm</span></p>
+                    <p><img src="clock-icon.png" alt="Horario"><span id="footer-hours-weekend">Sábado - Domingo: Cerrado</span></p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>SÍGUENOS EN:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61576975726777" target="_blank" aria-label="Facebook">
+                        <img src="facebook.png" alt="Facebook Icon">
+                    </a>
+                    <a href="https://www.instagram.com/ecualimpieza2021ecl/" target="_blank" aria-label="Instagram">
+                        <img src="instagram.png" alt="Instagram Icon">
+                    </a>
+                    <a href="https://www.tiktok.com/@ecualimpieza" target="_blank" aria-label="LinkedIn">
+                        <img src="tiktok.png" alt="tiktok Icon">
+					</a>	
+                    <a href="https://wa.me/0996845893" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+                </div>
+                    
+    <h3 style="margin-top: 30px;">ENVIANOS UN CORREO</h3>
+    <form class="newsletter-form" onsubmit="window.location.href='Contactos.html'; return false;">
+        <button type="submit">ir</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-logo-bottom">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-copyright-year"></span> <span id="footer-copyright-text">2025 Sitio web desarrollado por ARpcsoluciones</span></p>
+        </div>
+    </footer>
+
+    <script>
+        const traducciones = {
+            es: {
+                pageTitle: "Galería - ECUALIMPIEZA",
+                mainTitle: "NUESTRA GALERÍA DE TRABAJO",
+                navInicio: "Inicio",
+                navQuienesSomos: "Quiénes Somos",
+                navHistoriaIngrid: "La Historia de Ingrid",
+                navServicios: "Servicios",
+                navGaleria: "Galería",
+                navFaq: "Preguntas Frecuentes",
+                navContacto: "Contacto",
+                footerSitemapTitle: "MAPA DEL SITIO",
+                footerLinkInicio: "Inicio",
+                footerLinkQuienesSomos: "Quiénes Somos",
+                footerLinkHistoriaIngrid: "La Historia de Ingrid",
+                footerLinkServicios: "Servicios",
+                footerLinkGaleria: "Galería",
+                footerLinkFaq: "Preguntas Frecuentes",
+                footerLinkContacto: "Contacto",
+                footerContactTitle: "CONTÁCTANOS",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Lunes - Viernes: 8:30 am hasta 5:30 pm",
+                footerHoursWeekend: "Sábado - Domingo: Cerrado",
+                footerFollowUsTitle: "SÍGUENOS EN:",
+                footerSubscribeTitle: "¡Suscríbete a nuestro boletín!",
+                newsletterEmailPlaceholder: "Tu correo electrónico",
+                newsletterButton: "Suscribirse",
+                footerCopyrightText: "ECUALIMPIEZA. Todos los derechos reservados."
+            },
+            en: {
+                pageTitle: "Gallery - ECUALIMPIEZA",
+                mainTitle: "OUR WORK GALLERY",
+                navInicio: "Home",
+                navQuienesSomos: "About Us",
+                navHistoriaIngrid: "Ingrid's Story",
+                navServicios: "Services",
+                navGaleria: "Gallery",
+                navFaq: "FAQ",
+                navContacto: "Contact",
+                footerSitemapTitle: "SITE MAP",
+                footerLinkInicio: "Home",
+                footerLinkQuienesSomos: "About Us",
+                footerLinkHistoriaIngrid: "Ingrid's Story",
+                footerLinkServicios: "Services",
+                footerLinkGaleria: "Gallery",
+                footerLinkFaq: "FAQ",
+                footerLinkContacto: "Contact",
+                footerContactTitle: "CONTACT US",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Monday - Friday: 8:30 am to 5:30 pm",
+                footerHoursWeekend: "Saturday - Sunday: Closed",
+                footerFollowUsTitle: "FOLLOW US ON:",
+                footerSubscribeTitle: "Subscribe to our newsletter!",
+                newsletterEmailPlaceholder: "Your email address",
+                newsletterButton: "Subscribe",
+                footerCopyrightText: "ECUALIMPIEZA. All rights reserved."
+            },
+            nl: {
+                pageTitle: "Galerij - ECUALIMPIEZA",
+                mainTitle: "ONZE WERKGALERIJ",
+                navInicio: "Startpagina",
+                navQuienesSomos: "Over Ons",
+                navHistoriaIngrid: "Ingrid's Verhaal",
+                navServicios: "Diensten",
+                navGaleria: "Galerij",
+                navFaq: "Veelgestelde vragen",
+                navContacto: "Contact",
+                footerSitemapTitle: "SITEKAART",
+                footerLinkInicio: "Startpagina",
+                footerLinkQuienesSomos: "Over Ons",
+                footerLinkHistoriaIngrid: "Ingrid's Verhaal",
+                footerLinkServicios: "Diensten",
+                footerLinkGaleria: "Galerij",
+                footerLinkFaq: "Veelgestelde vragen",
+                footerLinkContacto: "Contact",
+                footerContactTitle: "CONTACTEER ONS",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Maandag - Vrijdag: 8:30 uur tot 17:30 uur",
+                footerHoursWeekend: "Zaterdag - Zondag: Gesloten",
+                footerFollowUsTitle: "VOLG ONS OP:",
+                footerSubscribeTitle: "Abonneer u op onze nieuwsbrief!",
+                newsletterEmailPlaceholder: "Uw e-mailadres",
+                newsletterButton: "Abonneren",
+                footerCopyrightText: "ECUALIMPIEZA. Alle rechten voorbehouden."
+            },
+            fr: {
+                pageTitle: "Galerie - ECUALIMPIEZA",
+                mainTitle: "NOTRE GALERIE DE TRAVAIL",
+                navInicio: "Accueil",
+                navQuienesSomos: "Qui sommes-nous",
+                navHistoriaIngrid: "L'Histoire d'Ingrid",
+                navServicios: "Services",
+                navGaleria: "Galerie",
+                navFaq: "Questions Fréquentes",
+                navContacto: "Contact",
+                footerSitemapTitle: "PLAN DU SITE",
+                footerLinkInicio: "Accueil",
+                footerLinkQuienesSomos: "Qui sommes-nous",
+                footerLinkHistoriaIngrid: "L'Histoire d'Ingrid",
+                footerLinkServicios: "Services",
+                footerLinkGaleria: "Galerie",
+                footerLinkFaq: "Questions Fréquentes",
+                footerLinkContacto: "Contact",
+                footerContactTitle: "CONTACTEZ-NOUS",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Lundi - Vendredi : 8h30 à 17h30",
+                footerHoursWeekend: "Samedi - Dimanche : Fermé",
+                footerFollowUsTitle: "SUIVEZ-NOUS SUR:",
+                footerSubscribeTitle: "Abonnez-vous à notre newsletter !",
+                newsletterEmailPlaceholder: "Votre adresse e-mail",
+                newsletterButton: "S'abonner",
+                footerCopyrightText: "ECUALIMPIEZA. Tous droits réservés."
+            },
+            it: {
+                pageTitle: "Galleria - ECUALIMPIEZA",
+                mainTitle: "LA NOSTRA GALLERIA DI LAVORO",
+                navInicio: "Inizio",
+                navQuienesSomos: "Chi Siamo",
+                navHistoriaIngrid: "La Storia di Ingrid",
+                navServizi: "Servizi",
+                navGaleria: "Galleria",
+                navFaq: "Domande Frequenti",
+                navContacto: "Contatto",
+                footerSitemapTitle: "MAPPA DEL SITO",
+                footerLinkInicio: "Inizio",
+                footerLinkQuienesSomos: "Chi Siamo",
+                footerLinkHistoriaIngrid: "La Storia di Ingrid",
+                footerLinkServicios: "Servizi",
+                footerLinkGaleria: "Galleria",
+                footerLinkFaq: "Domande Frequenti",
+                footerLinkContacto: "Contatto",
+                footerContactTitle: "CONTATTACI",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Lunedì - Venerdì: dalle 8:30 alle 17:30",
+                footerHoursWeekend: "Sabato - Domenica: Chiuso",
+                footerFollowUsTitle: "SEGUICI SU:",
+                footerSubscribeTitle: "Iscriviti alla nostra newsletter!",
+                newsletterEmailPlaceholder: "Il tuo indirizzo email",
+                newsletterButton: "Iscriviti",
+                footerCopyrightText: "ECUALIMPIEZA. Tutti i diritti riservati."
+            },
+            pt: {
+                pageTitle: "Galeria - ECUALIMPIEZA",
+                mainTitle: "NOSSA GALERIA DE TRABALHO",
+                navInicio: "Início",
+                navQuienesSomos: "Quem Somos",
+                navHistoriaIngrid: "A História de Ingrid",
+                navServicios: "Serviços",
+                navGaleria: "Galeria",
+                navFaq: "Perguntas Frequentes",
+                navContacto: "Contacto",
+                footerSitemapTitle: "MAPA DO SITE",
+                footerLinkInicio: "Início",
+                footerLinkQuienesSomos: "Quem Somos",
+                footerLinkHistoriaIngrid: "A História de Ingrid",
+                footerLinkServicios: "Serviços",
+                footerLinkGaleria: "Galeria",
+                footerLinkFaq: "Perguntas Frequentes",
+                footerLinkContacto: "Contacto",
+                footerContactTitle: "CONTATE-NOS",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Segunda - Sexta: 8:30 às 17:30",
+                footerHoursWeekend: "Sábado - Domingo: Fechado",
+                footerFollowUsTitle: "SIGA-NOS EM:",
+                footerSubscribeTitle: "Assine nossa newsletter!",
+                newsletterEmailPlaceholder: "Seu endereço de e-mail",
+                newsletterButton: "Assinar",
+                footerCopyrightText: "ECUALIMPIEZA. Todos os direitos reservados."
+            },
+            de: {
+                pageTitle: "Galerie - ECUALIMPIEZA",
+                mainTitle: "UNSERE ARBEITSGALERIE",
+                navInicio: "Startseite",
+                navQuienesSomos: "Über Uns",
+                navHistoriaIngrid: "Ingrids Geschichte",
+                navServicios: "Dienstleistungen",
+                navGaleria: "Galerie",
+                navFaq: "Häufig gestellte Fragen",
+                navContacto: "Kontakt",
+                footerSitemapTitle: "SEITENÜBERSICHT",
+                footerLinkInicio: "Startseite",
+                footerLinkQuienesSomos: "Über Uns",
+                footerLinkHistoriaIngrid: "Ingrids Geschichte",
+                footerLinkServicios: "Dienstleistungen",
+                footerLinkGaleria: "Galerie",
+                footerLinkFaq: "Häufig gestellte Fragen",
+                footerLinkContacto: "Kontakt",
+                footerContactTitle: "KONTAKTIEREN SIE UNS",
+                footerPhoneNumber: "+593996845893",
+                footerEmailAddress: "ecualimpieza2021@gmail.com",
+                footerAddress: "Paises bajos - Holanda",
+                footerHoursWeekday: "Montag - Freitag: 8:30 bis 17:30 Uhr",
+                footerHoursWeekend: "Samstag - Sonntag: Geschlossen",
+                footerFollowUsTitle: "FOLGEN SIE UNS AUF:",
+                footerSubscribeTitle: "Melden Sie sich für unseren Newsletter an!",
+                newsletterEmailPlaceholder: "Ihre E-Mail-Adresse",
+                newsletterButton: "Anmelden",
+                footerCopyrightText: "ECUALIMPIEZA. Alle Rechte vorbehalten."
+            }
+        };
+
+        let slideIndex = 0;
+        const slidesContainer = document.querySelector('.carousel-slide');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = carouselItems.length;
+
+        function showSlides(n) {
+            if (n >= totalSlides) {
+                slideIndex = 0;
+            } else if (n < 0) {
+                slideIndex = totalSlides - 1;
+            } else {
+                slideIndex = n;
+            }
+
+            slidesContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex + n);
+        }
+
+        function currentSlide(n) {
+            // El 'n' de currentSlide es 1-basado, por eso restamos 1
+            showSlides(n - 1);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
+            const selectElement = document.querySelector('.idiomas select');
+
+            if (selectElement) {
+                if (traducciones?.[defaultLang]) {
+                    selectElement.value = defaultLang;
+                } else {
+                    selectElement.value = 'es';
+                    defaultLang = 'es';
+                }
+            }
+            cambiarIdioma(defaultLang);
+
+            showSlides(slideIndex); // Mostrar la primera imagen al cargar
+
+            document.querySelector('.carousel-button.prev').addEventListener('click', () => plusSlides(-1));
+            document.querySelector('.carousel-button.next').addEventListener('click', () => plusSlides(1));
+
+            // Set current year for the copyright
+            document.getElementById("footer-copyright-year").textContent = new Date().getFullYear();
+        });
+
+        function cambiarIdioma(lang) {
+            const t = traducciones?.[lang];
+            if (!t) {
+                console.warn(`No hay traducciones disponibles para el idioma: ${lang}`);
+                return;
+            }
+
+            document.getElementById("page-title").textContent = t.pageTitle;
+            document.getElementById("main-title").textContent = t.mainTitle;
+            document.getElementById("nav-inicio").textContent = t.navInicio;
+            document.getElementById("nav-quienes-somos").textContent = t.navQuienesSomos;
+            document.getElementById("nav-historia-ingrid").textContent = t.navHistoriaIngrid;
+            document.getElementById("nav-servicios").textContent = t.navServicios;
+            document.getElementById("nav-galeria").textContent = t.navGaleria;
+            document.getElementById("nav-faq").textContent = t.navFaq;
+            document.getElementById("nav-contacto").textContent = t.navContacto;
+
+            // Footer translations (updated to match new structure)
+            document.getElementById("footer-sitemap-title").textContent = t.footerSitemapTitle;
+            document.getElementById("footer-link-inicio").textContent = t.footerLinkInicio;
+            document.getElementById("footer-link-quienes-somos").textContent = t.footerLinkQuienesSomos;
+            document.getElementById("footer-link-historia-ingrid").textContent = t.footerLinkHistoriaIngrid;
+            document.getElementById("footer-link-servicios").textContent = t.footerLinkServicios;
+            document.getElementById("footer-link-galeria").textContent = t.footerLinkGaleria;
+            document.getElementById("footer-link-faq").textContent = t.footerLinkFaq;
+            document.getElementById("footer-link-contacto").textContent = t.footerLinkContacto;
+
+            document.getElementById("footer-contact-title").textContent = t.footerContactTitle;
+            document.getElementById("footer-phone-number").textContent = t.footerPhoneNumber;
+            document.getElementById("footer-email-address").textContent = t.footerEmailAddress;
+            document.getElementById("footer-address").textContent = t.footerAddress;
+            document.getElementById("footer-hours-weekday").textContent = t.footerHoursWeekday;
+            document.getElementById("footer-hours-weekend").textContent = t.footerHoursWeekend;
+            
+            document.getElementById("footer-follow-us-title").textContent = t.footerFollowUsTitle;
+            document.getElementById("footer-subscribe-title").textContent = t.footerSubscribeTitle;
+            document.getElementById("newsletter-email").placeholder = t.newsletterEmailPlaceholder;
+            document.getElementById("newsletter-button").textContent = t.newsletterButton;
+
+            document.getElementById("footer-copyright-text").textContent = t.footerCopyrightText;
+
+
+            localStorage.setItem('selectedLang', lang);
+
+            const selectElement = document.querySelector('.idiomas select');
+            if (selectElement) {
+                selectElement.value = lang;
+            }
+        }
+    </script>
+</body>
+</html>

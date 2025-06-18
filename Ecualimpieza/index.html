@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="page-title">ECUALIMPIEZA</title>
+    <style>
+        :root {
+            --verde-claro: #a8d5ba;
+            --mostaza: #f2c94c;
+            --azul: #007BFF;
+            --blanco: #ffffff;
+            --gris-oscuro: #333333;
+            --verde-oscuro-transparente: rgba(0, 102, 51, 0.7); /* Para el fondo del hero */
+            --gris-claro: #f4f4f4;
+            --azul-oscuro-fondo: #0c223c; /* Color de fondo para el footer según la imagen */
+            --texto-claro-footer: #c0c0c0; /* Color de texto para el footer */
+            --azul-claro-footer: #0096ff; /* Color para el botón de suscribir */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: var(#ffffff);
+            padding: 8px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .banderas img {
+            height: 20px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .idiomas {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--blanco);
+            border-radius: 6px;
+            padding: 5px 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .idiomas select {
+            font-size: 14px;
+            padding: 4px;
+            border: 1px solid var(--azul);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hero-nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1002;
+        }
+
+        .hero-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-nav ul li a {
+            text-decoration: none;
+            color: var(--blanco);
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-nav ul li a:hover {
+            color: var(--mostaza);
+        }
+
+        .hero {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+            background-color: rgb(0 40 102 / 43%);
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: var(--mostaza);
+            color: var(--gris-oscuro);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e0b837;
+        }
+
+.areas {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.areas h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: var(--gris-oscuro);
+}
+
+.areas-carousel .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 220px;
+  padding: 20px;
+  border: 2px solid #f2c94c;
+  border-radius: 16px;
+  background-color: #c1bb6b00;
+  box-shadow: 0 6px 15px rgba(-31, -9, 45, 23.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.areas-carousel .swiper-slide:hover {
+  transform: scale(1.08);
+  border-color: var(--mostaza, #f2c94c);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.areas-carousel .swiper-slide img {
+  height: 120px;
+  width: 187px;
+  object-fit: unset;
+  margin-bottom: 15px;
+}
+
+.areas-carousel .swiper-slide p {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--gris-oscuro);
+  margin: 0;
+}
+        .iconos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+        }
+
+        .area img {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .area p {
+            font-weight: bold;
+            font-size: 1em;
+            color: var(--gris-oscuro);
+        }
+
+        /* Footer Styles based on the image */
+        footer {
+            background-color: var(--azul-oscuro-fondo);
+            color: var(--texto-claro-footer);
+            padding: 50px 20px 20px;
+            font-size: 0.9em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 40px;
+            text-align: left; /* Align text left within columns */
+        }
+
+        .sitemap, .contact-info-footer, .social-subscribe {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px;
+        }
+
+        .footer-main h3 {
+            color: var(--mostaza); /* Yellow color for headings */
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border-bottom: 2px solid var(--mostaza); /* Underline effect for headings */
+            padding-bottom: 5px;
+            display: inline-block; /* Make border-bottom fit content */
+        }
+
+        .sitemap ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sitemap ul li a {
+            color: var(--texto-claro-footer);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .sitemap ul li a:hover {
+            color: var(--blanco);
+        }
+
+        .contact-info-footer p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--texto-claro-footer);
+        }
+
+        .contact-info-footer p img {
+            height: 20px;
+            width: 20px;
+            filter: brightness(0) invert(1); /* Makes icons white */
+        }
+        /* Specific filter for sun/moon icon */
+        .contact-info-footer p.hours img {
+            filter: none; /* Keep original color */
+        }
+
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1); /* Light transparent background for social icons */
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--mostaza); /* Yellow background on hover */
+        }
+
+        .social-icons a img {
+            height: 20px;
+            width: 20px;
+            filter: brightness(0) invert(1); /* Makes icons white */
+        }
+
+        .subscribe-form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #2c3e50; /* Darker input background */
+            color: var(--blanco);
+            box-sizing: border-box;
+        }
+
+        .subscribe-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--azul-claro-footer); /* Bright blue button */
+            color: var(--blanco);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #007bb3; /* Slightly darker blue on hover */
+        }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom img {
+            height: 50px; /* Adjust logo size in footer */
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1); /* Makes the logo white */
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* WhatsApp floating icon */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366; /* WhatsApp green */
+            color: var(--blanco);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1); /* Ensures WhatsApp icon is white */
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-nav ul li a {
+                font-size: 0.9em;
+            }
+            .idiomas {
+                padding: 3px 8px;
+                font-size: 0.9em;
+            }
+            .idiomas select {
+                font-size: 0.9em;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 20px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            .hero h1 {
+                font-size: 1.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .area {
+                width: 100px;
+            }
+            .area img {
+                height: 50px;
+            }
+            .footer-main {
+                flex-direction: column;
+                align-items: center;
+                text-align: center; /* Center align columns on small screens */
+            }
+            .sitemap, .contact-info-footer, .social-subscribe {
+                min-width: unset;
+                width: 100%;
+                text-align: center; /* Ensure text is centered */
+            }
+            .sitemap ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center list items */
+            }
+            .contact-info-footer p {
+                justify-content: center; /* Center contact info */
+            }
+            .social-icons {
+                justify-content: center; /* Center social icons */
+            }
+            .footer-main h3 {
+                width: fit-content; /* Ensure border-bottom fits centered text */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .subscribe-form input, .subscribe-form button {
+                width: 80%; /* Adjust width for smaller screens */
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .area {
+                width: 100px;
+            }
+            .area img {
+                height: 50px;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+		Estilos para servicios actualizados */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .servicio-card {
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgb(17 30 11 / 100%);
+            transition: transform 0.3s ease;
+            background-color: var(--color-background-light);
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-img {
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .servicio-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: inherit;
+            border-radius: 8px;
+        }
+
+        .servicio-info {
+            text-align: center;
+        }
+
+        .servicio-info h2 {
+            margin-bottom: 10px;
+            color: var(--gris-oscuro);
+        }
+
+        .servicio-info p {
+            margin-bottom: 15px;
+            color: var(--color-text-light);
+        }
+
+        .servicio-info button {
+            background-color: var(--mostaza);
+            color: var(--gris-oscuro);
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .servicio-info button:hover {
+            background-color: #e0b837;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="idiomas">
+        🌐
+        <div class="banderas">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma('es')">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma('nl')">
+        </div>
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español 🇪🇸</option>
+            <option value="en">Inglés 🇬🇧</option>
+            <option value="fr">Francés 🇫🇷</option>
+            <option value="it">Italiano 🇮🇹</option>
+            <option value="pt">Portugués 🇵🇹</option>
+            <option value="de">Alemán 🇩🇪</option>
+            <option value="nl">Holandés 🇳🇱</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <video autoplay muted loop>
+                <source src="ecualimpieza.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+
+            <nav class="hero-nav">
+                <ul>
+                    <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+                    <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+                    <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+                    <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+                    <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+                    <li><a href="Contactos.html" id="nav-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1 id="titulo-principal">Transformamos la limpieza con estándares europeos de calidad, eficiencia y sostenibilidad.</h1>
+                <p id="descripcion-principal">En Ecualimpieza, aplicamos el conocimiento adquirido en los Países Bajos, combinando tecnología, personal capacitado y responsabilidad ambiental.</p>
+                <a href="#contacto" class="cta-btn" id="boton-cotizacion">Solicita una cotización gratuita</a>
+            </div>
+        </section>
+<!-- Incluye SwiperJS para el carrusel -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<section id="areas" class="areas">
+  <h2 id="titulo-areas">Nuestras Áreas de Trabajo</h2>
+  <div class="swiper areas-carousel">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide area">
+        <img src="icono-edificio.png" alt="Corporativos">
+        <p id="area-corporativos">Edificios Corporativos</p>
+      </div>
+      <div class="swiper-slide area">
+        <img src="icono-casa.png" alt="Casas">
+        <p id="area-casas">Casas y Departamentos</p>
+      </div>
+      <div class="swiper-slide area">
+        <img src="icono-hospital.png" alt="Hospitales">
+        <p id="area-hospitales">Hospitales y Clínicas</p>
+      </div>
+      <div class="swiper-slide area">
+        <img src="icono-hotel.png" alt="Hoteles">
+        <p id="area-hoteles">Hoteles</p>
+      </div>
+      <div class="swiper-slide area">
+        <img src="icono-centro.png" alt="Centros comerciales">
+        <p id="area-centros">Centros Comerciales</p>
+      </div>
+      <div class="swiper-slide area">
+        <img src="icono-banco.png" alt="Bancos">
+        <p id="area-bancos">Instituciones Bancarias</p>
+      </div>
+    </div>
+  </div>
+<section id="servicios" class="areas">
+  <h2 id="titulo-servicios">Nuestros Servicios</h2>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="servicio-img">
+        <img src="R1.png" alt="Limpieza Residencial">
+      </div>
+      <div class="servicio-info">
+        <h2 id="servicio-residencial-titulo" data-icon="🏠">Limpieza Residencial</h2>
+        <button onclick="window.location.href='Limpieza_Residencial.html'" id="btn-ver-servicio-1">Ver Servicio</button>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img">
+        <img src="R2.png" alt="Limpieza de Oficinas">
+      </div>
+      <div class="servicio-info">
+        <h2 id="servicio-oficinas-titulo" data-icon="🏢">Limpieza de Oficinas</h2>
+        <button onclick="window.location.href='Limpieza _Oficinas.html'" id="btn-ver-servicio-2">Ver Servicio</button>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img">
+        <img src="R3.png" alt="Limpieza Comercial">
+      </div>
+      <div class="servicio-info">
+        <h2 id="servicio-comercial-titulo" data-icon="🏪">Limpieza Comercial</h2>
+        <button onclick="window.location.href='Limpieza_Comercial.html'" id="btn-ver-servicio-3">Ver Servicio</button>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img">
+        <img src="R4.png" alt="Limpieza Institucional">
+      </div>
+      <div class="servicio-info">
+        <h2 id="servicio-institucional-titulo" data-icon="🏦">Limpieza Institucional</h2>
+        <button onclick="window.location.href='Limpieza_Institucional.html'" id="btn-ver-servicio-4">Ver Servicio</button>
+      </div>
+    </div>
+  </div>
+   <p>
+    </p>
+  <div class="ver-todos-servicios">
+    <a href="servicios.html" class="cta-btn" id="btn-ver-todos-servicios">Ver Todos los Servicios</a>
+  </div>
+</section>
+
+
+    <footer>
+        <div class="footer-main">
+            <div class="sitemap">
+                <h3 id="sitemap-title">MAPA DEL SITIO</h3>
+                <ul>
+                    <li><a href="index.html" id="footer-nav-inicio">Inicio</a></li>
+                    <li><a href="quienes_somos.html" id="footer-nav-quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="Historia_de_ingrid.html" id="footer-nav-historia-ingrid">La Historia de Ingrid</a></li>
+                    <li><a href="servicios.html" id="footer-nav-servicios">Servicios</a></li>
+                    <li><a href="galeria.html" id="footer-nav-galeria">Galería</a></li>
+                    <li><a href="preguntas_frecuentes.html" id="footer-nav-faq">Preguntas Frecuentes</a></li>
+                    <li><a href="Contactos.html" id="footer-nav-contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="contact-info-footer">
+                <h3 id="footer-contact-title">CONTÁCTANOS</h3>
+                <p>
+                    <img src="phone-icon.png" alt="Phone Icon">
+                    <span id="footer-phone">+593996845893</span>
+                </p>
+                <p>
+                    <img src="email-icon.png" alt="Email Icon">
+                    <span id="footer-email">ecualimpieza2021@gmail.com</span>
+                </p>
+                <p>
+                    <img src="location-icon.png" alt="Location Icon">
+                    <span id="footer-address">PAISES BAJOS - HOLANDA</span>
+                </p>
+                <p class="hours">
+                    <img src="clock-icon.png" alt="Sun Icon">
+                    <span id="footer-hours-weekday">Lunes - Viernes: 8:30 am hasta 5:30 pm</span>
+                </p>
+                <p class="hours">
+                    <img src="clock-icon.png" alt="Moon Icon">
+                    <span id="footer-hours-weekend">Sábado - Domingo: Cerrado</span>
+                </p>
+            </div>
+            <div class="social-subscribe">
+                <h3 id="footer-social-title">SÍGUENOS EN:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61576975726777" target="_blank" aria-label="Facebook">
+                        <img src="facebook.png" alt="Facebook Icon">
+                    </a>
+                    <a href="https://www.instagram.com/ecualimpieza2021ecl/" target="_blank" aria-label="Instagram">
+                        <img src="instagram.png" alt="Instagram Icon">
+                    </a>
+                    <a href="https://www.tiktok.com/@ecualimpieza" target="_blank" aria-label="LinkedIn">
+                        <img src="tiktok.png" alt="tiktok Icon">
+                    </a>
+                    <a href="https://wa.me/593996845893" target="_blank" aria-label="WhatsApp">
+                        <img src="whatsapp.png" alt="WhatsApp Icon">
+                    </a>
+                </div>
+                <h3 id="footer-subscribe-title">ENVIANOS UN CORREO</h3>
+                <div class="subscribe-form">
+                    
+                      <div class="ver-todos-servicios">
+    <a href="Contactos.html" class="cta-btn" id="btn-ver-todos-servicios">IR</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="ecualimpieza1.png" alt="Logo Ecualimpieza Footer">
+            <p id="footer-copyright">&copy; 2025 Sitio web desarrollado por ARpcsoluciones</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/593996845893" class="whatsapp-float" target="_blank" aria-label="WhatsApp Chat">
+        <img src="whatsapp.png" alt="WhatsApp Icon">
+    </a>
+
+    <script>
+const traducciones = {
+  es: {
+    pageTitle: "ECUALIMPIEZA",
+    tituloPrincipal: "Transformamos la limpieza con estándares europeos de calidad, eficiencia y sostenibilidad.",
+    descripcionPrincipal: "En Ecualimpieza, aplicamos el conocimiento adquirido en los Países Bajos, combinando tecnología, personal capacitado y responsabilidad ambiental.",
+    botonCotizacion: "Solicita una cotización gratuita",
+    tituloAreas: "Nuestras Áreas de Trabajo",
+    areaCorporativos: "Edificios Corporativos",
+    areaCasas: "Casas y Departamentos",
+    areaHospitales: "Hospitales y Clínicas",
+    areaHoteles: "Hoteles",
+    areaCentros: "Centros Comerciales",
+    areaBancos: "Instituciones Bancarias",
+    tituloServicios: "Nuestros Servicios",
+    servicioResidencialTitulo: "Limpieza Residencial",
+    servicioOficinasTitulo: "Limpieza de Oficinas",
+    servicioComercialTitulo: "Limpieza Comercial",
+    servicioInstitucionalTitulo: "Limpieza Institucional",
+    verServicio: "Ver Servicio",
+    verTodosServicios: "Ver Todos los Servicios",
+    // Navegación principal
+    navInicio: "Inicio",
+    navQuienesSomos: "Quiénes Somos",
+    navHistoriaIngrid: "La Historia de Ingrid",
+    navServicios: "Servicios",
+    navGaleria: "Galería",
+    navFaq: "Preguntas Frecuentes",
+    navContacto: "Contacto",
+    // Footer
+    sitemapTitle: "MAPA DEL SITIO",
+    footerNavInicio: "Inicio",
+    footerNavQuienesSomos: "Quiénes Somos",
+    footerNavHistoriaIngrid: "La Historia de Ingrid",
+    footerNavServicios: "Servicios",
+    footerNavGaleria: "Galería",
+    footerNavFaq: "Preguntas Frecuentes",
+    footerNavContacto: "Contacto",
+    footerContactTitle: "CONTÁCTANOS",
+    footerPhone: "+593996845893",
+    footerEmail: "ecualimpieza2021@gmail.com",
+    footerAddress: "Paises bajos - Holanda",
+    footerHoursWeekday: "Lunes - Viernes: 8:30 am hasta 5:30 pm",
+    footerHoursWeekend: "Sábado - Domingo: Cerrado",
+    footerSocialTitle: "SÍGUENOS EN:",
+    footerSubscribeTitle: "ENVIANOS UN CORREO",
+    subscribeEmailInputPlaceholder: "Correo electrónico",
+    subscribeButton: "IR",
+    footerCopyright: "&copy; 2025 Sitio web desarrollado por ARpcsoluciones"
+  },
+  en: {
+    pageTitle: "ECUALIMPIEZA",
+    tituloPrincipal: "We transform cleaning with European standards of quality, efficiency and sustainability.",
+    descripcionPrincipal: "At Ecualimpieza, we apply knowledge acquired in the Netherlands, combining technology, trained staff, and environmental responsibility.",
+    botonCotizacion: "Request a free quote",
+    tituloAreas: "Our Work Areas",
+    areaCorporativos: "Corporate Buildings",
+    areaCasas: "Houses and Apartments",
+    areaHospitales: "Hospitals and Clinics",
+    areaHoteles: "Hotels",
+    areaCentros: "Shopping Centers",
+    areaBancos: "Bank Institutions",
+    tituloServicios: "Our Services",
+    servicioResidencialTitulo: "Residential Cleaning",
+    servicioOficinasTitulo: "Office Cleaning",
+    servicioComercialTitulo: "Commercial Cleaning",
+    servicioInstitucionalTitulo: "Institutional Cleaning",
+    verServicio: "View Service",
+    verTodosServicios: "View All Services",
+    navInicio: "Home",
+    navQuienesSomos: "About Us",
+    navHistoriaIngrid: "Ingrid's Story",
+    navServicios: "Services",
+    navGaleria: "Gallery",
+    navFaq: "FAQ",
+    navContacto: "Contact",
+    sitemapTitle: "SITE MAP",
+    footerNavInicio: "Home",
+    footerNavQuienesSomos: "About Us",
+    footerNavHistoriaIngrid: "Ingrid's Story",
+    footerNavServicios: "Services",
+    footerNavGaleria: "Gallery",
+    footerNavFaq: "FAQ",
+    footerNavContacto: "Contact",
+    footerContactTitle: "CONTACT US",
+    footerPhone: "+593996845893",
+    footerEmail: "ecualimpieza2021@gmail.com",
+    footerAddress: "Paises bajos - Holanda",
+    footerHoursWeekday: "Monday - Friday: 8:30 am to 5:30 pm",
+    footerHoursWeekend: "Saturday - Sunday: Closed",
+    footerSocialTitle: "FOLLOW US ON:",
+    footerSubscribeTitle: "SUBSCRIBE",
+    subscribeEmailInputPlaceholder: "Email address",
+    subscribeButton: "IR",
+    footerCopyright: "&copy; 2025 Website developed by ARpcsoluciones"
+  },
+  fr: {
+  pageTitle: "ECUALIMPIEZA",
+  tituloPrincipal: "Nous transformons le nettoyage avec des standards européens de qualité, d'efficacité et de durabilité.",
+  descripcionPrincipal: "Chez Ecualimpieza, nous appliquons les connaissances acquises aux Pays-Bas, en combinant technologie, personnel qualifié et responsabilité environnementale.",
+  botonCotizacion: "Demandez un devis gratuit",
+  tituloAreas: "Nos Domaines d'Activité",
+  areaCorporativos: "Bâtiments d'Entreprise",
+  areaCasas: "Maisons et Appartements",
+  areaHospitales: "Hôpitaux et Cliniques",
+  areaHoteles: "Hôtels",
+  areaCentros: "Centres Commerciaux",
+  areaBancos: "Institutions Bancaires",
+  tituloServicios: "Nos Services",
+  servicioResidencialTitulo: "Nettoyage Résidentiel",
+  servicioOficinasTitulo: "Nettoyage de Bureaux",
+  servicioComercialTitulo: "Nettoyage Commercial",
+  servicioInstitucionalTitulo: "Nettoyage Institutionnel",
+  verServicio: "Voir le service",
+  verTodosServicios: "Voir tous les services",
+  navInicio: "Accueil",
+  navQuienesSomos: "Qui sommes-nous",
+  navHistoriaIngrid: "L'Histoire d'Ingrid",
+  navServicios: "Services",
+  navGaleria: "Galerie",
+  navFaq: "Questions Fréquentes",
+  navContacto: "Contact",
+  sitemapTitle: "PLAN DU SITE",
+  footerNavInicio: "Accueil",
+  footerNavQuienesSomos: "Qui sommes-nous",
+  footerNavHistoriaIngrid: "L'Histoire d'Ingrid",
+  footerNavServicios: "Services",
+  footerNavGaleria: "Galerie",
+  footerNavFaq: "Questions Fréquentes",
+  footerNavContacto: "Contact",
+  footerContactTitle: "CONTACTEZ-NOUS",
+  footerPhone: "+593996845893",
+  footerEmail: "ecualimpieza2021@gmail.com",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Lundi - Vendredi: 8h30 à 17h30",
+  footerHoursWeekend: "Samedi - Dimanche: Fermé",
+  footerSocialTitle: "SUIVEZ-NOUS SUR :",
+  footerSubscribeTitle: "ABONNEZ-VOUS",
+  subscribeEmailInputPlaceholder: "Adresse e-mail",
+  subscribeButton: "S'abonner",
+  footerCopyright: "&copy; 2025 Site web développé par ARpcsoluciones"
+},
+it: {
+  pageTitle: "ECUALIMPIEZA",
+  tituloPrincipal: "Trasformiamo la pulizia con standard europei di qualità, efficienza e sostenibilità.",
+  descripcionPrincipal: "In Ecualimpieza, applichiamo le conoscenze acquisite nei Paesi Bassi, combinando tecnologia, personale qualificato e responsabilità ambientale.",
+  botonCotizacion: "Richiedi un preventivo gratuito",
+  tituloAreas: "Le Nostre Aree di Lavoro",
+  areaCorporativos: "Edifici Aziendali",
+  areaCasas: "Case e Appartamenti",
+  areaHospitales: "Ospedali e Cliniche",
+  areaHoteles: "Hotel",
+  areaCentros: "Centri Commerciali",
+  areaBancos: "Istituzioni Bancarie",
+  tituloServicios: "I Nostri Servizi",
+  servicioResidencialTitulo: "Pulizia Residenziale",
+  servicioOficinasTitulo: "Pulizia degli Uffici",
+  servicioComercialTitulo: "Pulizia Commerciale",
+  servicioInstitucionalTitulo: "Pulizia Istituzionale",
+  verServicio: "Vedi Servizio",
+  verTodosServicios: "Vedi Tutti i Servizi",
+  navInicio: "Inizio",
+  navQuienesSomos: "Chi Siamo",
+  navHistoriaIngrid: "La Storia di Ingrid",
+  navServicios: "Servizi",
+  navGaleria: "Galleria",
+  navFaq: "Domande Frequenti",
+  navContacto: "Contatto",
+  sitemapTitle: "MAPPA DEL SITO",
+  footerNavInicio: "Inizio",
+  footerNavQuienesSomos: "Chi Siamo",
+  footerNavHistoriaIngrid: "La Storia di Ingrid",
+  footerNavServicios: "Servizi",
+  footerNavGaleria: "Galleria",
+  footerNavFaq: "Domande Frequenti",
+  footerNavContacto: "Contatto",
+  footerContactTitle: "CONTATTACI",
+  footerPhone: "+593996845893",
+  footerEmail: "ecualimpieza2021@gmail.com",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Lunedì - Venerdì: 8:30 - 17:30",
+  footerHoursWeekend: "Sabato - Domenica: Chiuso",
+  footerSocialTitle: "SEGUICI SU:",
+  footerSubscribeTitle: "ISCRIVITI",
+  subscribeEmailInputPlaceholder: "Indirizzo email",
+  subscribeButton: "Iscriviti",
+  footerCopyright: "&copy; 2025 Sito web sviluppato da ARpcsoluciones"
+},
+pt: {
+  pageTitle: "ECUALIMPIEZA",
+  tituloPrincipal: "Transformamos a limpeza com padrões europeus de qualidade, eficiência e sustentabilidade.",
+  descripcionPrincipal: "Na Ecualimpieza, aplicamos o conhecimento adquirido na Holanda, combinando tecnologia, pessoal qualificado e responsabilidade ambiental.",
+  botonCotizacion: "Solicite um orçamento gratuito",
+  tituloAreas: "Nossas Áreas de Trabalho",
+  areaCorporativos: "Edifícios Corporativos",
+  areaCasas: "Casas e Apartamentos",
+  areaHospitales: "Hospitais e Clínicas",
+  areaHoteles: "Hotéis",
+  areaCentros: "Centros Comerciais",
+  areaBancos: "Instituições Bancárias",
+  tituloServicios: "Nossos Serviços",
+  servicioResidencialTitulo: "Limpeza Residencial",
+  servicioOficinasTitulo: "Limpeza de Escritórios",
+  servicioComercialTitulo: "Limpeza Comercial",
+  servicioInstitucionalTitulo: "Limpeza Institucional",
+  verServicio: "Ver Serviço",
+  verTodosServicios: "Ver Todos os Serviços",
+  navInicio: "Início",
+  navQuienesSomos: "Quem Somos",
+  navHistoriaIngrid: "A História de Ingrid",
+  navServicios: "Serviços",
+  navGaleria: "Galeria",
+  navFaq: "Perguntas Frequentes",
+  navContacto: "Contacto",
+  sitemapTitle: "MAPA DO SITE",
+  footerNavInicio: "Início",
+  footerNavQuienesSomos: "Quem Somos",
+  footerNavHistoriaIngrid: "A História de Ingrid",
+  footerNavServicios: "Serviços",
+  footerNavGaleria: "Galeria",
+  footerNavFaq: "Perguntas Frequentes",
+  footerNavContacto: "Contacto",
+  footerContactTitle: "CONTACTE-NOS",
+  footerPhone: "+593996845893",
+  footerEmail: "ecualimpieza2021@gmail.com",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Segunda - Sexta: 8:30 às 17:30",
+  footerHoursWeekend: "Sábado - Domingo: Fechado",
+  footerSocialTitle: "SIGA-NOS EM:",
+  footerSubscribeTitle: "SUBSCREVER",
+  subscribeEmailInputPlaceholder: "Endereço de email",
+  subscribeButton: "Subscrever",
+  footerCopyright: "&copy; 2025 Site desenvolvido por ARpcsoluciones"
+},
+de: {
+  pageTitle: "ECUALIMPIEZA",
+  tituloPrincipal: "Wir transformieren Reinigung mit europäischen Standards für Qualität, Effizienz und Nachhaltigkeit.",
+  descripcionPrincipal: "Bei Ecualimpieza wenden wir in den Niederlanden erworbenes Wissen an, indem wir Technologie, geschultes Personal und Umweltverantwortung kombinieren.",
+  botonCotizacion: "Fordern Sie ein kostenloses Angebot an",
+  tituloAreas: "Unsere Arbeitsbereiche",
+  areaCorporativos: "Bürogebäude",
+  areaCasas: "Häuser und Wohnungen",
+  areaHospitales: "Krankenhäuser und Kliniken",
+  areaHoteles: "Hotels",
+  areaCentros: "Einkaufszentren",
+  areaBancos: "Bankinstitute",
+  tituloServicios: "Unsere Dienstleistungen",
+  servicioResidencialTitulo: "Wohnungsreinigung",
+  servicioOficinasTitulo: "Büroreinigung",
+  servicioComercialTitulo: "Gewerbliche Reinigung",
+  servicioInstitucionalTitulo: "Institutionelle Reinigung",
+  verServicio: "Dienst anzeigen",
+  verTodosServicios: "Alle Dienste anzeigen",
+  navInicio: "Startseite",
+  navQuienesSomos: "Über Uns",
+  navHistoriaIngrid: "Ingrids Geschichte",
+  navServicios: "Dienstleistungen",
+  navGaleria: "Galerie",
+  navFaq: "Häufig gestellte Fragen",
+  navContacto: "Kontakt",
+  sitemapTitle: "SEITENÜBERSICHT",
+  footerNavInicio: "Startseite",
+  footerNavQuienesSomos: "Über Uns",
+  footerNavHistoriaIngrid: "Ingrids Geschichte",
+  footerNavServicios: "Dienstleistungen",
+  footerNavGaleria: "Galerie",
+  footerNavFaq: "Häufig gestellte Fragen",
+  footerNavContacto: "Kontakt",
+  footerContactTitle: "KONTAKT",
+  footerPhone: "+593996845893",
+  footerEmail: "ecualimpieza2021@gmail.com",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Montag - Freitag: 8:30 - 17:30 Uhr",
+  footerHoursWeekend: "Samstag - Sonntag: Geschlossen",
+  footerSocialTitle: "FOLGE UNS AUF:",
+  footerSubscribeTitle: "ABONNIEREN",
+  subscribeEmailInputPlaceholder: "E-Mail-Adresse",
+  subscribeButton: "Abonnieren",
+  footerCopyright: "&copy; 2025 Website entwickelt von ARpcsoluciones"
+},
+nl: {
+  pageTitle: "ECUALIMPIEZA",
+  tituloPrincipal: "Wij transformeren schoonmaak met Europese normen voor kwaliteit, efficiëntie en duurzaamheid.",
+  descripcionPrincipal: "Bij Ecualimpieza passen we kennis toe die is opgedaan in Nederland, gecombineerd met technologie, getraind personeel en milieubewustzijn.",
+  botonCotizacion: "Vraag gratis een offerte aan",
+  tituloAreas: "Onze Werkgebieden",
+  areaCorporativos: "Kantoorgebouwen",
+  areaCasas: "Huizen en Appartementen",
+  areaHospitales: "Ziekenhuizen en Klinieken",
+  areaHoteles: "Hotels",
+  areaCentros: "Winkelcentra",
+  areaBancos: "Bankinstellingen",
+  tituloServicios: "Onze Diensten",
+  servicioResidencialTitulo: "Woningreiniging",
+  servicioOficinasTitulo: "Kantoorreiniging",
+  servicioComercialTitulo: "Commerciële Reiniging",
+  servicioInstitucionalTitulo: "Institutionele Reiniging",
+  verServicio: "Bekijk Dienst",
+  verTodosServicios: "Bekijk Alle Diensten",
+  navInicio: "Startpagina",
+  navQuienesSomos: "Over Ons",
+  navHistoriaIngrid: "Ingrid's Verhaal",
+  navServicios: "Diensten",
+  navGaleria: "Galerij",
+  navFaq: "Veelgestelde vragen",
+  navContacto: "Contact",
+  sitemapTitle: "SITE MAP",
+  footerNavInicio: "Startpagina",
+  footerNavQuienesSomos: "Over Ons",
+  footerNavHistoriaIngrid: "Ingrid's Verhaal",
+  footerNavServicios: "Diensten",
+  footerNavGaleria: "Galerij",
+  footerNavFaq: "Veelgestelde vragen",
+  footerNavContacto: "Contact",
+  footerContactTitle: "CONTACTEER ONS",
+  footerPhone: "+593996845893",
+  footerEmail: "ecualimpieza2021@gmail.com",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Maandag - Vrijdag: 8:30 uur tot 17:30 uur",
+  footerHoursWeekend: "Zaterdag - Zondag: Gesloten",
+  footerSocialTitle: "VOLG ONS OP:",
+  footerSubscribeTitle: "ABONNEER",
+  subscribeEmailInputPlaceholder: "E-mailadres",
+  subscribeButton: "Abonneer",
+  footerCopyright: "&copy; 2025 Website ontwikkeld door ARpcsoluciones"
+}
+
+};
+
+function cambiarIdioma(lang) {
+  const t = traducciones?.[lang];
+  if (!t) return;
+
+  document.title = t.pageTitle;
+  document.getElementById("page-title").textContent = t.pageTitle;
+  document.getElementById("titulo-principal").textContent = t.tituloPrincipal;
+  document.getElementById("descripcion-principal").textContent = t.descripcionPrincipal;
+  document.getElementById("boton-cotizacion").textContent = t.botonCotizacion;
+  document.getElementById("titulo-areas").textContent = t.tituloAreas;
+  document.getElementById("area-corporativos").textContent = t.areaCorporativos;
+  document.getElementById("area-casas").textContent = t.areaCasas;
+  document.getElementById("area-hospitales").textContent = t.areaHospitales;
+  document.getElementById("area-hoteles").textContent = t.areaHoteles;
+  document.getElementById("area-centros").textContent = t.areaCentros;
+  document.getElementById("area-bancos").textContent = t.areaBancos;
+  document.getElementById("titulo-servicios").textContent = t.tituloServicios;
+  document.getElementById("servicio-residencial-titulo").textContent = t.servicioResidencialTitulo;
+  document.getElementById("servicio-oficinas-titulo").textContent = t.servicioOficinasTitulo;
+  document.getElementById("servicio-comercial-titulo").textContent = t.servicioComercialTitulo;
+  document.getElementById("servicio-institucional-titulo").textContent = t.servicioInstitucionalTitulo;
+  document.getElementById("btn-ver-servicio-1").textContent = t.verServicio;
+  document.getElementById("btn-ver-servicio-2").textContent = t.verServicio;
+  document.getElementById("btn-ver-servicio-3").textContent = t.verServicio;
+  document.getElementById("btn-ver-servicio-4").textContent = t.verServicio;
+  document.getElementById("btn-ver-todos-servicios").textContent = t.verTodosServicios;
+  document.getElementById("nav-inicio").textContent = t.navInicio;
+  document.getElementById("nav-quienes-somos").textContent = t.navQuienesSomos;
+  document.getElementById("nav-historia-ingrid").textContent = t.navHistoriaIngrid;
+  document.getElementById("nav-servicios").textContent = t.navServicios;
+  document.getElementById("nav-galeria").textContent = t.navGaleria;
+  document.getElementById("nav-faq").textContent = t.navFaq;
+  document.getElementById("nav-contacto").textContent = t.navContacto;
+  document.getElementById("sitemap-title").textContent = t.sitemapTitle;
+  document.getElementById("footer-nav-inicio").textContent = t.footerNavInicio;
+  document.getElementById("footer-nav-quienes-somos").textContent = t.footerNavQuienesSomos;
+  document.getElementById("footer-nav-historia-ingrid").textContent = t.footerNavHistoriaIngrid;
+  document.getElementById("footer-nav-servicios").textContent = t.footerNavServicios;
+  document.getElementById("footer-nav-galeria").textContent = t.footerNavGaleria;
+  document.getElementById("footer-nav-faq").textContent = t.footerNavFaq;
+  document.getElementById("footer-nav-contacto").textContent = t.footerNavContacto;
+  document.getElementById("footer-contact-title").textContent = t.footerContactTitle;
+  document.getElementById("footer-phone").textContent = t.footerPhone;
+  document.getElementById("footer-email").textContent = t.footerEmail;
+  document.getElementById("footer-address").textContent = t.footerAddress;
+  document.getElementById("footer-hours-weekday").textContent = t.footerHoursWeekday;
+  document.getElementById("footer-hours-weekend").textContent = t.footerHoursWeekend;
+  document.getElementById("footer-social-title").textContent = t.footerSocialTitle;
+  document.getElementById("footer-subscribe-title").textContent = t.footerSubscribeTitle;
+  document.getElementById("subscribe-email-input").placeholder = t.subscribeEmailInputPlaceholder;
+  document.getElementById("subscribe-button").textContent = t.subscribeButton;
+  document.getElementById("footer-copyright").innerHTML = t.footerCopyright;
+  localStorage.setItem('selectedLang', lang);
+  const selectElement = document.querySelector('.idiomas select');
+  if (selectElement) {
+    selectElement.value = lang;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  let defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
+  const selectElement = document.querySelector('.idiomas select');
+  if (selectElement) {
+    if (traducciones?.[defaultLang]) {
+      selectElement.value = defaultLang;
+    } else {
+      selectElement.value = 'es';
+      defaultLang = 'es';
+    }
+  }
+  cambiarIdioma(defaultLang);
+});
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper(".areas-carousel", {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 3,
+    spaceBetween: 20,
+    breakpoints: {
+      768: { slidesPerView: 4 },
+      1024: { slidesPerView: 5 },
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>

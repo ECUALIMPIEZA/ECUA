@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="page-title">Servicios - ECUALIMPIEZA</title>
+
+    <link href="./Servicios - ECUALIMPIEZA_files/css2" rel="stylesheet">
+    <style>
+        /* --- Variables de Color y Tipografía (Consistentes) --- */
+        :root {
+            --color-primary: #0d1b2a; /* Azul oscuro/casi negro para títulos y texto principal */
+            --color-secondary: #e0a800; /* Dorado/ámbar para acentos y resaltados */
+            --color-background-light: #f7f9fc; /* Fondo muy claro */
+            --color-background-gradient-start: #e9ecef; /* Degradado de fondo */
+            --color-background-gradient-end: #f8f9fa; /* Degradado de fondo */
+            --color-text-dark: #333; /* Color de texto general */
+            --color-text-light: #444; /* Color de texto para párrafos */
+            --color-white: #fff; /* Blanco puro */
+            --color-footer-bg: #0d1b2a; /* Fondo del footer, similar al primario */
+            --color-footer-text: #f7f9fc; /* Texto claro para el footer */
+            --color-accent-blue: #007bff; /* Azul vibrante para enlaces/botones */
+            --color-input-bg: #2d3b4d; /* Background for input field in footer */
+			:root {
+            --font-main: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif; /* Un tipo de letra más legible para el cuerpo del texto */
+        }
+
+        /* --- Estilos Generales del Cuerpo --- */
+        body {
+            margin: 0;
+            font-family: var(--font-body); /* Aplicamos Open Sans para el cuerpo */
+            background: linear-gradient(to right, var(--color-background-gradient-start), var(--color-background-gradient-end));
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Asegura que el footer esté al final */
+        }
+
+        /* --- Encabezado (Header) --- */
+    header {
+      background-color: var(--color-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow:  0 4px 12px var(--color-secondary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+        .logo img {
+            height: 95px; /* Ajustado para balance con el logo del header */
+        }
+
+        /* --- Navegación (Nav) --- */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Para responsividad */
+            justify-content: center; /* Centra los elementos en el menú */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-primary);
+            font-family: var(--font-main); /* Montserrat para los enlaces de navegación */
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.2s ease;
+            padding-bottom: 5px;
+            position: relative; /* Para el efecto de subrayado */
+            white-space: nowrap; /* Evita que los textos del menú se rompan */
+        }
+
+        nav ul li a:hover {
+            color: var(--color-secondary);
+            transform: translateY(-2px); /* Pequeño levantamiento al pasar el mouse */
+        }
+
+        /* Efecto de subrayado animado */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--color-secondary);
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: width 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Selector de Idiomas (Consistente) --- */
+    .idiomas {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background: var(--color-white);
+      border-radius: 10px;
+      padding: 6px 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+        .idiomas select {
+            font-family: var(--font-body);
+            font-size: 15px; /* Ligeramente más grande */
+            border: none;
+            background: transparent;
+            outline: none;
+            color: var(--color-text-dark);
+            cursor: pointer;
+        }
+
+        .idiomas .banderas img {
+            height: 25px; /* Ligeramente más grande */
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+
+        .idiomas .banderas img:hover {
+            transform: scale(1.15); /* Efecto de zoom al pasar el mouse */
+            opacity: 0.8;
+        }
+
+        /* --- Contenido Principal (Main) --- */
+        main {
+            padding: 60px 20px;
+            max-width: 1200px; /* Ajuste para un diseño más espacioso */
+            margin: auto;
+            background-color: var(#25e000);
+            border-radius: 18px; /* Más redondeado */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 122); /* Sombra más pronunciada pero suave */
+            margin-top: 60px; /* Espacio superior */
+            margin-bottom: 60px; /* Espacio inferior */
+            flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
+        }
+
+        h1 {
+            font-family: var(--font-main);
+            font-size: 3.2em; /* Título principal más grande */
+            margin-bottom: 50px;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px; /* Mayor espaciado entre letras */
+            text-transform: uppercase; /* Convertir a mayúsculas */
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px; /* Línea de acento más larga */
+            height: 5px; /* Línea de acento más gruesa */
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        /* --- Estilos de las Tarjetas de Servicio (Servicio Card) --- */
+        .servicio-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
+
+.servicio-img {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicio-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #00e038;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.servicio-card:hover .servicio-img img {
+  transform: scale(1.05);
+}
+
+.servicio-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.servicio-info h2 {
+  margin: 0 0 15px;
+  color: #006400;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.servicio-info p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #444;
+}
+
+.lista-vistos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
+
+.lista-vistos li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+.servicio-info button {
+  background-color: #00e038;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-info button:hover {
+  background-color: #007f28;
+  transform: translateY(-3px);
+}
+
+
+        /* --- Secciones Especiales (Airbnb, Diferenciador) --- */
+        .airbnb, .diferenciador {
+            margin: 50px auto; /* Mayor margen vertical */
+            padding: 30px; /* Más padding */
+            border-radius: 15px; /* Más redondeado */
+            max-width: 900px; /* Más amplio */
+            font-size: 1.2em; /* Texto más grande */
+            line-height: 1.8;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+        }
+
+        .airbnb {
+            background-color: #fff8e1; /* Fondo amarillo muy suave */
+            border-left: 8px solid var(--color-secondary); /* Borde más grueso y dorado */
+            color: var(--color-text-dark);
+        }
+
+        .diferenciador {
+            background-color: var(--color-background-light); /* Fondo claro de la app */
+            color: var(--color-primary); /* Texto en color primario */
+            font-weight: 600;
+            text-align: center;
+            border: 2px solid var(--color-secondary); /* Borde dorado alrededor */
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-footer-bg);
+            color: var(--color-footer-text);
+            padding: 40px 20px 20px; /* Adjusted padding-bottom */
+            margin-top: 60px;
+            border-top: 5px solid var(--color-secondary); /* Línea de acento superior */
+            text-align: center;
+            font-family: var(--font-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+            gap: 30px;
+            padding-bottom: 20px; /* Space above the bottom line */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Line above copyright */
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            text-align: left; /* Align text left within sections */
+        }
+
+        .footer-section h3 {
+            color: var(--color-secondary);
+            font-family: var(--font-main);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase; /* Match image */
+            font-weight: 700; /* Make titles bold */
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 1em;
+            line-height: 1.8;
+            color: var(--color-footer-text);
+            margin: 0; /* Reset default paragraph margin */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--color-footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95em; /* Slightly smaller for menu items */
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p img {
+            width: 18px; /* Adjust icon size as needed */
+            height: 18px;
+            vertical-align: middle;
+            filter: invert(1); /* Makes icons white if they are black on a dark background */
+        }
+        /* You might need to adjust the filter or provide white icons if the originals are not */
+
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start; /* Align icons left */
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px; /* Space before subscribe */
+        }
+
+        .social-icons a {
+            background-color: var(--color-white); /* White background for icons */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em; /* Icon size */
+            color: var(--color-primary); /* Icon color */
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-secondary); /* Change background on hover */
+            color: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--color-input-bg);
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1em;
+        }
+
+        .subscribe-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .subscribe-form button {
+            background-color: #007bff; /* Blue button as in image */
+            color: var(--color-white);
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .footer-logo-bottom {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo-bottom img {
+            height: 100px;
+            filter: brightness(0) invert(1); /* Makes logo white for dark background if it's black */
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            padding-top: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* WhatsApp floating button */
+                .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float img {
+            width: 60px; /* Tamaño del icono de WhatsApp */
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float img:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Media queries para responsividad --- */
+        @media (max-width: 992px) {
+            header {
+                padding: 15px 30px;
+            }
+
+            .logo img {
+                height: 100px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            main {
+                padding: 40px 30px;
+                margin: 40px auto;
+            }
+
+            h1 {
+                font-size: 2.8em;
+                margin-bottom: 40px;
+            }
+
+            h1::after {
+                width: 80px;
+                height: 4px;
+            }
+
+            .servicio-card {
+                gap: 30px;
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+
+            .servicio-img {
+                flex: 0 0 160px;
+            }
+
+            .servicio-img img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .servicio-info h2 {
+                font-size: 1.6em;
+            }
+
+            .servicio-info p {
+                font-size: 1em;
+                line-height: 1.7;
+            }
+
+            .servicio-info button {
+                padding: 10px 24px;
+                font-size: 1em;
+            }
+
+            .airbnb, .diferenciador {
+                margin: 40px auto;
+                padding: 25px;
+                font-size: 1.1em;
+            }
+
+            .footer-section {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 20px;
+                gap: 15px;
+            }
+
+            .logo img {
+                height: 80px;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            nav ul li a {
+                font-size: 0.9em;
+                padding: 5px 8px;
+            }
+
+            .idiomas {
+                position: static; /* Vuelve a ser estático en móviles */
+                box-shadow: none;
+                margin-bottom: 15px;
+                padding: 5px 10px;
+                border: none;
+                justify-content: center;
+            }
+
+            .idiomas select {
+                font-size: 13px;
+            }
+
+            .idiomas .banderas img {
+                height: 20px;
+            }
+
+            main {
+                padding: 25px;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 2.2em;
+                letter-spacing: 1.5px;
+                margin-bottom: 30px;
+            }
+
+            h1::after {
+                width: 70px;
+                height: 3px;
+            }
+
+            .servicio-card {
+                flex-direction: column; /* Apila imagen y texto en tarjetas para móviles */
+                text-align: center;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .servicio-card:nth-child(even) { /* Restablecer la dirección para móviles */
+                flex-direction: column;
+            }
+
+            .servicio-img {
+                flex: none; /* Elimina el tamaño fijo */
+                margin-bottom: 10px;
+            }
+
+            .servicio-img img {
+                width: 140px;
+                height: 140px;
+                border-width: 3px; /* Borde más delgado en móviles */
+            }
+
+            .servicio-info {
+                min-width: unset; /* Restablecer min-width */
+            }
+
+            .servicio-info h2 {
+                font-size: 1.5em;
+                justify-content: center; /* Centrar el título con el ícono */
+            }
+
+            .servicio-info p {
+                text-align: center; /* Centra el texto en móviles para mejor lectura */
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .servicio-info button {
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+
+            .airbnb, .diferenciador {
+                margin: 30px auto;
+                padding: 20px;
+                font-size: 1em;
+                border-left-width: 5px; /* Ajustar borde en móviles */
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .contact-info p {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center; /* Center social icons on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            .logo img {
+                height: 60px;
+            }
+            nav ul {
+                gap: 8px;
+            }
+            nav ul li a {
+                font-size: 0.8em;
+                padding: 5px;
+            }
+            .idiomas {
+                top: 5px;
+                right: 5px;
+                padding: 2px 5px;
+            }
+            .idiomas select {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            h1::after {
+                width: 50px;
+            }
+            .servicio-card {
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+            .servicio-img img {
+                width: 120px;
+                height: 120px;
+                border-width: 3px;
+            }
+            .servicio-info h2 {
+                font-size: 1.3em;
+            }
+            .servicio-info p {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+            .servicio-info button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+            .airbnb, .diferenciador {
+                margin: 20px auto;
+                padding: 15px;
+                font-size: 0.9em;
+            }
+.whatsapp-float img {
+                width: 50px;
+                height: 50px;
+            }
+			.footer-logo-bottom img {
+			height: 100px;
+    filter: brightness(0) invert(1);
+}
+      
+		main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 2rem;
+    display: flex
+;
+    gap: 2rem;
+    align-items: center;
+    background: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+}
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}  
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+        .newsletter-form button {
+            background-color: #ffaf16; /* Botón azul */
+            color: var(--color-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 19%;
+              }
+}
+    </style>
+</head>
+<body>
+
+    <div class="idiomas">
+        🌐
+        <div class="banderas">
+            <img src="ecuador.png" alt="Ecuador" title="Español" onclick="cambiarIdioma(&#39;es&#39;)">
+            <img src="holanda.png" alt="Holanda" title="Holandés" onclick="cambiarIdioma(&#39;nl&#39;)">
+        </div>
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español 🇪🇸</option>
+            <option value="en">Inglés 🇬🇧</option>
+            <option value="fr">Francés 🇫🇷</option>
+            <option value="it">Italiano 🇮🇹</option>
+            <option value="pt">Portugués 🇵🇹</option>
+            <option value="de">Alemán 🇩🇪</option>
+            <option value="nl">Holandés 🇳🇱</option>
+        </select>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="nav-inicio">Inicio</a></li>
+                <li><a href="quienes_somos.html" id="nav-quienes-somos">Quiénes Somos</a></li>
+                <li><a href="Historia_de_ingrid.html" id="nav-historia-ingrid">La Historia de Ingrid</a></li>
+                <li><a href="servicios.html" id="nav-servicios">Servicios</a></li>
+                <li><a href="galeria.html" id="nav-galeria">Galería</a></li>
+                <li><a href="preguntas_frecuentes.html" id="nav-faq">Preguntas Frecuentes</a></li>
+                <li><a href="Contactos.html" id="nav-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+<h1 id="main-title">LIMPIEZA RESIDENCIAL</h1>
+
+<div class="servicio-card">
+  <div class="servicio-img">
+    <img src="R1.png" alt="Limpieza Residencial">
+  </div>
+  <div class="servicio-info">
+    <h2 id="residencial-titulo-extra">Limpieza Residencial</h2>
+    <p id="residencial-parrafo-extra">
+      Brindamos un servicio de limpieza residencial detallado y profesional,
+      adaptado a tus necesidades y con productos seguros para toda la familia.
+    </p>
+    <ul class="lista-vistos">
+      <li id="residencial-item-1">✅ Casas, departamentos, apartamentos amoblados</li>
+      <li id="residencial-item-2">✅ Limpieza profunda o mantenimiento regular</li>
+      <li id="residencial-item-3">✅ Productos ecológicos, libres de tóxicos</li>
+    </ul>
+    <button id="btn-contacto-whatsapp" onclick="window.location.href='https://wa.me/593996845893'">
+      Contactar por WhatsApp
+    </button>
+  </div>
+</div>
+
+
+
+    </main>
+
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAPA DEL SITIO</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienes_somos.html">Quiénes Somos</a></li>
+                    <li><a href="Historia_de_ingrid.html">La Historia de Ingrid</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="ecualimpieza/galeria.html">Galería</a></li>
+                    <li><a href="preguntas_frecuentes.html">Preguntas Frecuentes</a></li>
+                    <li><a href="Contactos.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONTÁCTANOS</h3>
+                <div class="contact-info">
+                    <p><img src="phone-icon.png" alt="Teléfono">+593996845893</p>
+                    <p><img src="email-icon.png" alt="Email">ecualimpieza2021@gmail.com</p>
+                    <p><img src="location-icon.png" alt="Ubicación">Paises Bajos - Holanda</p>
+                    <p><img src="clock-icon.png" alt="Horario">Lunes - Viernes: 8:30 am hasta 5:30 pm</p>
+                    <p><img src="clock-icon.png" alt="Horario">Sábado - Domingo: Cerrado</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>SÍGUENOS EN:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61576975726777" target="_blank" aria-label="Facebook">
+                        <img src="facebook.png" alt="Facebook" style="width:24px;height:24px;">
+                    </a>
+                    <a href="https://www.instagram.com/ecualimpieza2021ecl/" target="_blank" aria-label="Instagram">
+                        <img src="instagram.png" alt="Instagram" style="width:24px;height:24px;">
+                    </a>
+                    <a href="https://www.tiktok.com/@ecualimpieza" target="_blank" aria-label="tiktok">
+                        <img src="tiktok.png" alt="X (Twitter)" style="width:24px;height:24px;">
+                    </a>
+                    <a href="https://wa.me/593996845893" target="_blank" aria-label="WhatsApp">
+                        <img src="whatsapp.png" alt="WhatsApp" style="width:24px;height:24px;">
+                    </a>
+                </div>
+    <h3 style="margin-top: 30px;">ENVIANOS UN CORREO</h3>
+    <form class="newsletter-form" onsubmit="window.location.href='Contactos.html'; return false;">
+        <button type="submit">ir</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-logo-bottom">
+            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="current-year"></span> Sitio web desarrollado por ARpcsoluciones.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        function cambiarIdioma(lang) {
+            console.log('Cambiando idioma a:', lang);
+            // Aquí iría la lógica para cambiar el contenido de la página según el idioma.
+            // Esto es solo un placeholder.
+            const pageTitle = document.getElementById('page-title');
+            const mainTitle = document.getElementById('main-title');
+            const navInicio = document.getElementById('nav-inicio');
+            const navQuienesSomos = document.getElementById('nav-quienes-somos');
+            const navHistoriaIngrid = document.getElementById('nav-historia-ingrid');
+            const navServicios = document.getElementById('nav-servicios');
+            const navGaleria = document.getElementById('nav-galeria');
+            const navFaq = document.getElementById('nav-faq');
+            const navContacto = document.getElementById('nav-contacto');
+			const residencialTituloExtra = document.getElementById('residencial-titulo-extra');
+const residencialParrafoExtra = document.getElementById('residencial-parrafo-extra');
+const residencialItem1 = document.getElementById('residencial-item-1');
+const residencialItem2 = document.getElementById('residencial-item-2');
+const residencialItem3 = document.getElementById('residencial-item-3');
+const btnContactoWhatsapp = document.getElementById('btn-contacto-whatsapp');
+
+
+            const servicioResidencialTitulo = document.getElementById('servicio-residencial-titulo');
+            const servicioResidencialParrafo = document.getElementById('servicio-residencial-parrafo');
+            const btnVerServicio1 = document.getElementById('btn-ver-servicio-1');
+
+            const servicioOficinasTitulo = document.getElementById('servicio-oficinas-titulo');
+            const servicioOficinasParrafo = document.getElementById('servicio-oficinas-parrafo');
+            const btnVerServicio2 = document.getElementById('btn-ver-servicio-2');
+
+            const servicioComercialTitulo = document.getElementById('servicio-comercial-titulo');
+            const servicioComercialParrafo = document.getElementById('servicio-comercial-parrafo');
+            const btnVerServicio3 = document.getElementById('btn-ver-servicio-3');
+
+            const servicioInstitucionalTitulo = document.getElementById('servicio-institucional-titulo');
+            const servicioInstitucionalParrafo = document.getElementById('servicio-institucional-parrafo');
+            const btnVerServicio4 = document.getElementById('btn-ver-servicio-4');
+
+            const airbnbText = document.getElementById('airbnb-text');
+            const diferenciadorText = document.getElementById('diferenciador-text');
+
+
+            switch (lang) {
+                case 'es':
+                    pageTitle.textContent = 'Servicios - ECUALIMPIEZA';
+                    mainTitle.textContent = 'NUESTROS SERVICIOS';
+                    navInicio.textContent = 'Inicio';
+                    navQuienesSomos.textContent = 'Quiénes Somos';
+                    navHistoriaIngrid.textContent = 'La Historia de Ingrid';
+                    navServicios.textContent = 'Servicios';
+                    navGaleria.textContent = 'Galería';
+                    navFaq.textContent = 'Preguntas Frecuentes';
+                    navContacto.textContent = 'Contacto';
+
+
+					residencialTituloExtra.textContent = 'Limpieza Residencial';
+residencialParrafoExtra.textContent = 'Brindamos un servicio de limpieza residencial detallado y profesional, adaptado a tus necesidades y con productos seguros para toda la familia.';
+residencialItem1.textContent = '✅ Casas, departamentos, apartamentos amoblados';
+residencialItem2.textContent = '✅ Limpieza profunda o mantenimiento regular';
+residencialItem3.textContent = '✅ Productos ecológicos, libres de tóxicos';
+btnContactoWhatsapp.textContent = 'Contactar por WhatsApp';
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Limpieza de Oficinas';
+                    servicioOficinasParrafo.textContent = 'Oficinas pequeñas y grandes corporativos. Mantenimiento diario, semanal o mensual. Manejo de documentos confidenciales.';
+                    btnVerServicio2.textContent = 'Ver Servicio';
+
+                    servicioComercialTitulo.textContent = '🏪 Limpieza Comercial';
+                    servicioComercialParrafo.textContent = 'Locales comerciales, showrooms y tiendas de lujo. Consultorios, clínicas y centros médicos.';
+                    btnVerServicio3.textContent = 'Ver Servicio';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Limpieza Institucional';
+                    servicioInstitucionalParrafo.textContent = 'Instituciones bancarias, clínicas, hospitales y centros educativos.';
+                    btnVerServicio4.textContent = 'Ver Servicio';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> es una página donde se encuentran propiedades de lujo. Realizamos contratos a través de esta plataforma.';
+                    diferenciadorText.innerHTML = '💡 Todos nuestros servicios incluyen personal entrenado por Ingrid, equipos modernos y productos amigables con el medio ambiente.';
+                    break;
+                case 'en':
+                    pageTitle.textContent = 'Services - ECUALIMPIEZA';
+                    mainTitle.textContent = 'OUR SERVICES';
+                    navInicio.textContent = 'Home';
+                    navQuienesSomos.textContent = 'About Us';
+                    navHistoriaIngrid.textContent = 'Ingrid\'s Story';
+                    navServicios.textContent = 'Services';
+                    navGaleria.textContent = 'Gallery';
+                    navFaq.textContent = 'FAQ';
+                    navContacto.textContent = 'Contact';
+
+
+					residencialTituloExtra.textContent = 'Residential Cleaning';
+residencialParrafoExtra.textContent = 'We provide detailed and professional residential cleaning service, tailored to your needs and using safe products for the whole family.';
+residencialItem1.textContent = '✅ Houses, apartments, furnished apartments';
+residencialItem2.textContent = '✅ Deep cleaning or regular maintenance';
+residencialItem3.textContent = '✅ Eco-friendly, non-toxic products';
+btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Office Cleaning';
+                    servicioOficinasParrafo.textContent = 'Small offices and large corporate spaces. Daily, weekly, or monthly maintenance. Handling of confidential documents.';
+                    btnVerServicio2.textContent = 'View Service';
+
+                    servicioComercialTitulo.textContent = '🏪 Commercial Cleaning';
+                    servicioComercialParrafo.textContent = 'Commercial premises, showrooms, and luxury stores. Consulting rooms, clinics, and medical centers.';
+                    btnVerServicio3.textContent = 'View Service';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Institutional Cleaning';
+                    servicioInstitucionalParrafo.textContent = 'Banking institutions, clinics, hospitals, and educational centers.';
+                    btnVerServicio4.textContent = 'View Service';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> is a platform for luxury properties. We make contracts through this platform.';
+                    diferenciadorText.innerHTML = '💡 All our services include staff trained by Ingrid, modern equipment, and environmentally friendly products.';
+                    break;
+                case 'fr':
+                    pageTitle.textContent = 'Services - ECUALIMPIEZA';
+                    mainTitle.textContent = 'NOS SERVICES';
+                    navInicio.textContent = 'Accueil';
+                    navQuienesSomos.textContent = 'À Propos';
+                    navHistoriaIngrid.textContent = 'L\'Histoire d\'Ingrid';
+                    navServicios.textContent = 'Services';
+                    navGaleria.textContent = 'Galerie';
+                    navFaq.textContent = 'FAQ';
+                    navContacto.textContent = 'Contact';
+
+    residencialTituloExtra.textContent = 'Nettoyage Résidentiel';
+    residencialParrafoExtra.textContent = 'Nous offrons un service de nettoyage résidentiel détaillé et professionnel, adapté à vos besoins et utilisant des produits sûrs pour toute la famille.';
+    residencialItem1.textContent = '✅ Maisons, appartements, appartements meublés';
+    residencialItem2.textContent = '✅ Nettoyage en profondeur ou entretien régulier';
+    residencialItem3.textContent = '✅ Produits écologiques et non toxiques';
+    btnContactoWhatsapp.textContent = 'Contacter via WhatsApp';
+    break;
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Nettoyage de Bureaux';
+                    servicioOficinasParrafo.textContent = 'Petits bureaux et grandes entreprises. Entretien quotidien, hebdomadaire ou mensuel. Gestion de documents confidentiels.';
+                    btnVerServicio2.textContent = 'Voir Service';
+
+                    servicioComercialTitulo.textContent = '🏪 Nettoyage Commercial';
+                    servicioComercialParrafo.textContent = 'Locaux commerciaux, showrooms et magasins de luxe. Cabinets de consultation, cliniques et centres médicaux.';
+                    btnVerServicio3.textContent = 'Voir Service';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Nettoyage Institutionnel';
+                    servicioInstitucionalParrafo.textContent = 'Institutions bancaires, cliniques, hôpitaux et centres éducatifs.';
+                    btnVerServicio4.textContent = 'Voir Service';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> est une plateforme de propriétés de luxe. Nous faisons des contrats via cette plateforme.';
+                    diferenciadorText.innerHTML = '💡 Tous nos services incluent du personnel formé par Ingrid, des équipements modernes et des produits respectueux de l\'environnement.';
+                    break;
+                case 'it':
+                    pageTitle.textContent = 'Servizi - ECUALIMPIEZA';
+                    mainTitle.textContent = 'I NOSTRI SERVIZI';
+                    navInicio.textContent = 'Inizio';
+                    navQuienesSomos.textContent = 'Chi Siamo';
+                    navHistoriaIngrid.textContent = 'La Storia di Ingrid';
+                    navServicios.textContent = 'Servizi';
+                    navGaleria.textContent = 'Galleria';
+                    navFaq.textContent = 'FAQ';
+                    navContacto.textContent = 'Contatto';
+
+
+    residencialTituloExtra.textContent = 'Pulizia Residenziale';
+    residencialParrafoExtra.textContent = 'Offriamo un servizio di pulizia residenziale dettagliato e professionale, adattato alle tue esigenze e con prodotti sicuri per tutta la famiglia.';
+    residencialItem1.textContent = '✅ Case, appartamenti, appartamenti arredati';
+    residencialItem2.textContent = '✅ Pulizia profonda o manutenzione regolare';
+    residencialItem3.textContent = '✅ Prodotti ecologici e non tossici';
+    btnContactoWhatsapp.textContent = 'Contatta via WhatsApp';
+    break;
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Pulizia Uffici';
+                    servicioOficinasParrafo.textContent = 'Uffici piccoli e grandi aziende. Manutenzione giornaliera, settimanale o mensile. Gestione di documenti confidenziali.';
+                    btnVerServicio2.textContent = 'Vedi Servizio';
+
+                    servicioComercialTitulo.textContent = '🏪 Pulizia Commerciale';
+                    servicioComercialParrafo.textContent = 'Locali commerciali, showroom e negozi di lusso. Studi, cliniche e centri medici.';
+                    btnVerServicio3.textContent = 'Vedi Servizio';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Pulizia Istituzionale';
+                    servicioInstitucionalParrafo.textContent = 'Istituzioni bancarie, cliniche, ospedali e centri educativi.';
+                    btnVerServicio4.textContent = 'Vedi Servizio';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> è una piattaforma per proprietà di lusso. Stipuliamo contratti tramite questa piattaforma.';
+                    diferenciadorText.innerHTML = '💡 Tutti i nostri servizi includono personale formato da Ingrid, attrezzature moderne e prodotti ecocompatibili.';
+                    break;
+                case 'pt':
+                    pageTitle.textContent = 'Serviços - ECUALIMPIEZA';
+                    mainTitle.textContent = 'NOSSOS SERVIÇOS';
+                    navInicio.textContent = 'Início';
+                    navQuienesSomos.textContent = 'Quem Somos';
+                    navHistoriaIngrid.textContent = 'A História de Ingrid';
+                    navServicios.textContent = 'Serviços';
+                    navGaleria.textContent = 'Galeria';
+                    navFaq.textContent = 'FAQ';
+                    navContacto.textContent = 'Contato';
+
+
+    residencialTituloExtra.textContent = 'Limpeza Residencial';
+    residencialParrafoExtra.textContent = 'Oferecemos um serviço de limpeza residencial detalhado e profissional, adaptado às suas necessidades e com produtos seguros para toda a família.';
+    residencialItem1.textContent = '✅ Casas, apartamentos, apartamentos mobiliados';
+    residencialItem2.textContent = '✅ Limpeza profunda ou manutenção regular';
+    residencialItem3.textContent = '✅ Produtos ecológicos e não tóxicos';
+    btnContactoWhatsapp.textContent = 'Contactar pelo WhatsApp';
+    break;
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Limpeza de Escritórios';
+                    servicioOficinasParrafo.textContent = 'Escritórios pequenos e grandes corporações. Manutenção diária, semanal ou mensal. Manuseio de documentos confidenciais.';
+                    btnVerServicio2.textContent = 'Ver Serviço';
+
+                    servicioComercialTitulo.textContent = '🏪 Limpeza Comercial';
+                    servicioComercialParrafo.textContent = 'Locais comerciais, showrooms e lojas de luxo. Consultórios, clínicas e centros médicos.';
+                    btnVerServicio3.textContent = 'Ver Serviço';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Limpeza Institucional';
+                    servicioInstitucionalParrafo.textContent = 'Instituições bancárias, clínicas, hospitais e centros educacionais.';
+                    btnVerServicio4.textContent = 'Ver Serviço';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> é uma plataforma para propriedades de luxo. Fazemos contratos através desta plataforma.';
+                    diferenciadorText.innerHTML = '💡 Todos os nossos serviços incluem pessoal treinado por Ingrid, equipamentos modernos e produtos ecologicamente corretos.';
+                    break;
+                case 'de':
+                    pageTitle.textContent = 'Dienstleistungen - ECUALIMPIEZA';
+                    mainTitle.textContent = 'UNSERE DIENSTLEISTUNGEN';
+                    navInicio.textContent = 'Startseite';
+                    navQuienesSomos.textContent = 'Über Uns';
+                    navHistoriaIngrid.textContent = 'Ingrids Geschichte';
+                    navServicios.textContent = 'Dienstleistungen';
+                    navGaleria.textContent = 'Galerie';
+                    navFaq.textContent = 'FAQ';
+                    navContacto.textContent = 'Kontakt';
+
+case 'de':
+    residencialTituloExtra.textContent = 'Wohnungsreinigung';
+    residencialParrafoExtra.textContent = 'Wir bieten einen detaillierten und professionellen Reinigungsservice für Wohnräume, angepasst an Ihre Bedürfnisse und mit sicheren Produkten für die ganze Familie.';
+    residencialItem1.textContent = '✅ Häuser, Wohnungen, möblierte Apartments';
+    residencialItem2.textContent = '✅ Tiefenreinigung oder regelmäßige Wartung';
+    residencialItem3.textContent = '✅ Umweltfreundliche und ungiftige Produkte';
+    btnContactoWhatsapp.textContent = 'Kontakt per WhatsApp';
+    break;
+
+                    servicioOficinasTitulo.textContent = '🏢 Büroreinigung';
+                    servicioOficinasParrafo.textContent = 'Kleine Büros und große Unternehmen. Tägliche, wöchentliche oder monatliche Wartung. Umgang mit vertraulichen Dokumenten.';
+                    btnVerServicio2.textContent = 'Dienstleistung ansehen';
+
+                    servicioComercialTitulo.textContent = '🏪 Gewerbereinigung';
+                    servicioComercialParrafo.textContent = 'Gewerberäume, Ausstellungsräume und Luxusgeschäfte. Arztpraxen, Kliniken und medizinische Zentren.';
+                    btnVerServicio3.textContent = 'Dienstleistung ansehen';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Institutionelle Reinigung';
+                    servicioInstitucionalParrafo.textContent = 'Bankinstitute, Kliniken, Krankenhäuser und Bildungseinrichtungen.';
+                    btnVerServicio4.textContent = 'Dienstleistung ansehen';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> ist eine Plattform für Luxusimmobilien. Wir schließen Verträge über diese Plattform ab.';
+                    diferenciadorText.innerHTML = '💡 Alle unsere Dienstleistungen umfassen von Ingrid geschultes Personal, moderne Ausrüstung und umweltfreundliche Produkte.';
+                    break;
+                case 'nl':
+                    pageTitle.textContent = 'Diensten - ECUALIMPIEZA';
+                    mainTitle.textContent = 'ONZE DIENSTEN';
+                    navInicio.textContent = 'Startpagina';
+                    navQuienesSomos.textContent = 'Over Ons';
+                    navHistoriaIngrid.textContent = 'Ingrids Verhaal';
+                    navServicios.textContent = 'Diensten';
+                    navGaleria.textContent = 'Galerij';
+                    navFaq.textContent = 'Veelgestelde Vragen';
+                    navContacto.textContent = 'Contact';
+
+
+    residencialTituloExtra.textContent = 'Residentiële Schoonmaak';
+    residencialParrafoExtra.textContent = 'Wij bieden een gedetailleerde en professionele schoonmaakdienst voor woningen, afgestemd op jouw behoeften en met veilige producten voor het hele gezin.';
+    residencialItem1.textContent = '✅ Huizen, appartementen, gemeubileerde appartementen';
+    residencialItem2.textContent = '✅ Dieptereiniging of regelmatig onderhoud';
+    residencialItem3.textContent = '✅ Milieuvriendelijke en niet-giftige producten';
+    btnContactoWhatsapp.textContent = 'Contact via WhatsApp';
+    break;
+
+
+                    servicioOficinasTitulo.textContent = '🏢 Kantoorreiniging';
+                    servicioOficinasParrafo.textContent = 'Kleine kantoren en grote bedrijven. Dagelijks, wekelijks of maandelijks onderhoud. Omgaan met vertrouwelijke documenten.';
+                    btnVerServicio2.textContent = 'Bekijk Dienst';
+
+                    servicioComercialTitulo.textContent = '🏪 Commerciële Reiniging';
+                    servicioComercialParrafo.textContent = 'Bedrijfspanden, showrooms en luxe winkels. Praktijken, klinieken en medische centra.';
+                    btnVerServicio3.textContent = 'Bekijk Dienst';
+
+                    servicioInstitucionalTitulo.textContent = '🏦 Institutionele Reiniging';
+                    servicioInstitucionalParrafo.textContent = 'Bankinstellingen, klinieken, ziekenhuizen en onderwijsinstellingen.';
+                    btnVerServicio4.textContent = 'Bekijk Dienst';
+
+                    airbnbText.innerHTML = '<strong>AIRBNB:</strong> is een platform voor luxueuze eigendommen. Wij sluiten contracten af via dit platform.';
+                    diferenciadorText.innerHTML = '💡 Al onze diensten omvatten door Ingrid opgeleid personeel, moderne apparatuur en milieuvriendelijke producten.';
+                    break;
+            }
+        }
+    </script>
+
+<div id="extension-dpfof"></div></body></html>
