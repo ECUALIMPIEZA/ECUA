@@ -539,6 +539,7 @@
             width: 19%;
                 }
 				
+				
 
         }
     </style>
@@ -891,122 +892,119 @@
             }
         };
 
-        let slideIndex = 0;
-        const slidesContainer = document.querySelector('.carousel-slide');
-        const carouselItems = document.querySelectorAll('.carousel-item');
-        const dots = document.querySelectorAll('.dot');
-        const totalSlides = carouselItems.length;
+let slideIndex = 0;
+const slidesContainer = document.querySelector('.carousel-slide');
+const carouselItems = document.querySelectorAll('.carousel-item');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = carouselItems.length;
 
-        function showSlides(n) {
-            if (n >= totalSlides) {
-                slideIndex = 0;
-            } else if (n < 0) {
-                slideIndex = totalSlides - 1;
-            } else {
-                slideIndex = n;
-            }
+function showSlides(n) {
+    if (n >= totalSlides) {
+        slideIndex = 0;
+    } else if (n < 0) {
+        slideIndex = totalSlides - 1;
+    } else {
+        slideIndex = n;
+    }
 
-            slidesContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
+    slidesContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
 
-            dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === slideIndex) {
-                    dot.classList.add('active');
-                }
-            });
+    dots.forEach((dot, index) => {
+        dot.classList.remove('active');
+        if (index === slideIndex) {
+            dot.classList.add('active');
         }
+    });
+}
 
-        function plusSlides(n) {
-            showSlides(slideIndex + n);
-        }
+function plusSlides(n) {
+    showSlides(slideIndex + n);
+}
 
-        function currentSlide(n) {
-            // El 'n' de currentSlide es 1-basado, por eso restamos 1
-            showSlides(n - 1);
-        }
+function currentSlide(n) {
+    showSlides(n - 1); // Convertir a base 0
+}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
-            const selectElement = document.querySelector('.idiomas select');
-
-            if (selectElement) {
-                if (traducciones?.[defaultLang]) {
-                    selectElement.value = defaultLang;
-                } else {
-                    selectElement.value = 'es';
-                    defaultLang = 'es';
-                }
-            }
-            cambiarIdioma(defaultLang);
-
-            showSlides(slideIndex); // Mostrar la primera imagen al cargar
-
-            document.querySelector('.carousel-button.prev').addEventListener('click', () => plusSlides(-1));
-            document.querySelector('.carousel-button.next').addEventListener('click', () => plusSlides(1));
-
-            // Set current year for the copyright
-            document.getElementById("footer-copyright-year").textContent = new Date().getFullYear();
-        });
-
-        function cambiarIdioma(lang) {
-            const t = traducciones?.[lang];
-            if (!t) {
-                console.warn(`No hay traducciones disponibles para el idioma: ${lang}`);
-                return;
-            }
-
-            document.getElementById("page-title").textContent = t.pageTitle;
-            document.getElementById("main-title").textContent = t.mainTitle;
-            document.getElementById("nav-inicio").textContent = t.navInicio;
-            document.getElementById("nav-quienes-somos").textContent = t.navQuienesSomos;
-            document.getElementById("nav-historia-ingrid").textContent = t.navHistoriaIngrid;
-            document.getElementById("nav-servicios").textContent = t.navServicios;
-            document.getElementById("nav-galeria").textContent = t.navGaleria;
-            document.getElementById("nav-faq").textContent = t.navFaq;
-            document.getElementById("nav-contacto").textContent = t.navContacto;
-
-            // Footer translations (updated to match new structure)
-            document.getElementById("footer-sitemap-title").textContent = t.footerSitemapTitle;
-            document.getElementById("footer-link-inicio").textContent = t.footerLinkInicio;
-            document.getElementById("footer-link-quienes-somos").textContent = t.footerLinkQuienesSomos;
-            document.getElementById("footer-link-historia-ingrid").textContent = t.footerLinkHistoriaIngrid;
-            document.getElementById("footer-link-servicios").textContent = t.footerLinkServicios;
-            document.getElementById("footer-link-galeria").textContent = t.footerLinkGaleria;
-            document.getElementById("footer-link-faq").textContent = t.footerLinkFaq;
-            document.getElementById("footer-link-contacto").textContent = t.footerLinkContacto;
-
-            document.getElementById("footer-contact-title").textContent = t.footerContactTitle;
-            document.getElementById("footer-phone-number").textContent = t.footerPhoneNumber;
-            document.getElementById("footer-email-address").textContent = t.footerEmailAddress;
-            document.getElementById("footer-address").textContent = t.footerAddress;
-            document.getElementById("footer-hours-weekday").textContent = t.footerHoursWeekday;
-            document.getElementById("footer-hours-weekend").textContent = t.footerHoursWeekend;
-            
-            document.getElementById("footer-follow-us-title").textContent = t.footerFollowUsTitle;
-            document.getElementById("footer-subscribe-title").textContent = t.footerSubscribeTitle;
-            document.getElementById("newsletter-email").placeholder = t.newsletterEmailPlaceholder;
-            document.getElementById("newsletter-button").textContent = t.newsletterButton;
-
-            document.getElementById("footer-copyright-text").textContent = t.footerCopyrightText;
-
-
-            localStorage.setItem('selectedLang', lang);
-
-            const selectElement = document.querySelector('.idiomas select');
-            if (selectElement) {
-                selectElement.value = lang;
-            }
-			document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar la primera imagen
+document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar el primer slide
     showSlides(slideIndex);
 
-    // Flechas
-    document.querySelector('.carousel-button.prev').addEventListener('click', () => plusSlides(-1));
-    document.querySelector('.carousel-button.next').addEventListener('click', () => plusSlides(1));
+    // Botones
+    document.querySelector('.carousel-button.prev')?.addEventListener('click', () => plusSlides(-1));
+    document.querySelector('.carousel-button.next')?.addEventListener('click', () => plusSlides(1));
+
+    // Manejo de idioma
+    let defaultLang = localStorage.getItem('selectedLang') || navigator.language.split('-')[0] || 'es';
+    const selectElement = document.querySelector('.idiomas select');
+
+    if (selectElement) {
+        if (traducciones?.[defaultLang]) {
+            selectElement.value = defaultLang;
+        } else {
+            selectElement.value = 'es';
+            defaultLang = 'es';
+        }
+
+        selectElement.addEventListener('change', (e) => {
+            cambiarIdioma(e.target.value);
+        });
+    }
+
+    cambiarIdioma(defaultLang);
+
+    // Año actual en footer
+    const yearSpan = document.getElementById("footer-copyright-year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
 
-			
-        }
+function cambiarIdioma(lang) {
+    const t = traducciones?.[lang];
+    if (!t) return;
+
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
+
+    setText("page-title", t.pageTitle);
+    setText("main-title", t.mainTitle);
+    setText("nav-inicio", t.navInicio);
+    setText("nav-quienes-somos", t.navQuienesSomos);
+    setText("nav-historia-ingrid", t.navHistoriaIngrid);
+    setText("nav-servicios", t.navServicios);
+    setText("nav-galeria", t.navGaleria);
+    setText("nav-faq", t.navFaq);
+    setText("nav-contacto", t.navContacto);
+
+    setText("footer-sitemap-title", t.footerSitemapTitle);
+    setText("footer-link-inicio", t.footerLinkInicio);
+    setText("footer-link-quienes-somos", t.footerLinkQuienesSomos);
+    setText("footer-link-historia-ingrid", t.footerLinkHistoriaIngrid);
+    setText("footer-link-servicios", t.footerLinkServicios);
+    setText("footer-link-galeria", t.footerLinkGaleria);
+    setText("footer-link-faq", t.footerLinkFaq);
+    setText("footer-link-contacto", t.footerLinkContacto);
+
+    setText("footer-contact-title", t.footerContactTitle);
+    setText("footer-phone-number", t.footerPhoneNumber);
+    setText("footer-email-address", t.footerEmailAddress);
+    setText("footer-address", t.footerAddress);
+    setText("footer-hours-weekday", t.footerHoursWeekday);
+    setText("footer-hours-weekend", t.footerHoursWeekend);
+    setText("footer-follow-us-title", t.footerFollowUsTitle);
+    setText("footer-subscribe-title", t.footerSubscribeTitle);
+    setText("newsletter-button", t.newsletterButton);
+
+    const emailInput = document.getElementById("newsletter-email");
+    if (emailInput) emailInput.placeholder = t.newsletterEmailPlaceholder;
+
+    setText("footer-copyright-text", t.footerCopyrightText);
+
+    localStorage.setItem('selectedLang', lang);
+}
+
     </script>
 </body>
 </html>
