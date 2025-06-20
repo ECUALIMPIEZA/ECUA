@@ -20,7 +20,7 @@
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: "Times New Roman", Times, serif; /* Changed to Times New Roman */
             background-color: var(--blanco);
             color: var(--gris-oscuro);
         }
@@ -29,7 +29,7 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            background-color: var(#ffffff);
+            background: rgb(45 255 150 / 22%);
             padding: 8px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             position: sticky;
@@ -40,7 +40,7 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 95px;
         }
 
         .banderas img {
@@ -158,52 +158,53 @@
             background-color: #e0b837;
         }
 
-.areas {
-  padding: 40px 20px;
-  text-align: center;
-  background-color: #f4f4f4;
-}
+        .areas {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #87ff9c3b;
+        }
 
-.areas h2 {
-  margin-bottom: 30px;
-  font-size: 2em;
-  color: var(--gris-oscuro);
-}
+        .areas h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: var(--gris-oscuro);
+        }
 
 .areas-carousel .swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 220px;
-  padding: 20px;
-  border: 2px solid #f2c94c;
-  border-radius: 16px;
-  background-color: #c1bb6b00;
-  box-shadow: 0 6px 15px rgba(-31, -9, 45, 23.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 220px;
+    padding: 20px;
+    border: none; /* Quitar borde */
+    border-radius: 0; /* Quitar esquinas redondeadas */
+    background-color: transparent; /* Sin fondo */
+    box-shadow: none; /* Quitar sombra */
+    transition: transform 0.3s ease;
 }
 
 .areas-carousel .swiper-slide:hover {
-  transform: scale(1.08);
-  border-color: var(--mostaza, #f2c94c);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.08);
+    border: none;
+    box-shadow: none;
 }
 
 .areas-carousel .swiper-slide img {
-  height: 120px;
-  width: 187px;
-  object-fit: unset;
-  margin-bottom: 15px;
+    height: 120px;
+    width: 187px;
+    object-fit: unset;
+    margin-bottom: 15px;
 }
 
 .areas-carousel .swiper-slide p {
-  font-weight: bold;
-  font-size: 1.1em;
-  color: var(--gris-oscuro);
-  margin: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--gris-oscuro);
+    margin: 0;
 }
+
         .iconos {
             display: flex;
             flex-wrap: wrap;
@@ -493,19 +494,19 @@
                 height: 50px;
                 font-size: 1.5em;
             }
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        }
         .contact-info p {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-		Estilos para servicios actualizados */
+        /* Estilos para servicios actualizados */
         .servicios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -565,8 +566,13 @@
 
         .servicio-info button:hover {
             background-color: #e0b837;
-                }
         }
+    </style>
+</head>
+<body>
+
+  </body>
+</html>
     </style>
 </head>
 <body>
@@ -590,14 +596,14 @@
 
     <header>
         <div class="logo">
-            <img src="ecualimpieza1.png" alt="Logo ECUALIMPIEZA">
+            <img src="Ecua1.png" alt="Logo ECUALIMPIEZA">
         </div>
     </header>
 
     <main>
         <section id="inicio" class="hero">
             <video autoplay muted loop>
-                <source src="ecualimpieza.mp4" type="video/mp4">
+                <source src="ecualimpieza1.mp4" type="video/mp4">
                 Tu navegador no soporta videos HTML5.
             </video>
 
@@ -722,11 +728,11 @@
                 <h3 id="footer-contact-title">CONTÁCTANOS</h3>
                 <p>
                     <img src="phone-icon.png" alt="Phone Icon">
-                    <span id="footer-phone">+593996845893</span>
+                    <span id="footer-phone">+593996845893 - +31639118100</span>
                 </p>
                 <p>
                     <img src="email-icon.png" alt="Email Icon">
-                    <span id="footer-email">ecualimpieza2021@gmail.com</span>
+                    <span id="footer-email">ingrid@ecualimpieza.nl</span>
                 </p>
                 <p>
                     <img src="location-icon.png" alt="Location Icon">
@@ -738,7 +744,7 @@
                 </p>
                 <p class="hours">
                     <img src="clock-icon.png" alt="Moon Icon">
-                    <span id="footer-hours-weekend">Sábado - Domingo: Cerrado</span>
+                    <span id="footer-hours-weekend"></span>
                 </p>
             </div>
             <div class="social-subscribe">
@@ -753,7 +759,7 @@
                     <a href="https://www.tiktok.com/@ecualimpieza" target="_blank" aria-label="LinkedIn">
                         <img src="tiktok.png" alt="tiktok Icon">
                     </a>
-                    <a href="https://wa.me/593996845893" target="_blank" aria-label="WhatsApp">
+                    <a href="https://wa.me/31639118100" target="_blank" aria-label="WhatsApp">
                         <img src="whatsapp.png" alt="WhatsApp Icon">
                     </a>
                 </div>
@@ -766,12 +772,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <img src="ecualimpieza1.png" alt="Logo Ecualimpieza Footer">
+            <img src="Ecua1.png" alt="Logo Ecualimpieza Footer">
             <p id="footer-copyright">&copy; 2025 Sitio web desarrollado por ARpcsoluciones</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/593996845893" class="whatsapp-float" target="_blank" aria-label="WhatsApp Chat">
+    <a href="https://wa.me/31639118100" class="whatsapp-float" target="_blank" aria-label="WhatsApp Chat">
         <img src="whatsapp.png" alt="WhatsApp Icon">
     </a>
 
@@ -814,11 +820,11 @@ const traducciones = {
     footerNavFaq: "Preguntas Frecuentes",
     footerNavContacto: "Contacto",
     footerContactTitle: "CONTÁCTANOS",
-    footerPhone: "+593996845893",
-    footerEmail: "ecualimpieza2021@gmail.com",
-    footerAddress: "Paises bajos - Holanda",
-    footerHoursWeekday: "Lunes - Viernes: 8:30 am hasta 5:30 pm",
-    footerHoursWeekend: "Sábado - Domingo: Cerrado",
+  footerPhone: "+593996845893 -  +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
+  footerAddress: "Paises bajos - Holanda",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
     footerSocialTitle: "SÍGUENOS EN:",
     footerSubscribeTitle: "ENVIANOS UN CORREO",
     subscribeEmailInputPlaceholder: "Correo electrónico",
@@ -906,11 +912,11 @@ const traducciones = {
   footerNavFaq: "Questions Fréquentes",
   footerNavContacto: "Contact",
   footerContactTitle: "CONTACTEZ-NOUS",
-  footerPhone: "+593996845893",
-  footerEmail: "ecualimpieza2021@gmail.com",
+  footerPhone: "+593996845893 - +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
   footerAddress: "Paises bajos - Holanda",
-  footerHoursWeekday: "Lundi - Vendredi: 8h30 à 17h30",
-  footerHoursWeekend: "Samedi - Dimanche: Fermé",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
   footerSocialTitle: "SUIVEZ-NOUS SUR :",
   footerSubscribeTitle: "ABONNEZ-VOUS",
   subscribeEmailInputPlaceholder: "Adresse e-mail",
@@ -952,11 +958,11 @@ it: {
   footerNavFaq: "Domande Frequenti",
   footerNavContacto: "Contatto",
   footerContactTitle: "CONTATTACI",
-  footerPhone: "+593996845893",
-  footerEmail: "ecualimpieza2021@gmail.com",
+  footerPhone: "+593996845893 - +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
   footerAddress: "Paises bajos - Holanda",
-  footerHoursWeekday: "Lunedì - Venerdì: 8:30 - 17:30",
-  footerHoursWeekend: "Sabato - Domenica: Chiuso",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
   footerSocialTitle: "SEGUICI SU:",
   footerSubscribeTitle: "ISCRIVITI",
   subscribeEmailInputPlaceholder: "Indirizzo email",
@@ -998,11 +1004,11 @@ pt: {
   footerNavFaq: "Perguntas Frequentes",
   footerNavContacto: "Contacto",
   footerContactTitle: "CONTACTE-NOS",
-  footerPhone: "+593996845893",
-  footerEmail: "ecualimpieza2021@gmail.com",
+  footerPhone: "+593996845893 -  +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
   footerAddress: "Paises bajos - Holanda",
-  footerHoursWeekday: "Segunda - Sexta: 8:30 às 17:30",
-  footerHoursWeekend: "Sábado - Domingo: Fechado",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
   footerSocialTitle: "SIGA-NOS EM:",
   footerSubscribeTitle: "SUBSCREVER",
   subscribeEmailInputPlaceholder: "Endereço de email",
@@ -1044,11 +1050,11 @@ de: {
   footerNavFaq: "Häufig gestellte Fragen",
   footerNavContacto: "Kontakt",
   footerContactTitle: "KONTAKT",
-  footerPhone: "+593996845893",
-  footerEmail: "ecualimpieza2021@gmail.com",
+  footerPhone: "+593996845893 -  +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
   footerAddress: "Paises bajos - Holanda",
-  footerHoursWeekday: "Montag - Freitag: 8:30 - 17:30 Uhr",
-  footerHoursWeekend: "Samstag - Sonntag: Geschlossen",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
   footerSocialTitle: "FOLGE UNS AUF:",
   footerSubscribeTitle: "ABONNIEREN",
   subscribeEmailInputPlaceholder: "E-Mail-Adresse",
@@ -1090,11 +1096,11 @@ nl: {
   footerNavFaq: "Veelgestelde vragen",
   footerNavContacto: "Contact",
   footerContactTitle: "CONTACTEER ONS",
-  footerPhone: "+593996845893",
-  footerEmail: "ecualimpieza2021@gmail.com",
+  footerPhone: "+593996845893 -  +31639118100",
+  footerEmail: "ingrid@ecualimpieza.nl",
   footerAddress: "Paises bajos - Holanda",
-  footerHoursWeekday: "Maandag - Vrijdag: 8:30 uur tot 17:30 uur",
-  footerHoursWeekend: "Zaterdag - Zondag: Gesloten",
+  footerHoursWeekday: "Horario Flexible",
+  footerHoursWeekend: "",
   footerSocialTitle: "VOLG ONS OP:",
   footerSubscribeTitle: "ABONNEER",
   subscribeEmailInputPlaceholder: "E-mailadres",
@@ -1175,21 +1181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   cambiarIdioma(defaultLang);
-});
-document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".areas-carousel", {
-    loop: true,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 3,
-    spaceBetween: 20,
-    breakpoints: {
-      768: { slidesPerView: 4 },
-      1024: { slidesPerView: 5 },
-    }
-  });
 });
 
 </script>
