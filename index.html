@@ -15,17 +15,17 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden; /* Oculta el scrollbar si las partículas se salen de la vista */
+            overflow: hidden; /* Oculta el scrollbar */
             position: relative;
         }
 
-        /* Estrellas aleatorias con brillo pulsante */
+        /* Estrellas aleatorias con brillo pulsante y movimiento hacia abajo */
         .star {
             position: absolute;
             background-color: #FFFFFF;
             border-radius: 50%;
             opacity: 0;
-            animation: twinkle 5s infinite ease-in-out, pulseStar 3s infinite alternate; /* Animaciones combinadas */
+            animation: twinkle 5s infinite ease-in-out, pulseStar 3s infinite alternate, moveDown 20s linear infinite; /* Animaciones combinadas */
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Brillo sutil */
         }
 
@@ -36,13 +36,13 @@
             box-shadow: 0 0 10px #FFD700;
         }
 
-        /* Partículas flotantes */
+        /* Partículas flotantes con movimiento hacia abajo */
         .particle {
             position: absolute;
             background-color: rgba(255, 255, 255, 0.6); /* Color blanco semi-transparente */
             border-radius: 50%;
             opacity: 0;
-            animation: floatAndFade 15s infinite ease-in-out; /* Animación de flotar y desvanecer */
+            animation: floatAndFade 15s infinite ease-in-out, moveDown 25s linear infinite; /* Animaciones combinadas */
             pointer-events: none; /* Asegura que no interfieran con clics */
         }
 
@@ -62,6 +62,12 @@
             80%, 100% { opacity: 0; transform: scale(1); }
         }
 
+        /* Nueva animación para el movimiento hacia abajo */
+        @keyframes moveDown {
+            0% { transform: translateY(-100vh); } /* Empieza fuera de la pantalla por arriba */
+            100% { transform: translateY(100vh); } /* Termina fuera de la pantalla por abajo */
+        }
+
         @keyframes floatAndFade {
             0% {
                 transform: translateY(0) translateX(0) scale(0.5);
@@ -71,7 +77,7 @@
                 opacity: 0.8;
             }
             100% {
-                transform: translateY(-200px) translateX(50px) scale(1.2); /* Flota hacia arriba y a la derecha */
+                transform: translateY(200px) translateX(50px) scale(1.2); /* Flota hacia abajo y a la derecha, para variar el movimiento principal */
                 opacity: 0;
             }
         }
@@ -243,8 +249,9 @@
                 }
                 star.style.width = star.style.height = `${Math.random() * 3 + 1}px`;
                 star.style.left = `${Math.random() * 100}vw`;
-                star.style.top = `${Math.random() * 100}vh`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
+                // Para el efecto de viaje, las estrellas deben aparecer desde arriba y moverse hacia abajo
+                star.style.top = `${Math.random() * 200 - 100}vh`; /* Empiezan aleatoriamente entre -100vh y +100vh para que cubran toda la pantalla al inicio de la animación */
+                star.style.animationDelay = `${Math.random() * 20}s`; /* Retraso para que aparezcan en diferentes momentos */
                 document.body.appendChild(star);
             }
         }
@@ -256,8 +263,9 @@
                 particle.className = 'particle';
                 particle.style.width = particle.style.height = `${Math.random() * 2 + 1}px`; /* Tamaño pequeño */
                 particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100 + 50}vh`; /* Empieza más abajo, fuera de vista */
-                particle.style.animationDelay = `${Math.random() * 15}s`; /* Retraso para que aparezcan en diferentes momentos */
+                // Para el efecto de viaje, las partículas deben aparecer desde arriba y moverse hacia abajo
+                particle.style.top = `${Math.random() * 200 - 100}vh`; /* Empiezan aleatoriamente entre -100vh y +100vh */
+                particle.style.animationDelay = `${Math.random() * 25}s`; /* Retraso para que aparezcan en diferentes momentos */
                 document.body.appendChild(particle);
             }
         }
