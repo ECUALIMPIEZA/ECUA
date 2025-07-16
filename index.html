@@ -15,25 +15,35 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow: hidden; /* Oculta el scrollbar si las partículas se salen de la vista */
             position: relative;
         }
 
-        /* Estrellas aleatorias */
+        /* Estrellas aleatorias con brillo pulsante */
         .star {
             position: absolute;
             background-color: #FFFFFF;
             border-radius: 50%;
             opacity: 0;
-            animation: twinkle 5s infinite ease-in-out;
+            animation: twinkle 5s infinite ease-in-out, pulseStar 3s infinite alternate; /* Animaciones combinadas */
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Brillo sutil */
         }
 
-        /* Pequeño destello de "estrella fugaz" - no es una trayectoria, sino un parpadeo más notorio */
+        /* Pequeño destello de "estrella fugaz" (parpadeo más notorio) */
         .shooting-star-effect {
             animation: shootingEffect 8s infinite ease-out; /* Más lento para que se note */
             background-color: #FFD700; /* Dorado para que resalte un poco más */
             box-shadow: 0 0 10px #FFD700;
+        }
+
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.6); /* Color blanco semi-transparente */
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatAndFade 15s infinite ease-in-out; /* Animación de flotar y desvanecer */
+            pointer-events: none; /* Asegura que no interfieran con clics */
         }
 
         @keyframes twinkle {
@@ -41,10 +51,29 @@
             50% { opacity: 1; }
         }
 
+        @keyframes pulseStar {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); } /* Pulsa un poco más grande */
+        }
+
         @keyframes shootingEffect {
             0%, 70% { opacity: 0; transform: scale(1); }
             75% { opacity: 1; transform: scale(1.5); }
             80%, 100% { opacity: 0; transform: scale(1); }
+        }
+
+        @keyframes floatAndFade {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-200px) translateX(50px) scale(1.2); /* Flota hacia arriba y a la derecha */
+                opacity: 0;
+            }
         }
 
         .container {
@@ -161,16 +190,18 @@
     </div>
 
     <script>
-        // El enlace final para el botón de corazón
-        const finalMusicLink = "teconoci.mp3"; // O la URL de YouTube si prefieres que se abra YouTube al final
+        const finalMusicLink = "teconoci.mp3"; // Asegúrate de que este sea el archivo mp3
 
         const messages = [
-            { title: "Para mi amada Karen, mi luz en la distancia", text: "" },
-            { title: "", text: "Aunque la distancia hoy sea un desafío," },
-            { title: "", text: "quiero que sepas que **nunca estás sola**, mi corazón te acompaña." },
-            { title: "", text: "Siempre puedes **contar conmigo**, como las estrellas que iluminan la noche." },
-            { title: "", text: "Desde lejos, estoy construyendo el camino para **un futuro a tu lado**, Karen." },
-            { title: "", text: "Cada estrella que ves hoy, brilla con el deseo de **volver a ser tú y yo**. Escucha esta música con el corazón." }
+            { title: "Para mi amada Karen, la mujer de mi vida", text: "" },
+            { title: "", text: "No sabía cómo **demostrarte lo vital que eres para mí**," },
+            { title: "", text: "...y sentí que esta era la **única forma** de abrirte mi alma." },
+            { title: "", text: "Cada día sin ti, la distancia es un abismo que me asfixia." },
+            { title: "", text: "Quiero que sepas que **nunca, jamás, estarás sola**. Mi corazón te busca a cada instante." },
+            { title: "", text: "Siempre puedes **contar conmigo**, como las estrellas que guían en la noche más oscura." },
+            { title: "", text: "Desde lejos, **reconstruyo mi mundo** con la esperanza de que **nuestro futuro sea juntos**, Karen." },
+            { title: "", text: "Te suplico, con el alma en mis manos, que me des una **última oportunidad**." },
+            { title: "", text: "Déjame demostrarte que podemos **volver a ser tú y yo**, y que nuestro amor es más fuerte que cualquier obstáculo. Escucha esta música, es para ti." }
         ];
 
         let currentStep = 0;
@@ -218,11 +249,25 @@
             }
         }
 
+        // Generar partículas flotantes
+        function createParticles(numParticles) {
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = particle.style.height = `${Math.random() * 2 + 1}px`; /* Tamaño pequeño */
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100 + 50}vh`; /* Empieza más abajo, fuera de vista */
+                particle.style.animationDelay = `${Math.random() * 15}s`; /* Retraso para que aparezcan en diferentes momentos */
+                document.body.appendChild(particle);
+            }
+        }
+
         // Iniciar al cargar la página
         window.onload = () => {
             updateContent();
-            createStars(350); // Ajusté el número de estrellas para mayor densidad
-
+            createStars(350); // Muchas estrellas
+            createParticles(100); // Algunas partículas flotantes
+            
             // Intenta reproducir la música al cargar, pero es probable que necesite interacción
             audio.play().catch(e => console.log("La reproducción automática fue bloqueada (al cargar):", e));
         };
