@@ -1,286 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amada Karen</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #000022, #000055); /* Azul oscuro a más oscuro para un cielo nocturno */
-            color: #FFDDC1; /* Color suave para el texto, como un rosa pálido */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden; /* Oculta el scrollbar */
-            position: relative;
-        }
+<title>Mensaje con Imagen de Fondo</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make the body take full viewport height */
+  display: flex; /* Use flexbox for centering content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text within the h1 */
 
-        /* Estrellas aleatorias con brillo pulsante y movimiento hacia abajo */
-        .star {
-            position: absolute;
-            background-color: #FFFFFF;
-            border-radius: 50%;
-            opacity: 0;
-            animation: twinkle 5s infinite ease-in-out, pulseStar 3s infinite alternate, moveDown 20s linear infinite; /* Animaciones combinadas */
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Brillo sutil */
-        }
+  /* Background image properties */
+  background-image: url('https://i.pinimg.com/originals/da/bf/57/dabf57ba1aea74b11939294aec52b277.gif'); /* <<< REPLACE THIS WITH YOUR IMAGE URL */
+  background-size: cover; /* Make the image cover the entire background */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Fix the background image so it doesn't scroll */
+}
 
-        /* Pequeño destello de "estrella fugaz" (parpadeo más notorio) */
-        .shooting-star-effect {
-            animation: shootingEffect 8s infinite ease-out; /* Más lento para que se note */
-            background-color: #FFD700; /* Dorado para que resalte un poco más */
-            box-shadow: 0 0 10px #FFD700;
-        }
-
-        /* Partículas flotantes con movimiento hacia abajo */
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.6); /* Color blanco semi-transparente */
-            border-radius: 50%;
-            opacity: 0;
-            animation: floatAndFade 15s infinite ease-in-out, moveDown 25s linear infinite; /* Animaciones combinadas */
-            pointer-events: none; /* Asegura que no interfieran con clics */
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes pulseStar {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.2); } /* Pulsa un poco más grande */
-        }
-
-        @keyframes shootingEffect {
-            0%, 70% { opacity: 0; transform: scale(1); }
-            75% { opacity: 1; transform: scale(1.5); }
-            80%, 100% { opacity: 0; transform: scale(1); }
-        }
-
-        /* Nueva animación para el movimiento hacia abajo */
-        @keyframes moveDown {
-            0% { transform: translateY(-100vh); } /* Empieza fuera de la pantalla por arriba */
-            100% { transform: translateY(100vh); } /* Termina fuera de la pantalla por abajo */
-        }
-
-        @keyframes floatAndFade {
-            0% {
-                transform: translateY(0) translateX(0) scale(0.5);
-                opacity: 0;
-            }
-            25% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(200px) translateX(50px) scale(1.2); /* Flota hacia abajo y a la derecha, para variar el movimiento principal */
-                opacity: 0;
-            }
-        }
-
-        .container {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para el texto */
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 100, 150, 0.5); /* Sombra rosada romántica */
-            max-width: 90%;
-            position: relative;
-            z-index: 10;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #FFB6C1; /* Rosa claro */
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            line-height: 1.5;
-            min-height: 50px; /* Para mantener el espacio */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Estilos para el botón de corazón */
-        #nextButton {
-            background-color: #FF69B4; /* Rosa fuerte */
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            border-radius: 25px; /* Para botones normales */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            text-decoration: none; /* Para el enlace */
-            display: inline-flex; /* Para centrar el ícono */
-            align-items: center;
-            justify-content: center;
-        }
-
-        #nextButton:hover {
-            background-color: #FF1493; /* Rosa más oscuro al pasar el ratón */
-            transform: translateY(-3px);
-        }
-
-        #nextButton:active {
-            transform: translateY(0);
-        }
-
-        /* Estilo específico para el botón final de corazón */
-        .heart-button {
-            background-color: #FF1493; /* Rosa más oscuro para el corazón */
-            width: 120px; /* Ancho del corazón */
-            height: 120px; /* Alto del corazón */
-            position: relative;
-            transform: rotate(-45deg); /* Rotar para formar el corazón */
-            border-radius: 0; /* Resetear el borde */
-            padding: 0; /* Resetear el padding */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            font-size: 1em; /* Ajustar tamaño de fuente para el texto dentro del corazón */
-            line-height: 1.2; /* Ajustar interlineado */
-            text-align: center;
-        }
-
-        .heart-button::before,
-        .heart-button::after {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background-color: #FF1493;
-            border-radius: 50%;
-        }
-
-        .heart-button::before {
-            top: -60px;
-            left: 0;
-        }
-
-        .heart-button::after {
-            top: 0;
-            left: 60px;
-        }
-
-        .heart-button span {
-            position: relative;
-            z-index: 1; /* Asegura que el texto esté sobre las pseudo-elementos del corazón */
-            color: white;
-            transform: rotate(45deg); /* Des-rotar el texto */
-            display: block; /* Para que el texto ocupe su propio espacio */
-            padding: 10px; /* Pequeño padding para el texto */
-        }
-    </style>
+h1 {
+  color: white; /* White text for better contrast */
+  font-family: Arial, sans-serif; /* A clear font */
+  font-size: 3em; /* Larger text size */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Black shadow for readability */
+  padding: 20px; /* Add some padding around the text */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background for the text */
+  border-radius: 10px; /* Rounded corners for the text background */
+}
+</style>
 </head>
 <body>
-    <audio id="background-music" autoplay loop>
-        <source src="teconoci.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
 
-    <div class="container">
-        <h1 id="title"></h1>
-        <p id="message"></p>
-        <button id="nextButton">Haz Clic Aquí</button>
-    </div>
+<h1>Hasta aquí llegó el corazón </h1>
 
-    <script>
-        const finalMusicLink = "teconoci.mp3"; // Asegúrate de que este sea el archivo mp3
-
-        const messages = [
-            { title: "Para mi amada Karen, la mujer de mi vida", text: "" },
-            { title: "", text: "Este mensaje es tan solo un pequeño reflejo de **lo que siento por ti**..." },
-            { title: "", text: "No sabía cómo **demostrarte lo vital que eres para mí**," },
-            { title: "", text: "...y sentí que esta era la **única forma** de abrirte mi alma por completo." },
-            { title: "", text: "Cada día sin ti, la distancia es un abismo que me asfixia y me recuerda cuánto te echo de menos." },
-            { title: "", text: "Quiero que sepas que **nunca, jamás, estarás sola**. Mi corazón te busca y te acompaña a cada instante." },
-            { title: "", text: "Siempre puedes **contar conmigo**, como las estrellas que guían en la noche más oscura, sin importar lo que pase." },
-            { title: "", text: "Desde lejos, **reconstruyo mi mundo** con la desesperada esperanza de que **nuestro futuro sea juntos**, Karen, como siempre soñamos." },
-            { title: "", text: "Te suplico, con el alma en mis manos, que me des una **última oportunidad para demostrarte lo que vales**." },
-            { title: "", text: "Sé que mi amor por ti es inmenso, y **si tu respuesta es no, aceptaré mi derrota con el corazón destrozado**, pero sabiendo que lo intenté todo por ti." },
-            { title: "", text: "Déjame demostrarte que podemos **volver a ser tú y yo**, y que nuestro amor es más fuerte que cualquier obstáculo. Escucha esta música, es para ti." }
-        ];
-
-        let currentStep = 0;
-        const titleElement = document.getElementById('title');
-        const messageElement = document.getElementById('message');
-        const nextButton = document.getElementById('nextButton');
-        const audio = document.getElementById('background-music');
-
-        function updateContent() {
-            titleElement.textContent = messages[currentStep].title;
-            messageElement.innerHTML = messages[currentStep].text; // Usar innerHTML para el negrita
-
-            if (currentStep === messages.length - 1) {
-                // Cambiar el botón a forma de corazón y vincularlo
-                nextButton.outerHTML = `<a id="finalButton" class="heart-button" href="${finalMusicLink}" target="_blank"><span>Escucha esta música</span></a>`;
-            }
-        }
-
-        nextButton.addEventListener('click', () => {
-            // Intenta reproducir la música al primer clic si no se reprodujo automáticamente
-            if (audio.paused) {
-                audio.play().catch(e => console.log("La reproducción automática fue bloqueada:", e));
-            }
-
-            if (currentStep < messages.length - 1) {
-                currentStep++;
-                updateContent();
-            }
-        });
-
-        // Generar estrellas aleatorias
-        function createStars(numStars) {
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                // Añadir algunas estrellas con un "efecto fugaz" (parpadeo más notorio)
-                if (Math.random() < 0.05) { // Aproximadamente el 5% de las estrellas tendrán este efecto
-                    star.classList.add('shooting-star-effect');
-                }
-                star.style.width = star.style.height = `${Math.random() * 3 + 1}px`;
-                star.style.left = `${Math.random() * 100}vw`;
-                // Para el efecto de viaje, las estrellas deben aparecer desde arriba y moverse hacia abajo
-                star.style.top = `${Math.random() * 200 - 100}vh`; /* Empiezan aleatoriamente entre -100vh y +100vh para que cubran toda la pantalla al inicio de la animación */
-                star.style.animationDelay = `${Math.random() * 20}s`; /* Retraso para que aparezcan en diferentes momentos */
-                document.body.appendChild(star);
-            }
-        }
-
-        // Generar partículas flotantes
-        function createParticles(numParticles) {
-            for (let i = 0; i < numParticles; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.width = particle.style.height = `${Math.random() * 2 + 1}px`; /* Tamaño pequeño */
-                particle.style.left = `${Math.random() * 100}vw`;
-                // Para el efecto de viaje, las partículas deben aparecer desde arriba y moverse hacia abajo
-                particle.style.top = `${Math.random() * 200 - 100}vh`; /* Empiezan aleatoriamente entre -100vh y +100vh */
-                particle.style.animationDelay = `${Math.random() * 25}s`; /* Retraso para que aparezcan en diferentes momentos */
-                document.body.appendChild(particle);
-            }
-        }
-
-        // Iniciar al cargar la página
-        window.onload = () => {
-            updateContent();
-            createStars(350); // Muchas estrellas
-            createParticles(100); // Algunas partículas flotantes
-            
-            // Intenta reproducir la música al cargar, pero es probable que necesite interacción
-            audio.play().catch(e => console.log("La reproducción automática fue bloqueada (al cargar):", e));
-        };
-    </script>
 </body>
 </html>
